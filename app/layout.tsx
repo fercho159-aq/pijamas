@@ -50,7 +50,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <CarritoProvider>
           <Encabezado config={config} menu={menu} />
           <main id="contenido">{children}</main>
-          <Pie demo={!usaSupabase} />
+          <Pie demo={!usaSupabase} whatsapp={config.whatsapp} />
           <BotonWhatsApp numero={config.whatsapp} />
         </CarritoProvider>
       </body>

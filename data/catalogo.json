@@ -967,7 +967,7 @@
      "nombre": "Naranja",
      "hex": "#F07A21",
      "sku": "RL-161-NAR",
-     "stock": 0,
+     "stock": 9,
      "img": "/productos/161-naranja.jpg"
     }
    ]
@@ -1015,6 +1015,129 @@
      "img": "/productos/163-rojo.jpg"
     }
    ]
+  }
+ ],
+ "_resenasSonEjemplo": true,
+ "resenas": [
+  {
+   "modelo": 161,
+   "nombre": "María Elena R.",
+   "ciudad": "Guadalajara, Jal.",
+   "estrellas": 5,
+   "estatura": 160,
+   "talla": "M",
+   "fecha": "2026-07-14",
+   "texto": "Los girasoles siguen igualitos después de como ocho lavadas, no se despintaron nada. La tela es fresquita, perfecta para el calor de acá."
+  },
+  {
+   "modelo": 161,
+   "nombre": "Lupita M.",
+   "ciudad": "León, Gto.",
+   "estrellas": 4,
+   "estatura": 155,
+   "talla": "CH",
+   "fecha": "2026-07-28",
+   "texto": "Muy bonito y cómodo. El short me quedó un poquito holgado pero así me gusta para dormir. Pedí CH midiendo 1.55."
+  },
+  {
+   "modelo": 143,
+   "nombre": "Roberto C.",
+   "ciudad": "Monterrey, N.L.",
+   "estrellas": 5,
+   "estatura": 178,
+   "talla": "G",
+   "fecha": "2026-06-30",
+   "texto": "Se lo compré a mi esposo y ya no se lo quiere quitar. La franela del pantalón es gruesa de verdad, aguanta el frío de Monterrey."
+  },
+  {
+   "modelo": 143,
+   "nombre": "Ana Sofía G.",
+   "ciudad": "Puebla, Pue.",
+   "estrellas": 5,
+   "estatura": 0,
+   "talla": "XG",
+   "fecha": "2026-08-02",
+   "texto": "Regalo para mi papá y quedó encantado. Le pedí XG por si acaso y le quedó perfecto, es de corte amplio."
+  },
+  {
+   "modelo": 102,
+   "nombre": "Carmen L.",
+   "ciudad": "CDMX",
+   "estrellas": 5,
+   "estatura": 168,
+   "talla": "G",
+   "fecha": "2026-07-09",
+   "texto": "La tela no se transparenta nada, eso era lo que más me preocupaba. Ya pedí otro en azul."
+  },
+  {
+   "modelo": 102,
+   "nombre": "Jessica P.",
+   "ciudad": "Toluca, Edomex",
+   "estrellas": 4,
+   "estatura": 163,
+   "talla": "M",
+   "fecha": "2026-08-11",
+   "texto": "Buena calidad por el precio. Tardó tres días en llegar. Le doy cuatro porque el color menta es más clarito que en la foto."
+  },
+  {
+   "modelo": 137,
+   "nombre": "Norma A.",
+   "ciudad": "Mérida, Yuc.",
+   "estrellas": 5,
+   "estatura": 158,
+   "talla": "M",
+   "fecha": "2026-07-22",
+   "texto": "Con el calor de Mérida es el único que aguanto. Los tirantes no se caen y el short tiene bolsas, eso me encantó."
+  },
+  {
+   "modelo": 157,
+   "nombre": "Guadalupe H.",
+   "ciudad": "Querétaro, Qro.",
+   "estrellas": 5,
+   "estatura": 152,
+   "talla": "XG",
+   "fecha": "2026-06-18",
+   "texto": "Se lo regalé a mi mamá para su cumpleaños y le fascinó. El bordado de los girasoles está bien hecho, se nota que es hilo y no calcomanía."
+  },
+  {
+   "modelo": 157,
+   "nombre": "Rosa María T.",
+   "ciudad": "Aguascalientes, Ags.",
+   "estrellas": 3,
+   "estatura": 170,
+   "talla": "G",
+   "fecha": "2026-08-05",
+   "texto": "El conjunto está bonito y el bordado muy bien, pero el capri me quedó corto de lo que esperaba. Midiendo 1.70 mejor pidan una talla más."
+  },
+  {
+   "modelo": 126,
+   "nombre": "Fabiola S.",
+   "ciudad": "Culiacán, Sin.",
+   "estrellas": 5,
+   "estatura": 165,
+   "talla": "G",
+   "fecha": "2026-07-31",
+   "texto": "Pedí por WhatsApp porque tenía duda de la talla y me contestaron rapidísimo. El camisón es suavecito y largo, justo como lo quería."
+  },
+  {
+   "modelo": 120,
+   "nombre": "Miguel Á. V.",
+   "ciudad": "Saltillo, Coah.",
+   "estrellas": 4,
+   "estatura": 175,
+   "talla": "G",
+   "fecha": "2026-07-03",
+   "texto": "Buen material, el punto es grueso. Solo que el pantalón me quedó un poco largo, pero nada que no arregle un dobladillo."
+  },
+  {
+   "modelo": 142,
+   "nombre": "Verónica D.",
+   "ciudad": "Tijuana, B.C.",
+   "estrellas": 5,
+   "estatura": 172,
+   "talla": "G",
+   "fecha": "2026-08-16",
+   "texto": "Es mi tercer conjunto de esta marca. Duran muchísimo, tengo uno de hace dos años que sigue como nuevo."
   }
  ]
 }

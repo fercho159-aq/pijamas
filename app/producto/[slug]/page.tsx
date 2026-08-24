@@ -3,6 +3,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import FichaCliente from '@/components/FichaCliente'
 import TarjetaProducto from '@/components/TarjetaProducto'
+import Resenas from '@/components/Resenas'
+import { getResenasDe, resenasSonEjemplo, promedio } from '@/lib/resenas'
 import { getProducto, getProductos, getConfig, TALLAS } from '@/lib/datos'
 import { precio, existencias, pesos } from '@/lib/formato'
 
@@ -29,6 +31,7 @@ export async function generateMetadata({
 export default async function Ficha({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const [p, todos, config] = await Promise.all([getProducto(slug), getProductos(), getConfig()])
+  const resenas = p ? await getResenasDe(p.numero) : []
   if (!p) notFound()
 
   const relacionados = todos.filter((x) => x.categoria === p.categoria && x.numero !== p.numero).slice(0, 6)
@@ -43,6 +46,15 @@ export default async function Ficha({ params }: { params: Promise<{ slug: string
     sku: p.colores[0].sku,
     brand: { '@type': 'Brand', name: 'Rossy Lady' },
     image: p.colores.map((c) => c.img),
+    ...(resenas.length >= 3 && !resenasSonEjemplo
+      ? {
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: promedio(resenas),
+            reviewCount: resenas.length,
+          },
+        }
+      : {}),
     offers: {
       '@type': 'Offer',
       price: precio(p),
@@ -87,6 +99,8 @@ export default async function Ficha({ params }: { params: Promise<{ slug: string
           </details>
         </div>
       </div>
+
+      <Resenas rs={resenas} ejemplo={resenasSonEjemplo} />
 
       {relacionados.length > 0 && (
         <section className="seccion envoltura">

@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import Redes from './Redes'
 
-export default function Pie({ demo }: { demo: boolean }) {
+export default function Pie({ demo, whatsapp }: { demo: boolean; whatsapp: string }) {
   return (
     <footer className="pie">
       <div className="envoltura">
@@ -11,6 +12,8 @@ export default function Pie({ demo }: { demo: boolean }) {
           <br />
           Dama, caballero y camisones, de la talla CH a la 2XG.
         </p>
+
+        <Redes whatsapp={whatsapp} />
 
         <nav className="pie-links">
           <Link href="/guia-de-tallas">Guía de tallas</Link>

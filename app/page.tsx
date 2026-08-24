@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import TarjetaProducto from '@/components/TarjetaProducto'
+import Resenas from '@/components/Resenas'
+import { getResenas, resenasSonEjemplo } from '@/lib/resenas'
 import {
   getDestacados,
   getOfertas,
@@ -11,13 +13,18 @@ import {
 import { pesos } from '@/lib/formato'
 
 export default async function Inicio() {
-  const [destacados, ofertas, categorias, todos, config] = await Promise.all([
+  const [destacados, ofertas, categorias, todos, config, resenas] = await Promise.all([
     getDestacados(),
     getOfertas(),
     getCategorias(),
     getProductos(),
     getConfig(),
+    getResenas(),
   ])
+  // en el inicio, las mejores y mas recientes
+  const mejores = [...resenas]
+    .sort((a, b) => b.estrellas - a.estrellas || b.fecha.localeCompare(a.fecha))
+    .slice(0, 6)
 
   const heroe = todos.find((p) => p.numero === 161) ?? todos[0]
   const portadaDe = (slug: string) =>
@@ -143,6 +150,8 @@ export default async function Inicio() {
           </div>
         </section>
       )}
+
+      <Resenas rs={mejores} ejemplo={resenasSonEjemplo} titulo="Clientas que ya la tienen" />
 
       <section className="seccion envoltura faq">
         <div className="seccion-t">

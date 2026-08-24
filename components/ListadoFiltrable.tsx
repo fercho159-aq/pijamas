@@ -41,7 +41,10 @@ export default function ListadoFiltrable({ items }: { items: Producto[] }) {
 
       <p className="apunte" style={{ margin: '0 0 20px' }}>
         {visibles.length} {visibles.length === 1 ? 'modelo' : 'modelos'} ·{' '}
-        {visibles.reduce((t, p) => t + p.colores.length, 0)} colores
+        {(() => {
+          const c = visibles.reduce((t, p) => t + p.colores.length, 0)
+          return `${c} ${c === 1 ? 'color' : 'colores'}`
+        })()}
       </p>
 
       {visibles.length === 0 ? (
