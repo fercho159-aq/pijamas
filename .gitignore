@@ -43,3 +43,7 @@ desktop.ini
 npm-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+
+# El prototipo lleva las 85 fotos del cliente embebidas en base64.
+# No versionar mientras el repo sea publico.
+rossy-lady/docs/prototipo.html
