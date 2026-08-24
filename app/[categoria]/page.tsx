@@ -1,6 +1,7 @@
+import { Suspense } from 'react'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import TarjetaProducto from '@/components/TarjetaProducto'
+import ListadoFiltrable from '@/components/ListadoFiltrable'
 import { getCategorias, getPorCategoria, getOfertas } from '@/lib/datos'
 
 const OFERTAS = { slug: 'ofertas', nombre: 'Ofertas', sub: 'Precios especiales por tiempo limitado' }
@@ -38,29 +39,14 @@ export default async function Categoria({
   const r = await resolver(categoria)
   if (!r) notFound()
 
-  const colores = r.items.reduce((t, p) => t + p.colores.length, 0)
-
   return (
     <section className="seccion envoltura">
       <h1 style={{ fontSize: 'clamp(24px,4.6vw,34px)', letterSpacing: '-.02em' }}>
         {r.cat.nombre}
       </h1>
-      <p className="apunte" style={{ margin: '8px 0 22px' }}>
-        {r.items.length} {r.items.length === 1 ? 'modelo' : 'modelos'} · {colores} colores
-      </p>
-
-      {r.items.length === 0 ? (
-        <div className="vacio">
-          <h2>Todavía no hay nada aquí</h2>
-          <p>Vuelve pronto, estamos surtiendo.</p>
-        </div>
-      ) : (
-        <div className="rejilla">
-          {r.items.map((p, i) => (
-            <TarjetaProducto key={p.numero} p={p} prioridad={i < 4} />
-          ))}
-        </div>
-      )}
+      <Suspense fallback={<p className="apunte" style={{ margin: '0 0 20px' }}>Cargando</p>}>
+        <ListadoFiltrable items={r.items} />
+      </Suspense>
     </section>
   )
 }

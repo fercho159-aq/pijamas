@@ -6,6 +6,7 @@ import Encabezado from '@/components/Encabezado'
 import Pie from '@/components/Pie'
 import BotonWhatsApp from '@/components/BotonWhatsApp'
 import { getConfig, usaSupabase } from '@/lib/datos'
+import { getMenu } from '@/lib/menu'
 
 const fraunces = Fraunces({
   subsets: ['latin'],
@@ -42,12 +43,12 @@ export const viewport: Viewport = {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const config = await getConfig()
+  const [config, menu] = await Promise.all([getConfig(), getMenu()])
   return (
     <html lang="es" className={`${fraunces.variable} ${karla.variable}`}>
       <body>
         <CarritoProvider>
-          <Encabezado config={config} />
+          <Encabezado config={config} menu={menu} />
           <main id="contenido">{children}</main>
           <Pie demo={!usaSupabase} />
           <BotonWhatsApp numero={config.whatsapp} />
