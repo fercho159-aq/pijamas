@@ -1,0 +1,45 @@
+# ── Material de origen del cliente ──────────────────────────────
+# El catálogo comercial de Rossy Lady NO se versiona: este repo es
+# público. Los archivos viven solo en la máquina local.
+/*.pdf
+/*.jpg
+/*.jpeg
+/*.png
+/*.cdr
+
+# fotos individuales extraídas de los PDFs
+/assets/
+/extract/
+
+# ── Node / Next.js ──────────────────────────────────────────────
+node_modules/
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# ── Entorno · nunca subir llaves ────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Supabase ────────────────────────────────────────────────────
+.branches/
+.temp/
+supabase/.temp/
+
+# ── Sistema y editor ────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+
+# ── Logs ────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*

@@ -1,0 +1,1227 @@
+<title>Tienda Rossy Lady</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+/* ─────────────  TOKENS  ───────────── */
+:root{
+  --ground:#FDFAFC;
+  --surface:#F8F2F6;
+  --surface-2:#F1E6EE;
+  --line:#E7D8E2;
+  --line-strong:#D3BECC;
+  --ink:#2A1F26;
+  --ink-2:#6C5C66;
+  --ink-3:#968693;
+  --accent:#D6007F;
+  --accent-soft:#FCE9F3;
+  --brand:#EC008C;
+  --plum:#5E1F47;
+  --ok:#1B6E52;
+  --ok-soft:#E3F2EB;
+  --warn:#9A5B06;
+  --warn-soft:#FBEEDC;
+  --stop:#A82419;
+  --stop-soft:#FBE7E4;
+  --shadow:0 1px 2px rgba(42,31,38,.06), 0 8px 24px -12px rgba(42,31,38,.18);
+
+  --f-display:"Fraunces",Georgia,"Times New Roman",serif;
+  --f-body:"Karla",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+
+  --w:68ch;
+  --r:10px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#161116;
+    --surface:#1F1820;
+    --surface-2:#291F2A;
+    --line:#3A2E3A;
+    --line-strong:#51404F;
+    --ink:#F3E9EF;
+    --ink-2:#B7A5B2;
+    --ink-3:#8B7987;
+    --accent:#FF5CB4;
+    --accent-soft:#331028;
+    --brand:#FF3DA6;
+    --plum:#E9BFD8;
+    --ok:#5FCFA3;
+    --ok-soft:#11291F;
+    --warn:#E8B168;
+    --warn-soft:#2C1F0F;
+    --stop:#F58C80;
+    --stop-soft:#2E1512;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#161116;
+  --surface:#1F1820;
+  --surface-2:#291F2A;
+  --line:#3A2E3A;
+  --line-strong:#51404F;
+  --ink:#F3E9EF;
+  --ink-2:#B7A5B2;
+  --ink-3:#8B7987;
+  --accent:#FF5CB4;
+  --accent-soft:#331028;
+  --brand:#FF3DA6;
+  --plum:#E9BFD8;
+  --ok:#5FCFA3;
+  --ok-soft:#11291F;
+  --warn:#E8B168;
+  --warn-soft:#2C1F0F;
+  --stop:#F58C80;
+  --stop-soft:#2E1512;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.7);
+}
+
+/* ─────────────  BASE  ───────────── */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:16.5px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0;font-weight:600;line-height:1.2}
+p{margin:0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+code{font-family:var(--f-mono);font-size:.85em;background:var(--surface-2);padding:.12em .38em;border-radius:4px}
+
+/* ─────────────  SHELL  ───────────── */
+.shell{max-width:1200px;margin:0 auto;padding:0 20px 100px}
+@media(min-width:1000px){
+  .shell{display:grid;grid-template-columns:236px minmax(0,1fr);gap:56px;align-items:start;padding:0 32px 120px}
+}
+
+/* ─────────────  MASTHEAD  ───────────── */
+.masthead{border-bottom:1px solid var(--line);background:var(--surface);}
+.masthead-in{max-width:1200px;margin:0 auto;padding:34px 20px 30px}
+@media(min-width:1000px){.masthead-in{padding:46px 32px 40px}}
+.eyebrow{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--brand);flex:none}
+.masthead h1{font-size:clamp(31px,6.4vw,50px);letter-spacing:-.02em;max-width:16ch}
+.masthead .sub{margin-top:14px;color:var(--ink-2);max-width:60ch;font-size:17px}
+.meta{
+  margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 26px;
+  font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3);
+  text-transform:uppercase;letter-spacing:.06em
+}
+.meta b{color:var(--ink-2);font-weight:500}
+
+/* ─────────────  TOC  ───────────── */
+.toc{margin:22px 0 0}
+.toc-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1px}
+.toc-list a{
+  display:flex;gap:10px;padding:5px 9px;border-radius:6px;
+  color:var(--ink-2);text-decoration:none;font-size:13.5px;line-height:1.4
+}
+.toc-list a:hover{background:var(--surface-2);color:var(--ink)}
+.toc-list a.on{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.toc-list .n{font-family:var(--f-mono);font-size:11px;color:var(--ink-3);padding-top:2px;flex:none;width:14px}
+.toc-list a.on .n{color:var(--accent)}
+.toc-m{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);margin:22px 0 0;overflow:hidden}
+.toc-m>summary{
+  cursor:pointer;padding:13px 16px;font-family:var(--f-mono);font-size:11.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);list-style:none
+}
+.toc-m>summary::-webkit-details-marker{display:none}
+.toc-m>summary::after{content:"▾";float:right;color:var(--ink-3)}
+.toc-m[open]>summary::after{content:"▴"}
+.toc-m .toc{margin:0;padding:0 10px 12px}
+@media(min-width:1000px){
+  .toc-m{display:none}
+  .toc-d{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow-y:auto;padding:24px 0 40px}
+}
+@media(max-width:999px){.toc-d{display:none}}
+
+/* ─────────────  SECTIONS  ───────────── */
+main{min-width:0;padding-top:8px;counter-reset:sec}
+section{padding:44px 0 4px;scroll-margin-top:20px;border-top:1px solid var(--line);counter-increment:sec}
+section:first-of-type{border-top:none}
+.sec-h{display:flex;gap:14px;align-items:baseline;margin-bottom:8px}
+.sec-n{
+  font-family:var(--f-mono);font-size:12px;color:var(--accent);
+  flex:none;padding-top:5px;font-weight:500
+}
+.sec-n::before{content:counter(sec,decimal-leading-zero)}
+
+/* muestras de color en línea */
+.sws{display:inline-flex;gap:3px;flex-wrap:wrap}
+.sws i{
+  width:15px;height:15px;border-radius:3px;display:block;
+  border:1px solid rgba(120,90,110,.28)
+}
+section h2{font-size:clamp(23px,3.6vw,31px);letter-spacing:-.015em}
+.lede{color:var(--ink-2);max-width:var(--w);margin:12px 0 0;font-size:17px}
+.stack{display:flex;flex-direction:column;gap:20px;margin-top:26px;max-width:var(--w)}
+.stack.wide{max-width:none}
+section h3{font-size:18.5px;margin-top:14px;letter-spacing:-.005em}
+section h4{
+  font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500
+}
+.stack p,.stack ul,.stack ol{max-width:var(--w)}
+ul,ol{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:7px}
+li::marker{color:var(--ink-3)}
+
+/* ─────────────  CHIPS  ───────────── */
+.chip{
+  display:inline-flex;align-items:center;gap:5px;font-family:var(--f-mono);
+  font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:100px;white-space:nowrap;font-weight:500;vertical-align:1px
+}
+.chip.def{background:var(--ok-soft);color:var(--ok)}
+.chip.falta{background:var(--warn-soft);color:var(--warn)}
+.chip.bloq{background:var(--stop-soft);color:var(--stop)}
+.chip.f2{background:var(--surface-2);color:var(--ink-2)}
+.chip.prop{background:var(--accent-soft);color:var(--accent)}
+
+/* ─────────────  CARDS  ───────────── */
+.card{
+  border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;
+  background:var(--surface);display:flex;flex-direction:column;gap:9px
+}
+.card.plain{background:transparent}
+.grid2{display:grid;gap:14px;margin-top:26px}
+@media(min-width:640px){.grid2{grid-template-columns:1fr 1fr}}
+.grid4{display:grid;gap:12px;margin-top:26px}
+@media(min-width:560px){.grid4{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.grid4{grid-template-columns:repeat(4,1fr)}}
+.card .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.card .v{font-family:var(--f-display);font-size:19px;font-weight:600;line-height:1.25}
+.card .d{font-size:14.5px;color:var(--ink-2);line-height:1.55}
+
+/* decision card */
+.dec{border-left:3px solid var(--brand)}
+
+/* ─────────────  TABLES  ───────────── */
+.scroll{overflow-x:auto;margin-top:22px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:520px}
+th,td{text-align:left;padding:11px 15px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:500;background:var(--surface-2);white-space:nowrap
+}
+tbody tr:last-child td{border-bottom:none}
+td b{font-weight:600}
+td code{background:var(--ground)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ─────────────  CODE  ───────────── */
+pre{
+  margin:22px 0 0;padding:18px 20px;background:var(--surface-2);border:1px solid var(--line);
+  border-radius:var(--r);overflow-x:auto;font-family:var(--f-mono);font-size:12.8px;
+  line-height:1.65;color:var(--ink)
+}
+pre code{background:none;padding:0;font-size:inherit}
+.cmt{color:var(--ink-3)}
+.kw{color:var(--accent)}
+
+/* ─────────────  SWATCHES  ───────────── */
+.sw-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(126px,1fr));gap:10px;margin-top:22px}
+.sw{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.sw .chipc{height:56px}
+.sw .info{padding:9px 11px;display:flex;flex-direction:column;gap:1px}
+.sw .nm{font-size:13px;font-weight:600}
+.sw .hx{font-family:var(--f-mono);font-size:11px;color:var(--ink-3)}
+
+/* ─────────────  COPY BLOCK  ───────────── */
+.copy{
+  border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:var(--r);background:var(--surface);margin-top:14px;overflow:hidden
+}
+.copy .row{display:grid;grid-template-columns:auto 1fr;gap:0;border-bottom:1px solid var(--line)}
+.copy .row:last-child{border-bottom:none}
+.copy .lt{
+  font-family:var(--f-mono);font-size:11px;font-weight:500;color:var(--accent);
+  background:var(--accent-soft);padding:13px 12px;width:104px;
+  letter-spacing:.04em;text-transform:uppercase;line-height:1.35
+}
+.copy .tx{padding:13px 16px;font-size:15px;line-height:1.6}
+.copy .tx em{color:var(--ink-3);font-style:normal;font-size:13px;display:block;margin-top:4px}
+
+/* ─────────────  FLOW  ───────────── */
+.flow{list-style:none;padding:0;margin:22px 0 0;display:flex;flex-direction:column;gap:0;counter-reset:s}
+.flow li{
+  display:grid;grid-template-columns:30px 1fr;gap:14px;padding:13px 0;
+  border-bottom:1px solid var(--line);align-items:start
+}
+.flow li:last-child{border-bottom:none}
+.flow li::before{
+  counter-increment:s;content:counter(s);
+  font-family:var(--f-mono);font-size:11px;color:var(--accent);
+  background:var(--accent-soft);border-radius:100px;
+  width:24px;height:24px;display:grid;place-items:center;margin-top:1px
+}
+.flow strong{display:block;font-size:15.5px}
+.flow span{font-size:14.5px;color:var(--ink-2);display:block;line-height:1.55}
+
+/* ─────────────  CALLOUT  ───────────── */
+.note{
+  border-radius:var(--r);padding:16px 19px;margin-top:22px;font-size:15px;
+  display:flex;flex-direction:column;gap:7px;max-width:var(--w);line-height:1.58
+}
+.note .t{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.note.w{background:var(--warn-soft);color:var(--ink)}
+.note.w .t{color:var(--warn)}
+.note.s{background:var(--stop-soft);color:var(--ink)}
+.note.s .t{color:var(--stop)}
+.note.g{background:var(--ok-soft);color:var(--ink)}
+.note.g .t{color:var(--ok)}
+
+/* ─────────────  FOOT  ───────────── */
+footer{
+  border-top:1px solid var(--line);margin-top:60px;padding:30px 0 0;
+  color:var(--ink-3);font-size:13.5px;max-width:var(--w)
+}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<header class="masthead">
+  <div class="masthead-in">
+    <div class="eyebrow">Especificación técnica · v2 · Agosto 2026</div>
+    <h1>Tienda Rossy Lady</h1>
+    <p class="sub">Arquitectura, modelo de datos, catálogo con precios, sistema de diseño y motor de
+      conversión para el e‑commerce de Rossy Lady. Documento de referencia para desarrollo y para la
+      captura de contenido del cliente.</p>
+    <div class="meta">
+      <span><b>Stack</b> Next.js · Supabase · Vercel</span>
+      <span><b>Checkout</b> WhatsApp → Mercado Pago</span>
+      <span><b>Catálogo</b> 26 modelos · 85 variantes · 80 fotos</span>
+      <span><b>Ticket promedio</b> ~$390 MXN</span>
+      <span><b>Enfoque</b> Mobile‑first</span>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+
+  <nav class="toc-d">
+    <details class="toc-m" open>
+      <summary>Contenido</summary>
+      <div class="toc"><ol class="toc-list" id="tocM"></ol></div>
+    </details>
+    <div class="toc"><ol class="toc-list" id="tocD"></ol></div>
+  </nav>
+
+  <main>
+
+<!-- ══════════════ 1 ══════════════ -->
+<section id="s1">
+  <div class="sec-h"><span class="sec-n"></span><h2>Decisiones cerradas</h2></div>
+  <p class="lede">Cuatro definiciones que condicionan todo lo demás. Cambiar cualquiera obliga a
+    revisar el modelo de datos o la arquitectura.</p>
+
+  <div class="grid4">
+    <div class="card dec">
+      <span class="k">Stack</span>
+      <span class="v">Next.js + Supabase</span>
+      <span class="d">App Router, Supabase para base de datos, autenticación y almacenamiento de
+        imágenes. Vercel para hosting. Admin a la medida, usable desde el celular.</span>
+    </div>
+    <div class="card dec">
+      <span class="k">Checkout</span>
+      <span class="v">WhatsApp primero</span>
+      <span class="d">Se lanza sin esperar credenciales. Mercado Pago queda construido detrás de un
+        interruptor y se enciende cuando lleguen.</span>
+    </div>
+    <div class="card dec">
+      <span class="k">Inventario</span>
+      <span class="v">Color como variante</span>
+      <span class="d">Stock real por color; tallas como disponible / no disponible. ~80 variantes
+        que capturar en vez de ~500 SKUs.</span>
+    </div>
+    <div class="card dec">
+      <span class="k">Dirección visual</span>
+      <span class="v">Híbrido</span>
+      <span class="d">Fotografía y estructura al nivel elevado que ya tienen las fotos; el magenta
+        reservado como color de acción.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 2 ══════════════ -->
+<section id="s2">
+  <div class="sec-h"><span class="sec-n"></span><h2>Sistema de diseño</h2></div>
+  <p class="lede">La marca tiene una personalidad clara —cálida, femenina, cercana, sin
+    pretensiones— y una fotografía muy por encima de su logo. La ruta híbrida resuelve esa tensión:
+    el sitio hereda la calma de las fotos y el magenta vuelve solo donde tiene que empujar.</p>
+
+  <h3>Paleta</h3>
+  <p>Los pasteles no son decorativos: son los colores reales de las prendas, muestreados de las
+    fotos del catálogo. Eso ancla el sitio al producto en vez de a una tendencia.</p>
+
+  <div class="sw-row">
+    <div class="sw"><div class="chipc" style="background:#EC008C"></div><div class="info"><span class="nm">Magenta marca</span><span class="hx">#EC008C</span></div></div>
+    <div class="sw"><div class="chipc" style="background:#D6007F"></div><div class="info"><span class="nm">Magenta acción</span><span class="hx">#D6007F</span></div></div>
+    <div class="sw"><div class="chipc" style="background:#5E1F47"></div><div class="info"><span class="nm">Ciruela</span><span class="hx">#5E1F47</span></div></div>
+    <div class="sw"><div class="chipc" style="background:#FDFAFC;border-bottom:1px solid #E7D8E2"></div><div class="info"><span class="nm">Fondo</span><span class="hx">#FDFAFC</span></div></div>
+    <div class="sw"><div class="chipc" style="background:#2A1F26"></div><div class="info"><span class="nm">Tinta</span><span class="hx">#2A1F26</span></div></div>
+    <div class="sw"><div class="chipc" style="background:#C9E4D8"></div><div class="info"><span class="nm">Menta</span><span class="hx">#C9E4D8</span></div></div>
+    <div class="sw"><div class="chipc" style="background:#BFD9EF"></div><div class="info"><span class="nm">Cielo</span><span class="hx">#BFD9EF</span></div></div>
+    <div class="sw"><div class="chipc" style="background:#F5E3A8"></div><div class="info"><span class="nm">Mantequilla</span><span class="hx">#F5E3A8</span></div></div>
+    <div class="sw"><div class="chipc" style="background:#F3C9D4"></div><div class="info"><span class="nm">Rubor</span><span class="hx">#F3C9D4</span></div></div>
+    <div class="sw"><div class="chipc" style="background:#25D366"></div><div class="info"><span class="nm">WhatsApp</span><span class="hx">#25D366</span></div></div>
+  </div>
+
+  <div class="note w">
+    <span class="t">Hallazgo de contraste</span>
+    <p>Texto blanco sobre el magenta de marca <code>#EC008C</code> da <b>4.25:1</b>. Pasa WCAG AA
+      para texto grande (3:1) pero <b>no para texto normal</b> (4.5:1). Por eso la paleta separa dos
+      magentas: <code>#EC008C</code> se queda como color de marca en logo, etiqueta e impresos, y
+      <code>#D6007F</code> —visualmente casi idéntico, <b>5.04:1</b>— es el que se usa en botones,
+      precios y enlaces. Un solo tono de diferencia evita un problema de accesibilidad en cada CTA
+      del sitio.</p>
+  </div>
+
+  <h3>Reglas de uso del color</h3>
+  <ul>
+    <li><b>Magenta solo para acción.</b> Botón principal, precio de oferta, badge de descuento,
+      contador de escasez. Si el magenta aparece en más de dos lugares por pantalla, deja de
+      significar «aquí se toca».</li>
+    <li><b>Verde WhatsApp solo en botones de WhatsApp.</b> Nunca como acento decorativo, o se pierde
+      el reconocimiento instantáneo.</li>
+    <li><b>Pasteles para superficies y categorías</b>, nunca para texto ni para bordes de foco.</li>
+    <li><b>Ciruela para estructura</b>: encabezados de sección, footer, barra de anuncio.</li>
+  </ul>
+
+  <h3>Tipografía</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Rol</th><th>Familia</th><th>Uso</th></tr></thead>
+      <tbody>
+        <tr><td><b>Display</b></td><td>Fraunces 600</td><td>Nombres de producto, títulos de sección, precio. Serif suave: recoge la calidez del script del logo sin heredar su fecha.</td></tr>
+        <tr><td><b>Cuerpo</b></td><td>Karla 400 / 600</td><td>Descripciones, FAQ, formularios. Muy legible a 15–16 px en pantalla chica.</td></tr>
+        <tr><td><b>Utilidad</b></td><td>JetBrains Mono 400</td><td>SKU, folio de pedido, tallas, contadores. Cifras alineadas con <code>tabular-nums</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:14px">Máximo dos pesos por familia y subset <code>latin</code> vía
+    <code>next/font</code>. Nada de script decorativo fuera del logo: la caligrafía a tamaño de
+    interfaz no se lee y arrastra el sitio de vuelta a 2010.</p>
+
+  <h3>Tono de voz</h3>
+  <ul>
+    <li><b>Tuteo siempre.</b> «Pídelo», no «Solicítelo». La marca es de trato familiar.</li>
+    <li><b>Sin anglicismos donde hay palabra.</b> Pagar, no <i>checkout</i>. Carrito, no <i>cart</i>. Ofertas, no <i>sale</i>.</li>
+    <li><b>Concreto antes que superlativo.</b> «Algodón de 180 g, no se transparenta» gana a «calidad premium».</li>
+    <li><b>Frases cortas.</b> La lectura es en celular, de pie, con una mano.</li>
+  </ul>
+</section>
+
+<!-- ══════════════ 3 ══════════════ -->
+<section id="s3">
+  <div class="sec-h"><span class="sec-n"></span><h2>Arquitectura técnica</h2></div>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Capa</th><th>Elección</th><th>Nota</th></tr></thead>
+      <tbody>
+        <tr><td>Framework</td><td>Next.js 15, App Router</td><td>Server Components por defecto. Solo carrito y galería son cliente.</td></tr>
+        <tr><td>Base de datos</td><td>Supabase Postgres</td><td>RLS activo: lectura pública de catálogo, escritura solo con rol admin.</td></tr>
+        <tr><td>Autenticación</td><td>Supabase Auth</td><td>Email + contraseña. Un solo rol admin. Sin registro público de usuarios en fase 1.</td></tr>
+        <tr><td>Imágenes</td><td>Supabase Storage + <code>next/image</code></td><td>Bucket público <code>productos</code>. AVIF/WebP servido por Vercel.</td></tr>
+        <tr><td>Estado carrito</td><td><code>localStorage</code> + contexto</td><td>Sin sesión ni cuenta. El carrito vive en el dispositivo.</td></tr>
+        <tr><td>Hosting</td><td>Vercel</td><td>ISR con <code>revalidate</code> por etiqueta al guardar en el admin.</td></tr>
+        <tr><td>Pagos</td><td>Mercado Pago Checkout Pro</td><td>Redirección: cero alcance PCI. Detrás de interruptor. <span class="chip f2">Fase 5</span></td></tr>
+        <tr><td>Analítica</td><td>Vercel Analytics + Meta Pixel</td><td>Pixel necesario si van a pautar en Facebook e Instagram, que es el canal natural aquí.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Entornos</h3>
+  <ul>
+    <li><code>local</code> — Supabase local o proyecto de desarrollo, datos de prueba.</li>
+    <li><code>preview</code> — cada rama en Vercel, apuntando al proyecto de desarrollo.</li>
+    <li><code>production</code> — dominio propio. Nunca comparte base con desarrollo.</li>
+  </ul>
+
+  <div class="note w">
+    <span class="t">Variables de entorno</span>
+    <p><code>NEXT_PUBLIC_SUPABASE_URL</code>, <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code>,
+      <code>SUPABASE_SERVICE_ROLE_KEY</code> (solo servidor),
+      <code>MP_ACCESS_TOKEN</code>, <code>NEXT_PUBLIC_MP_PUBLIC_KEY</code>,
+      <code>MP_WEBHOOK_SECRET</code>, <code>NEXT_PUBLIC_WA_NUMERO</code>.
+      La service role key y el access token de Mercado Pago <b>jamás</b> con prefijo
+      <code>NEXT_PUBLIC_</code>.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 4 ══════════════ -->
+<section id="s4">
+  <div class="sec-h"><span class="sec-n"></span><h2>Modelo de datos</h2></div>
+  <p class="lede">Diez tablas. El modelo asume producto = modelo (102 Alexa), variante = color, y
+    talla como disponibilidad, según la decisión de inventario.</p>
+
+<pre><code><span class="cmt">-- CATÁLOGO ─────────────────────────────────────────</span>
+
+<span class="kw">create table</span> categorias (
+  id          uuid primary key default gen_random_uuid(),
+  slug        text unique not null,   <span class="cmt">-- dama-conjuntos | camisones | caballero</span>
+  nombre      text not null,
+  orden       int  default 0,
+  activa      boolean default true
+);
+
+<span class="kw">create table</span> productos (
+  id              uuid primary key default gen_random_uuid(),
+  numero_modelo   int unique,          <span class="cmt">-- 102, 161, 143…</span>
+  nombre          text not null,       <span class="cmt">-- "Alexa"</span>
+  slug            text unique not null,<span class="cmt">-- "102-alexa"</span>
+  categoria_id    uuid references categorias(id),
+  descripcion     text,
+  composicion     text,                <span class="cmt">-- obligatorio NOM-004-SCFI</span>
+  cuidados        text,
+  precio_lista    numeric(10,2) not null,
+  precio_oferta   numeric(10,2),       <span class="cmt">-- null = sin oferta</span>
+  oferta_inicia   timestamptz,
+  oferta_termina  timestamptz,         <span class="cmt">-- fuente de verdad del contador</span>
+  destacado       boolean default false,
+  orden_destacado int,
+  activo          boolean default true,
+  meta_titulo     text,
+  meta_descripcion text,
+  creado_en       timestamptz default now(),
+  actualizado_en  timestamptz default now()
+);
+
+<span class="kw">create table</span> variantes (          <span class="cmt">-- una fila por color</span>
+  id            uuid primary key default gen_random_uuid(),
+  producto_id   uuid references productos(id) on delete cascade,
+  color_nombre  text not null,        <span class="cmt">-- "Menta"</span>
+  color_hex     text not null,        <span class="cmt">-- "#C9E4D8" → círculo selector</span>
+  sku           text unique,          <span class="cmt">-- RL-102-MEN</span>
+  stock         int  not null default 0,
+  orden         int  default 0,
+  activa        boolean default true
+);
+
+<span class="kw">create table</span> variante_imagenes (
+  id          uuid primary key default gen_random_uuid(),
+  variante_id uuid references variantes(id) on delete cascade,
+  url         text not null,
+  alt         text,                   <span class="cmt">-- accesibilidad + SEO</span>
+  orden       int default 0
+);
+
+<span class="kw">create table</span> tallas (
+  codigo text primary key,            <span class="cmt">-- CH, M, G, XG, 2XG</span>
+  orden  int
+);
+
+<span class="kw">create table</span> variante_tallas (
+  variante_id  uuid references variantes(id) on delete cascade,
+  talla_codigo text references tallas(codigo),
+  disponible   boolean default true,
+  primary key (variante_id, talla_codigo)
+);
+
+
+<span class="cmt">-- PEDIDOS ──────────────────────────────────────────</span>
+
+<span class="kw">create table</span> pedidos (
+  id              uuid primary key default gen_random_uuid(),
+  folio           text unique not null,   <span class="cmt">-- RL-00142</span>
+  canal           text not null,          <span class="cmt">-- whatsapp | mercadopago</span>
+  estado          text not null default 'nuevo',
+  <span class="cmt">-- nuevo → confirmado → pagado → enviado → entregado | cancelado</span>
+  cliente_nombre   text,
+  cliente_telefono text,
+  cliente_email    text,
+  envio_calle text, envio_colonia text, envio_ciudad text,
+  envio_estado text, envio_cp text, envio_referencias text,
+  subtotal        numeric(10,2),
+  envio           numeric(10,2),
+  total           numeric(10,2),
+  mp_payment_id   text unique,            <span class="cmt">-- idempotencia del webhook</span>
+  mp_estado       text,
+  guia_paqueteria text,
+  notas           text,
+  creado_en       timestamptz default now(),
+  entregado_en    timestamptz             <span class="cmt">-- dispara solicitud de reseña</span>
+);
+
+<span class="kw">create table</span> pedido_items (
+  id              uuid primary key default gen_random_uuid(),
+  pedido_id       uuid references pedidos(id) on delete cascade,
+  variante_id     uuid references variantes(id),
+  talla_codigo    text,
+  cantidad        int not null,
+  precio_unitario numeric(10,2) not null, <span class="cmt">-- congelado al momento del pedido</span>
+  nombre_snapshot text                    <span class="cmt">-- "161 Mara · Naranja · M"</span>
+);
+
+
+<span class="cmt">-- CONFIANZA ────────────────────────────────────────</span>
+
+<span class="kw">create table</span> resenas (
+  id           uuid primary key default gen_random_uuid(),
+  producto_id  uuid references productos(id) on delete cascade,
+  pedido_id    uuid references pedidos(id) <span class="kw">not null</span>,
+  <span class="cmt">-- ↑ sin pedido no hay reseña. La honestidad es estructural, no una política.</span>
+  nombre       text not null,
+  ciudad       text,
+  calificacion int check (calificacion between 1 and 5),
+  texto        text,
+  foto_url     text,
+  aprobada     boolean default false,
+  creada_en    timestamptz default now()
+);
+
+<span class="kw">create table</span> config (
+  clave text primary key,
+  valor jsonb
+);
+<span class="cmt">-- whatsapp_numero · envio_gratis_desde · hora_corte_envio
+-- mercadopago_activo · banner_anuncio · costo_envio_base</span></code></pre>
+
+  <div class="note g">
+    <span class="t">Por qué <code>pedido_id</code> es NOT NULL</span>
+    <p>Hace <b>imposible</b> insertar una reseña que no venga de una compra real, incluso desde el
+      admin. No es una promesa de buena conducta: es una restricción de base de datos. Cuando
+      alguien pregunte si las reseñas son reales, la respuesta es verificable.</p>
+  </div>
+
+  <div class="note g">
+    <span class="t">Archivos ejecutables</span>
+    <p>El esquema completo —con restricciones, índices, folio automático, RLS y la función
+      <code>precio_vigente()</code>— vive en <code>db/schema.sql</code>, y el catálogo sembrado en
+      <code>db/seed.sql</code>: 26 productos, 85 variantes y 425 filas de disponibilidad por talla.
+      Se corren en ese orden desde el editor SQL de Supabase.</p>
+    <p><code>precio_vigente()</code> es la pieza que hace honesto el contador de ofertas: el precio
+      que se muestra y el que se cobra salen de la <b>misma función</b>, así que la cuenta regresiva
+      no puede desincronizarse del cobro.</p>
+  </div>
+</section>
+
+<!-- ══════════════ CATÁLOGO ══════════════ -->
+<section id="sCat">
+  <div class="sec-h"><span class="sec-n"></span><h2>Catálogo y precios</h2></div>
+  <p class="lede">26 modelos, 85 variantes de color. Los nombres de color salieron de las fotos
+    reales del catálogo, no de una lista genérica. Los precios son una <b>propuesta de referencia</b>
+    calibrada contra marcas mexicanas comparables: el cliente los confirma antes de publicar.</p>
+
+  <h3>Dónde cae Rossy Lady en el mercado</h3>
+  <p>Rangos aproximados de conjunto de pijama para dama, para ubicar el nivel de precio. Conviene
+    reverificarlos el día que se fijen los precios definitivos.</p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Marca</th><th>Rango conjunto dama</th><th>Canal</th></tr></thead>
+      <tbody>
+        <tr><td>Walmart · Bodega Aurrerá</td><td class="num">$150 – 280</td><td>Autoservicio</td></tr>
+        <tr><td>Coppel</td><td class="num">$249 – 499</td><td>Tienda y catálogo</td></tr>
+        <tr><td>Suburbia</td><td class="num">$299 – 599</td><td>Tienda</td></tr>
+        <tr><td>Andrea</td><td class="num">$329 – 599</td><td>Catálogo</td></tr>
+        <tr style="background:var(--accent-soft)"><td><b>Rossy Lady · propuesto</b></td><td class="num"><b>$329 – 499</b></td><td><b>Tienda propia y WhatsApp</b></td></tr>
+        <tr><td>Ilusión</td><td class="num">$350 – 650</td><td>Departamental y propia</td></tr>
+        <tr><td>Vicky Form</td><td class="num">$400 – 800</td><td>Departamental y propia</td></tr>
+        <tr><td>Victoria's Secret MX</td><td class="num">$900 – 2,000</td><td>Premium</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note g">
+    <span class="t">El razonamiento del precio</span>
+    <p>Rossy Lady queda en la banda Coppel–Andrea–Suburbia, que es exactamente donde la coloca su
+      perfil de marca: hecho en México, accesible, canal propio. Poner precios de Vicky Form con un
+      logo de tianguis genera rechazo; poner precios de Walmart deja dinero en la mesa y contradice
+      la calidad de la fotografía. Además, vender en línea carga envío, empaque y comisión, así que
+      el precio de tienda propia debe ir <b>arriba</b> del de tianguis, no igual.</p>
+  </div>
+
+  <h3>Escalera de precios por tipo de prenda</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Tipo</th><th>Precio lista</th><th>Razón</th></tr></thead>
+      <tbody>
+        <tr><td>Camisón</td><td class="num">$259</td><td>Una sola pieza, menos tela y menos confección.</td></tr>
+        <tr><td>Dama · tirantes + short</td><td class="num">$329</td><td>El conjunto más ligero. Puerta de entrada al catálogo.</td></tr>
+        <tr><td>Dama · manga corta + short</td><td class="num">$349</td><td>Manga añade tela.</td></tr>
+        <tr><td>Dama · tirantes + short bordado</td><td class="num">$359</td><td>Menos tela, pero el bordado es mano de obra.</td></tr>
+        <tr><td>Dama · tirantes + capri</td><td class="num">$369</td><td></td></tr>
+        <tr><td>Dama · manga corta + capri</td><td class="num">$389</td><td></td></tr>
+        <tr><td>Caballero · manga corta + short</td><td class="num">$389</td><td>Talla masculina consume más tela por pieza.</td></tr>
+        <tr><td>Dama · tirantes + pantalón</td><td class="num">$399</td><td></td></tr>
+        <tr><td>Dama · manga corta + pantalón</td><td class="num">$419</td><td></td></tr>
+        <tr><td>Dama · bordado + capri</td><td class="num">$459</td><td>Bordado en pecho y ambas piernas.</td></tr>
+        <tr><td>Caballero · manga larga + pantalón</td><td class="num">$469</td><td></td></tr>
+        <tr><td>Caballero · manga larga + franela</td><td class="num">$499</td><td>Franela de algodón, la tela más cara del catálogo.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note w">
+    <span class="t">Envío gratis desde $699</span>
+    <p>El umbral está puesto a propósito por encima del ticket promedio (~$390): obliga a un
+      segundo artículo para alcanzarlo. Con la barra de progreso del carrito, es la palanca de
+      ticket promedio más eficiente y no presiona a nadie. Envío base sugerido: <b>$99</b>.</p>
+  </div>
+
+  <h3>Catálogo completo</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Mod.</th><th>Nombre</th><th>Categoría</th><th>Tipo</th><th>Precio</th><th>Col.</th><th>Colores</th></tr></thead>
+      <tbody>
+        <tr><td class="num">102</td><td><b>Alexa</b></td><td>Dama</td><td>Manga corta + short</td><td class="num">$349</td><td class="num">4</td><td><span class="sws"><i style="background:#C9E4D8" title="Menta"></i><i style="background:#BFD9EF" title="Cielo"></i><i style="background:#F5E3A8" title="Mantequilla"></i><i style="background:#F3C9D4" title="Rosa"></i></span></td></tr>
+        <tr><td class="num">103</td><td><b>Marilyn</b></td><td>Dama</td><td>Tirantes + capri</td><td class="num">$369</td><td class="num">5</td><td><span class="sws"><i style="background:#F3C9D4" title="Rosa"></i><i style="background:#F7C6A3" title="Durazno"></i><i style="background:#C9E4D8" title="Menta"></i><i style="background:#BFD9EF" title="Cielo"></i><i style="background:#F5E3A8" title="Mantequilla"></i></span></td></tr>
+        <tr><td class="num">104</td><td><b>Annet</b></td><td>Dama</td><td>Manga corta + capri</td><td class="num">$389</td><td class="num">5</td><td><span class="sws"><i style="background:#F7C6A3" title="Durazno"></i><i style="background:#BFD9EF" title="Cielo"></i><i style="background:#F3C9D4" title="Rosa"></i><i style="background:#C9E4D8" title="Menta"></i><i style="background:#BCDCD2" title="Verde agua"></i></span></td></tr>
+        <tr><td class="num">105</td><td><b>Michelle</b></td><td>Dama</td><td>Tirantes + pantalón</td><td class="num">$399</td><td class="num">5</td><td><span class="sws"><i style="background:#F3C9D4" title="Rosa"></i><i style="background:#BFD9EF" title="Cielo"></i><i style="background:#C9E4D8" title="Menta"></i><i style="background:#F5E3A8" title="Mantequilla"></i><i style="background:#F7C6A3" title="Durazno"></i></span></td></tr>
+        <tr><td class="num">107</td><td><b>Vero</b></td><td>Dama</td><td>Manga corta + pantalón</td><td class="num">$419</td><td class="num">4</td><td><span class="sws"><i style="background:#F3C9D4" title="Rosa"></i><i style="background:#C9E4D8" title="Menta"></i><i style="background:#F5E3A8" title="Mantequilla"></i><i style="background:#F7C6A3" title="Durazno"></i></span></td></tr>
+        <tr><td class="num">108</td><td><b>Paty</b></td><td>Camisones</td><td>Camisón</td><td class="num">$259</td><td class="num">1</td><td><span class="sws"><i style="background:#F5E3A8" title="Mantequilla"></i></span></td></tr>
+        <tr><td class="num">109</td><td><b>Diana</b></td><td>Camisones</td><td>Camisón</td><td class="num">$259</td><td class="num">1</td><td><span class="sws"><i style="background:#BFD9EF" title="Cielo"></i></span></td></tr>
+        <tr><td class="num">111</td><td><b>Jazmín</b></td><td>Camisones</td><td>Camisón</td><td class="num">$259</td><td class="num">1</td><td><span class="sws"><i style="background:#F5E3A8" title="Mantequilla"></i></span></td></tr>
+        <tr><td class="num">117</td><td><b>Frida</b></td><td>Dama</td><td>Bordado + capri</td><td class="num">$459</td><td class="num">3</td><td><span class="sws"><i style="background:#6B3FA0" title="Morado"></i><i style="background:#1B4FA0" title="Azul rey"></i><i style="background:#D6007F" title="Fucsia"></i></span></td></tr>
+        <tr><td class="num">120</td><td><b>Héctor</b></td><td>Caballero</td><td>Manga larga + pantalón</td><td class="num">$469</td><td class="num">8</td><td><span class="sws"><i style="background:#1B4FA0" title="Azul rey"></i><i style="background:#C8352C" title="Rojo"></i><i style="background:#F5D547" title="Amarillo"></i><i style="background:#7A2233" title="Vino"></i><i style="background:#4A7FC1" title="Azul"></i><i style="background:#B9B7B4" title="Gris jaspe"></i><i style="background:#2E9E7B" title="Verde jade"></i><i style="background:#1C1C1C" title="Negro"></i></span></td></tr>
+        <tr><td class="num">124</td><td><b>Alondra</b></td><td>Dama</td><td>Manga corta + pantalón</td><td class="num">$419</td><td class="num">5</td><td><span class="sws"><i style="background:#F7C6A3" title="Durazno"></i><i style="background:#BFD9EF" title="Cielo"></i><i style="background:#F0A088" title="Coral"></i><i style="background:#C9E4D8" title="Menta"></i><i style="background:#F5E3A8" title="Mantequilla"></i></span></td></tr>
+        <tr><td class="num">126</td><td><b>Linda</b></td><td>Camisones</td><td>Camisón</td><td class="num">$259</td><td class="num">1</td><td><span class="sws"><i style="background:#F3C9D4" title="Rosa"></i></span></td></tr>
+        <tr><td class="num">127</td><td><b>Denise</b></td><td>Camisones</td><td>Camisón</td><td class="num">$259</td><td class="num">1</td><td><span class="sws"><i style="background:#C9E4D8" title="Menta"></i></span></td></tr>
+        <tr><td class="num">128</td><td><b>Katy</b></td><td>Camisones</td><td>Camisón</td><td class="num">$259</td><td class="num">1</td><td><span class="sws"><i style="background:#BFD9EF" title="Cielo"></i></span></td></tr>
+        <tr><td class="num">129</td><td><b>Jackie</b></td><td>Camisones</td><td>Camisón</td><td class="num">$259</td><td class="num">1</td><td><span class="sws"><i style="background:#F3C9D4" title="Rosa"></i></span></td></tr>
+        <tr><td class="num">135</td><td><b>Willy</b></td><td>Caballero</td><td>Manga corta + short</td><td class="num">$389</td><td class="num">4</td><td><span class="sws"><i style="background:#F3C9D4" title="Rosa"></i><i style="background:#BFD9EF" title="Cielo"></i><i style="background:#F5E3A8" title="Mantequilla"></i><i style="background:#A8DCD9" title="Aqua"></i></span></td></tr>
+        <tr><td class="num">137</td><td><b>Cindy</b></td><td>Dama</td><td>Tirantes + short</td><td class="num">$329</td><td class="num">5</td><td><span class="sws"><i style="background:#F5E3A8" title="Mantequilla"></i><i style="background:#F2EDE4" title="Hueso"></i><i style="background:#F3C9D4" title="Rosa"></i><i style="background:#BFD9EF" title="Cielo"></i><i style="background:#F7C6A3" title="Durazno"></i></span></td></tr>
+        <tr><td class="num">141</td><td><b>Vivian</b></td><td>Dama</td><td>Manga corta + pantalón</td><td class="num">$419</td><td class="num">5</td><td><span class="sws"><i style="background:#C9E4D8" title="Menta"></i><i style="background:#F7C6A3" title="Durazno"></i><i style="background:#F5E3A8" title="Mantequilla"></i><i style="background:#F3C9D4" title="Rosa"></i><i style="background:#BFD9EF" title="Cielo"></i></span></td></tr>
+        <tr><td class="num">142</td><td><b>Penny</b></td><td>Dama</td><td>Tirantes + pantalón</td><td class="num">$399</td><td class="num">5</td><td><span class="sws"><i style="background:#F7C6A3" title="Durazno"></i><i style="background:#C9E4D8" title="Menta"></i><i style="background:#F5E3A8" title="Mantequilla"></i><i style="background:#F3C9D4" title="Rosa"></i><i style="background:#BFD9EF" title="Cielo"></i></span></td></tr>
+        <tr><td class="num">143</td><td><b>Mike</b></td><td>Caballero</td><td>Manga larga + franela</td><td class="num">$499</td><td class="num">9</td><td><span class="sws"><i style="background:#4A7FC1" title="Azul"></i><i style="background:#1B4FA0" title="Azul rey"></i><i style="background:#B07D4F" title="Camel"></i><i style="background:#9A8F84" title="Gris topo"></i><i style="background:#22314F" title="Azul marino"></i><i style="background:#1C1C1C" title="Negro"></i><i style="background:#C8352C" title="Rojo"></i><i style="background:#7A2233" title="Vino"></i><i style="background:#BFD9EF" title="Cielo"></i></span></td></tr>
+        <tr><td class="num">157</td><td><b>Sandra</b></td><td>Dama</td><td>Bordado + capri</td><td class="num">$459</td><td class="num">4</td><td><span class="sws"><i style="background:#0E7A4B" title="Verde bandera"></i><i style="background:#D6007F" title="Fucsia"></i><i style="background:#6B3FA0" title="Morado"></i><i style="background:#1B4FA0" title="Azul rey"></i></span></td></tr>
+        <tr><td class="num">158</td><td><b>Eloísa</b></td><td>Dama</td><td>Bordado + capri</td><td class="num">$459</td><td class="num">3</td><td><span class="sws"><i style="background:#6B3FA0" title="Morado"></i><i style="background:#1B4FA0" title="Azul rey"></i><i style="background:#D6007F" title="Fucsia"></i></span></td></tr>
+        <tr><td class="num">160</td><td><b>Gloria</b></td><td>Dama</td><td>Tirantes + short bordado</td><td class="num">$359</td><td class="num">1</td><td><span class="sws"><i style="background:#22314F" title="Azul marino"></i></span></td></tr>
+        <tr><td class="num">161</td><td><b>Mara</b></td><td>Dama</td><td>Tirantes + short bordado</td><td class="num">$359</td><td class="num">1</td><td><span class="sws"><i style="background:#F07A21" title="Naranja"></i></span></td></tr>
+        <tr><td class="num">162</td><td><b>Sonia</b></td><td>Dama</td><td>Tirantes + short bordado</td><td class="num">$359</td><td class="num">1</td><td><span class="sws"><i style="background:#6B3FA0" title="Morado"></i></span></td></tr>
+        <tr><td class="num">163</td><td><b>Nelly</b></td><td>Dama</td><td>Tirantes + short bordado</td><td class="num">$359</td><td class="num">1</td><td><span class="sws"><i style="background:#C8352C" title="Rojo"></i></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note w">
+    <span class="t">Dos ajustes que salieron al nombrar los colores</span>
+    <p>El modelo <b>135</b> tiene 5 fotos pero solo <b>4 colores</b>: la playera rosa aparece
+      retratada dos veces, en jardín y en interior. Lo mismo pasa en el <b>143</b>, con 10 fotos y
+      <b>9 colores</b> por un azul marino repetido. En ambos casos la segunda foto se carga como
+      imagen adicional de la misma variante, no como color nuevo.</p>
+  </div>
+</section>
+
+<!-- ══════════════ TALLAS ══════════════ -->
+<section id="sTal">
+  <div class="sec-h"><span class="sec-n"></span><h2>Tallas y composición</h2></div>
+  <p class="lede">La talla equivocada es la causa número uno de devolución en ropa en línea, y se
+    previene con una sola cosa: publicar <b>centímetros</b>, no letras. La tabla va enlazada al lado
+    del selector de talla, no escondida en el pie.</p>
+
+  <h3>Dama · medidas del cuerpo en centímetros</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Talla</th><th>Equivalente MX</th><th>Busto</th><th>Cintura</th><th>Cadera</th></tr></thead>
+      <tbody>
+        <tr><td><b>CH</b></td><td class="num">30 – 32</td><td class="num">84 – 89</td><td class="num">66 – 71</td><td class="num">90 – 95</td></tr>
+        <tr><td><b>M</b></td><td class="num">34 – 36</td><td class="num">90 – 95</td><td class="num">72 – 77</td><td class="num">96 – 101</td></tr>
+        <tr><td><b>G</b></td><td class="num">38 – 40</td><td class="num">96 – 101</td><td class="num">78 – 84</td><td class="num">102 – 107</td></tr>
+        <tr><td><b>XG</b></td><td class="num">42 – 44</td><td class="num">102 – 108</td><td class="num">85 – 92</td><td class="num">108 – 114</td></tr>
+        <tr><td><b>2XG</b></td><td class="num">46 – 48</td><td class="num">109 – 116</td><td class="num">93 – 100</td><td class="num">115 – 122</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Caballero · medidas del cuerpo en centímetros</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Talla</th><th>Pecho</th><th>Cintura</th><th>Cadera</th></tr></thead>
+      <tbody>
+        <tr><td><b>CH</b></td><td class="num">89 – 94</td><td class="num">76 – 81</td><td class="num">89 – 94</td></tr>
+        <tr><td><b>M</b></td><td class="num">95 – 100</td><td class="num">82 – 87</td><td class="num">95 – 100</td></tr>
+        <tr><td><b>G</b></td><td class="num">101 – 107</td><td class="num">88 – 94</td><td class="num">101 – 106</td></tr>
+        <tr><td><b>XG</b></td><td class="num">108 – 114</td><td class="num">95 – 102</td><td class="num">107 – 113</td></tr>
+        <tr><td><b>2XG</b></td><td class="num">115 – 122</td><td class="num">103 – 110</td><td class="num">114 – 121</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note g">
+    <span class="t">Regla que baja devoluciones</span>
+    <p>En la página de guía de tallas, poner <b>cómo medirse</b> con un dibujo y una frase por
+      medida, y agregar: «Si quedas entre dos tallas, pide la mayor: nuestros modelos son de corte
+      holgado». Esa sola línea resuelve el caso más frecuente de duda antes de que llegue al
+      WhatsApp.</p>
+  </div>
+
+  <h3>Composición propuesta por familia de tela</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Familia</th><th>Composición</th><th>Gramaje</th><th>Modelos</th></tr></thead>
+      <tbody>
+        <tr><td>Punto liso y estampado</td><td>60 % algodón / 40 % poliéster</td><td class="num">170 g/m²</td><td>102, 103, 104, 105, 107, 124, 137, 141, 142</td></tr>
+        <tr><td>Punto bordado</td><td>100 % algodón</td><td class="num">180 g/m²</td><td>117, 157, 158, 160, 161, 162, 163</td></tr>
+        <tr><td>Punto camisón</td><td>60 % algodón / 40 % poliéster</td><td class="num">165 g/m²</td><td>108, 109, 111, 126, 127, 128, 129</td></tr>
+        <tr><td>Punto caballero</td><td>60 % algodón / 40 % poliéster</td><td class="num">175 – 180 g/m²</td><td>120, 135</td></tr>
+        <tr><td>Franela de algodón</td><td>100 % algodón</td><td class="num">160 g/m²</td><td>143</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note s">
+    <span class="t">Este es el único dato que no se puede estimar</span>
+    <p>La composición de fibra es <b>obligación legal</b> bajo la NOM‑004‑SCFI y tiene que
+      corresponder a la tela real. Un porcentaje inventado en la ficha, aunque suene razonable, es
+      una declaración falsa ante PROFECO y contradice la etiqueta cosida en la prenda. La tabla de
+      arriba es un <b>marcador de posición</b> para poder programar; antes de publicar, cada valor
+      se reemplaza con lo que diga la ficha técnica del proveedor de tela.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 5 ══════════════ -->
+<section id="s5">
+  <div class="sec-h"><span class="sec-n"></span><h2>Mapa del sitio</h2></div>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Ruta</th><th>Página</th><th>Renderizado</th></tr></thead>
+      <tbody>
+        <tr><td><code>/</code></td><td>Inicio</td><td>Estático + ISR</td></tr>
+        <tr><td><code>/[categoria]</code></td><td>Listado por categoría con filtros</td><td>Estático + ISR</td></tr>
+        <tr><td><code>/producto/[slug]</code></td><td>Ficha de producto</td><td>Estático + ISR</td></tr>
+        <tr><td><code>/carrito</code></td><td>Carrito</td><td>Cliente</td></tr>
+        <tr><td><code>/pedido</code></td><td>Datos de envío y cierre</td><td>Cliente</td></tr>
+        <tr><td><code>/pedido/gracias/[folio]</code></td><td>Confirmación</td><td>Servidor</td></tr>
+        <tr><td><code>/ofertas</code></td><td>Todo lo que tiene <code>precio_oferta</code> vigente</td><td>Estático + ISR</td></tr>
+        <tr><td><code>/guia-de-tallas</code></td><td>Medidas en centímetros</td><td>Estático</td></tr>
+        <tr><td><code>/resena/[token]</code></td><td>Formulario de reseña post‑entrega</td><td>Servidor <span class="chip f2">Fase 6</span></td></tr>
+        <tr><td><code>/envios</code> · <code>/cambios</code> · <code>/privacidad</code> · <code>/terminos</code></td><td>Legales</td><td>Estático</td></tr>
+        <tr><td><code>/admin/*</code></td><td>Panel de administración</td><td>Servidor, protegido</td></tr>
+        <tr><td><code>/api/mp/webhook</code></td><td>Notificaciones de Mercado Pago</td><td>Route handler <span class="chip f2">Fase 5</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════ 6 ══════════════ -->
+<section id="s6">
+  <div class="sec-h"><span class="sec-n"></span><h2>Anatomía de las páginas clave</h2></div>
+  <p class="lede">Orden de bloques en móvil, de arriba hacia abajo. En escritorio se reagrupa en dos
+    columnas, pero el orden de prioridad no cambia.</p>
+
+  <h3>Inicio</h3>
+  <ol class="flow">
+    <li><strong>Barra de anuncio</strong><span>Envío gratis desde $X. Dato real de <code>config</code>, no adorno.</span></li>
+    <li><strong>Encabezado</strong><span>Logo simplificado, buscador, carrito con contador.</span></li>
+    <li><strong>Hero</strong><span>Una sola foto de producto a sangre + titular AIDA + un CTA. Sin carrusel: mata el LCP en móvil.</span></li>
+    <li><strong>Tres accesos de categoría</strong><span>Dama · Camisones · Caballero, con foto real de cada una.</span></li>
+    <li><strong>Destacados</strong><span>Carrusel horizontal alimentado por <code>productos.destacado</code>.</span></li>
+    <li><strong>Bloque de confianza</strong><span>Las señales de la fase que corresponda (§09).</span></li>
+    <li><strong>Ofertas vigentes</strong><span>Solo si hay al menos tres; con dos se ve vacío.</span></li>
+    <li><strong>Historia de marca</strong><span>Tres líneas. Hecho en México desde 2019. Es la «S» de PASTOR a nivel sitio.</span></li>
+    <li><strong>Reseñas</strong><span>Oculto hasta tener seis o más aprobadas.</span></li>
+    <li><strong>Preguntas frecuentes</strong><span>Acordeón de objeciones (§07).</span></li>
+    <li><strong>Pie</strong><span>Legales, contacto, redes.</span></li>
+    <li><strong>Botón flotante de WhatsApp</strong><span>Aparece tras 400 px de scroll.</span></li>
+  </ol>
+
+  <h3>Ficha de producto</h3>
+  <ol class="flow">
+    <li><strong>Galería</strong><span>Fotos de la variante seleccionada. Deslizable, con puntos. Sin zoom: la resolución no da (§13).</span></li>
+    <li><strong>Nombre y número de modelo</strong><span>«Mara» grande, «Modelo 161» chico. El número es como la clienta lo pide por WhatsApp.</span></li>
+    <li><strong>Precio</strong><span>Lista tachado + oferta en magenta + porcentaje ahorrado.</span></li>
+    <li><strong>Selector de color</strong><span>Círculos con <code>color_hex</code>. Cambia galería y URL sin recargar.</span></li>
+    <li><strong>Selector de talla</strong><span>Botones; los no disponibles en gris tachado. Enlace a guía de tallas al lado.</span></li>
+    <li><strong>Señal de escasez</strong><span>Solo si <code>stock</code> ≤ 5 y &gt; 0. Real o no aparece.</span></li>
+    <li><strong>CTA principal</strong><span>«Agregar al carrito». Magenta. Barra fija al pie en móvil.</span></li>
+    <li><strong>CTA secundaria</strong><span>«Pedirlo por WhatsApp», verde, con mensaje prellenado con modelo, color y talla.</span></li>
+    <li><strong>Acordeón</strong><span>Composición · Cuidados · Envíos · Cambios. Cerrado por defecto.</span></li>
+    <li><strong>Reseñas del producto</strong></li>
+    <li><strong>Relacionados</strong><span>Misma categoría, excluyendo el actual.</span></li>
+  </ol>
+
+  <div class="note w">
+    <span class="t">Conflicto de botones flotantes</span>
+    <p>En la ficha de producto conviven la barra fija de «Agregar al carrito» y el botón flotante de
+      WhatsApp. El flotante debe subir por encima de la barra —no encimarse— y respetar
+      <code>env(safe-area-inset-bottom)</code> en iPhone. Es el error más común de este patrón y se
+      come el CTA principal en pantallas chicas.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 7 ══════════════ -->
+<section id="s7">
+  <div class="sec-h"><span class="sec-n"></span><h2>Motor de copy</h2></div>
+  <p class="lede">PASTOR para la ficha de producto, donde hay espacio para construir el argumento.
+    AIDA para hero, categorías y anuncios, donde solo hay tres segundos.</p>
+
+  <h3>PASTOR — ficha de producto</h3>
+  <p>Ejemplo real sobre el Modelo 161 Mara, el conjunto de tirantes con girasoles bordados:</p>
+
+  <div class="copy">
+    <div class="row"><div class="lt">Problema</div><div class="tx">Las noches de calor no se aguantan con pijama de manga larga. Y la playera vieja con la que duermes ya dio lo que tenía que dar.</div></div>
+    <div class="row"><div class="lt">Amplificar</div><div class="tx">Duermes mal, amaneces cansada, y cuando llega visita de improviso no te quieres ni asomar así.</div></div>
+    <div class="row"><div class="lt">Solución</div><div class="tx">El 161 Mara es algodón fresco, de tirantes, con short suelto y bolsas. Los girasoles van <b>bordados</b>, no estampados: no se despintan ni se cuartean al décimo lavado.<em>El diferenciador técnico verificable va aquí, no en el titular.</em></div></div>
+    <div class="row"><div class="lt">Testimonio</div><div class="tx">«Me lo puse para dormir y me lo dejé todo el domingo.» — Reseña verificada<em>Se muestra solo cuando existe. Vacío hasta entonces.</em></div></div>
+    <div class="row"><div class="lt">Oferta</div><div class="tx">$XXX · Tallas CH a 2XG · Envío gratis desde $XXX · Cambio de talla sin costo los primeros 15 días.</div></div>
+    <div class="row"><div class="lt">Respuesta</div><div class="tx">Agrégalo al carrito, o mándanos WhatsApp y te apartamos tu talla hoy mismo.</div></div>
+  </div>
+
+  <h3>AIDA — hero de inicio</h3>
+  <div class="copy">
+    <div class="row"><div class="lt">Atención</div><div class="tx">Pijamas que aguantan lavada tras lavada.</div></div>
+    <div class="row"><div class="lt">Interés</div><div class="tx">26 modelos en algodón, para dama y caballero. Hechos en México desde 2019.</div></div>
+    <div class="row"><div class="lt">Deseo</div><div class="tx">Bordados que no se despintan. Tallas CH a 2XG. Cambios sin pretextos.</div></div>
+    <div class="row"><div class="lt">Acción</div><div class="tx">Ver catálogo &nbsp;·&nbsp; Pedir por WhatsApp</div></div>
+  </div>
+
+  <h3>Objeciones a resolver en el acordeón de preguntas</h3>
+  <p>Cada una es una venta que se cae si no está contestada antes de que la clienta tenga que
+    preguntar:</p>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Objeción</th><th>Dónde se resuelve</th></tr></thead>
+      <tbody>
+        <tr><td>¿Qué talla pido?</td><td>Guía con medidas en centímetros, no solo letras. Enlace pegado al selector de talla.</td></tr>
+        <tr><td>¿Y si no me queda?</td><td>Política de cambio visible en la ficha, no escondida en el pie.</td></tr>
+        <tr><td>¿La tela es delgada, se transparenta?</td><td>Gramaje en gramos y una foto a contraluz.</td></tr>
+        <tr><td>¿Se despinta el estampado?</td><td>Distinguir bordado de estampado en cada modelo.</td></tr>
+        <tr><td>¿Cuánto tarda en llegar?</td><td>Días hábiles reales por zona, en la ficha y en el carrito.</td></tr>
+        <tr><td>¿Es seguro pagar aquí?</td><td>Sello de Mercado Pago + opción de cerrar por WhatsApp.</td></tr>
+        <tr><td>¿Existen de verdad?</td><td>Domicilio físico, teléfono, redes con actividad, años operando.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════ 8 ══════════════ -->
+<section id="s8">
+  <div class="sec-h"><span class="sec-n"></span><h2>Urgencia con fuente de verdad</h2></div>
+  <p class="lede">Los mismos mecanismos que pediste, cada uno amarrado a un dato real de la base.
+    Ninguno se inventa, ninguno se reinicia al recargar, y ninguno puede contradecirse con lo que
+    la clienta ve después.</p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Mecanismo</th><th>Fuente de verdad</th><th>Regla de aparición</th></tr></thead>
+      <tbody>
+        <tr><td><b>Últimas N piezas</b></td><td><code>variantes.stock</code></td><td>Solo si <code>stock</code> ≤ 5 y &gt; 0. Se apaga solo.</td></tr>
+        <tr><td><b>Agotado</b></td><td><code>stock = 0</code></td><td>Desactiva el botón y ofrece «Avísame cuando llegue».</td></tr>
+        <tr><td><b>Pide antes de las 4 y sale hoy</b></td><td><code>config.hora_corte_envio</code> + hora del servidor</td><td>Cuenta regresiva real al corte del día. Después de la hora cambia a «sale mañana».</td></tr>
+        <tr><td><b>La oferta termina en…</b></td><td><code>productos.oferta_termina</code></td><td>Al vencer, el precio de oferta deja de aplicar automáticamente. El contador nunca miente porque es el mismo campo que cobra.</td></tr>
+        <tr><td><b>N pedidos esta semana</b></td><td><code>count</code> de <code>pedido_items</code>, 7 días</td><td>Se muestra solo si N ≥ 5. Con menos se ve peor que no ponerlo.</td></tr>
+        <tr><td><b>Te faltan $Y para envío gratis</b></td><td><code>config.envio_gratis_desde</code> vs. carrito</td><td>Barra de progreso en el carrito. Es el de mayor retorno: sube el ticket promedio sin presionar a nadie.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note s">
+    <span class="t">Lo que queda fuera y por qué</span>
+    <p>Contadores que se reinician al recargar, «12 personas están viendo esto» generado al azar y
+      stock ficticio. Tres razones, en orden de importancia práctica: el comprador mexicano ya los
+      identifica y bajan la confianza; caen en publicidad engañosa (art. 32 de la Ley Federal de
+      Protección al Consumidor); y Mercado Pago suspende cuentas por reclamaciones asociadas. Los
+      seis mecanismos de arriba dan el mismo empuje sin ninguno de esos riesgos.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 9 ══════════════ -->
+<section id="s9">
+  <div class="sec-h"><span class="sec-n"></span><h2>Prueba social por fases</h2></div>
+  <p class="lede">La tienda arranca con cero reseñas. El diseño tiene que verse completo el día uno
+    y volverse más fuerte solo, conforme entran pedidos.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <span class="k">Fase 0 · Lanzamiento</span>
+      <span class="v">Confianza sin reseñas</span>
+      <span class="d">Antigüedad verificable («desde 2019»). Fotos reales del taller y del equipo.
+        Número de modelos en catálogo. Garantía de cambio de 15 días en grande. Domicilio y teléfono
+        visibles. Redes con actividad enlazadas. Sellos de Mercado Pago y paqueterías.
+        <b>Ningún bloque de reseñas vacío</b>: si no hay, no se renderiza.</span>
+    </div>
+    <div class="card">
+      <span class="k">Fase 1 · Captura</span>
+      <span class="v">Cosechar desde el día uno</span>
+      <span class="d">A los 3 días de marcar el pedido como entregado, mensaje de WhatsApp con
+        enlace único a <code>/resena/[token]</code>. Incentivo: 10 % en la siguiente compra. Pedir
+        foto es opcional pero es lo que más convierte después.</span>
+    </div>
+    <div class="card">
+      <span class="k">Fase 2 · Explotación</span>
+      <span class="v">Reseñas que venden</span>
+      <span class="d">Insignia de «compra verificada» respaldada por la llave foránea. Galería de
+        fotos de clientas. Dato de ajuste de talla («mide 1.60, pidió M») — resuelve la objeción
+        número uno de ropa en línea. Promedio de estrellas en las tarjetas del listado.</span>
+    </div>
+    <div class="card">
+      <span class="k">Siempre</span>
+      <span class="v">Reseñas negativas visibles</span>
+      <span class="d">Un catálogo con puro cinco estrellas se lee como falso. Publicar las de 3 y 4
+        estrellas con la respuesta de la marca abajo aumenta la conversión más que ocultarlas.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 10 ══════════════ -->
+<section id="s10">
+  <div class="sec-h"><span class="sec-n"></span><h2>WhatsApp: flujo y formato</h2></div>
+
+  <h3>Botón flotante</h3>
+  <ul>
+    <li>Aparece tras 400 px de scroll o 8 segundos, lo que ocurra primero.</li>
+    <li>56 px, esquina inferior derecha, verde <code>#25D366</code>, con etiqueta «¿Te ayudo con tu talla?» la primera vez.</li>
+    <li>Sube por encima de la barra fija de compra en la ficha de producto.</li>
+    <li>Respeta <code>env(safe-area-inset-bottom)</code>.</li>
+    <li><b>Mensaje prellenado según contexto</b>, no genérico. Esa diferencia es la mitad del valor del botón.</li>
+  </ul>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Contexto</th><th>Mensaje prellenado</th></tr></thead>
+      <tbody>
+        <tr><td>Inicio / categoría</td><td>«Hola, quisiera información sobre sus pijamas.»</td></tr>
+        <tr><td>Ficha de producto</td><td>«Hola, me interesa el Modelo 161 Mara en color Naranja. ¿Tienen talla M?»</td></tr>
+        <tr><td>Carrito</td><td>Pedido completo con folio, artículos, cantidades y total.</td></tr>
+        <tr><td>Producto agotado</td><td>«Hola, ¿cuándo vuelve a haber el Modelo 161 Mara en Naranja?»</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Cierre de pedido por WhatsApp</h3>
+  <ol class="flow">
+    <li><strong>La clienta llena el formulario en el sitio</strong><span>Nombre, teléfono, dirección de envío. Con aviso de privacidad y casilla de consentimiento.</span></li>
+    <li><strong>Se crea el pedido en la base</strong><span><code>canal = 'whatsapp'</code>, <code>estado = 'nuevo'</code>, folio generado. Los datos quedan guardados aunque la conversación nunca ocurra.</span></li>
+    <li><strong>Se abre WhatsApp con el resumen</strong><span><code>https://wa.me/52XXXXXXXXXX?text=…</code> con el folio al inicio.</span></li>
+    <li><strong>El cliente confirma y cobra</strong><span>Transferencia, depósito o efectivo contra entrega, según su operación actual.</span></li>
+    <li><strong>Se mueve el estado en el admin</strong><span>Confirmado → Pagado → Enviado → Entregado. Cada cambio deja fecha.</span></li>
+    <li><strong>Entregado dispara la reseña</strong><span>A los 3 días, automático. <span class="chip f2">Fase 6</span></span></li>
+  </ol>
+
+  <div class="note g">
+    <span class="t">Por qué guardar el pedido antes de abrir WhatsApp</span>
+    <p>Si el pedido solo existiera en el chat, cada conversación abandonada sería invisible. Al
+      guardarlo primero, el admin ve los pedidos que se quedaron en «nuevo» y el cliente puede
+      recuperarlos con una llamada. En este canal esa recuperación suele valer más que toda la
+      optimización del embudo.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 11 ══════════════ -->
+<section id="s11">
+  <div class="sec-h"><span class="sec-n"></span><h2>Mercado Pago: preparación</h2>
+  </div>
+  <p class="lede"><span class="chip f2">Fase 5 — requiere credenciales</span> Se construye desde
+    ahora y se deja apagado. Encenderlo debe ser cambiar un valor en <code>config</code>, no
+    programar.</p>
+
+  <ul>
+    <li><b>Checkout Pro con redirección.</b> El cliente sale a Mercado Pago y regresa. Cero datos de
+      tarjeta tocando el servidor, cero alcance PCI. Para un comercio de este tamaño no hay
+      discusión.</li>
+    <li><b>Meses sin intereses.</b> Es la palanca de conversión más fuerte de México y se configura
+      del lado de Mercado Pago. Si están disponibles, se anuncian en la ficha.</li>
+    <li><b>El interruptor</b> <code>config.mercadopago_activo</code> decide si el botón de pago en
+      línea aparece. Con él apagado, el sitio funciona idéntico a hoy.</li>
+  </ul>
+
+  <h3>Reglas del webhook</h3>
+  <ol>
+    <li>Nunca confiar en el estado que llega por la URL de retorno. Solo el webhook y una consulta
+      de verificación al API definen si se pagó.</li>
+    <li>Idempotencia por <code>mp_payment_id</code>, que es <code>unique</code> en la tabla: Mercado
+      Pago reintenta y el mismo pago puede llegar varias veces.</li>
+    <li>Responder <code>200</code> rápido y procesar aparte, o el reintento se dispara solo.</li>
+    <li>El stock se descuenta al confirmarse el pago, no al agregar al carrito.</li>
+    <li>Probar el ciclo completo con credenciales de prueba y usuarios de prueba antes de tocar
+      producción.</li>
+  </ol>
+
+  <div class="note w">
+    <span class="t">Qué hace falta pedirle al cliente</span>
+    <p>Cuenta de Mercado Pago <b>verificada a nombre del negocio</b> (no personal), Public Key y
+      Access Token de producción, y el mismo par de prueba. La verificación de la cuenta suele
+      tardar y conviene arrancarla ya, en paralelo al desarrollo, no al final.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 12 ══════════════ -->
+<section id="s12">
+  <div class="sec-h"><span class="sec-n"></span><h2>Panel de administración</h2></div>
+  <p class="lede">Lo va a usar el cliente desde el celular, probablemente parado en el taller. Toda
+    pantalla tiene que funcionar a 375 px de ancho, con el pulgar y sin manual.</p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Pantalla</th><th>Qué permite</th></tr></thead>
+      <tbody>
+        <tr><td><b>Entrar</b></td><td>Correo y contraseña. Sesión larga: nadie quiere teclear una contraseña de 16 caracteres tres veces al día en un celular.</td></tr>
+        <tr><td><b>Tablero</b></td><td>Pedidos nuevos sin atender, ventas del mes, variantes agotadas, reseñas por aprobar. Cuatro números y sus atajos.</td></tr>
+        <tr><td><b>Productos</b></td><td>Lista con buscador y filtro por categoría. Interruptores de <i>activo</i> y <i>destacado</i> directo en la lista, sin entrar a editar.</td></tr>
+        <tr><td><b>Editar producto</b></td><td>Datos, precios, oferta con fecha de inicio y fin, colores con reordenamiento arrastrable, carga múltiple de fotos, tallas por color.</td></tr>
+        <tr><td><b>Pedidos</b></td><td>Lista por estado, detalle, cambio de estado, captura de guía, y botón para copiar el mensaje de seguimiento listo para WhatsApp.</td></tr>
+        <tr><td><b>Reseñas</b></td><td>Cola de aprobación con vista previa. Aprobar, rechazar o responder.</td></tr>
+        <tr><td><b>Configuración</b></td><td>Número de WhatsApp, monto de envío gratis, costo de envío, hora de corte, texto del banner, interruptor de Mercado Pago.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note w">
+    <span class="t">Regla de carga de imágenes</span>
+    <p>Al subir, el admin <b>avisa si la foto mide menos de 1200 px</b> por el lado mayor y sugiere
+      pedir el original. Sin ese aviso, el catálogo se va llenando de imágenes de 600 px y en un año
+      el problema es irreversible. El recorte a proporción 3:4 se hace en la carga, no en el
+      navegador de la clienta.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 13 ══════════════ -->
+<section id="s13">
+  <div class="sec-h"><span class="sec-n"></span><h2>Lo que falta para poder lanzar</h2></div>
+  <p class="lede">Lo marcado como <b>propuesto</b> ya está sembrado en la base y permite programar
+    y demostrar el sitio hoy; solo hay que confirmarlo antes de publicar. Lo marcado como
+    <b>bloqueante</b> no existe en ninguna parte y solo lo tiene el cliente: esa es la lista que
+    conviene mandarle hoy mismo.</p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Dato</th><th>Volumen</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td>Precio de lista por modelo</td><td class="num">26</td><td><span class="chip prop">Propuesto · confirmar</span></td></tr>
+        <tr><td>Corrida de tallas y medidas en centímetros</td><td class="num">2 tablas</td><td><span class="chip prop">Propuesto · confirmar</span></td></tr>
+        <tr><td>Composición de fibra por modelo</td><td class="num">26</td><td><span class="chip bloq">Confirmar · legal</span></td></tr>
+        <tr><td>Nombre de color de cada variante</td><td class="num">85</td><td><span class="chip prop">Propuesto · confirmar</span></td></tr>
+        <tr><td>Descripción de producto</td><td class="num">26</td><td><span class="chip prop">Borrador escrito</span></td></tr>
+        <tr><td>Stock inicial por variante</td><td class="num">85</td><td><span class="chip bloq">Bloqueante</span></td></tr>
+        <tr><td>Número de WhatsApp del negocio</td><td class="num">1</td><td><span class="chip bloq">Bloqueante</span></td></tr>
+        <tr><td>Costos y zonas de envío, paquetería</td><td class="num">1 tabla</td><td><span class="chip bloq">Bloqueante</span></td></tr>
+        <tr><td>Razón social, RFC, domicilio fiscal</td><td class="num">—</td><td><span class="chip bloq">Bloqueante · legal</span></td></tr>
+        <tr><td>Política de cambios y devoluciones</td><td class="num">—</td><td><span class="chip bloq">Bloqueante · legal</span></td></tr>
+        <tr><td>Fichas de los 7 camisones (no tienen PDF)</td><td class="num">7</td><td><span class="chip falta">Falta</span></td></tr>
+        <tr><td>Fotos originales a 1200 px o más</td><td class="num">80</td><td><span class="chip falta">Mejora fuerte</span></td></tr>
+        <tr><td>Confirmar si Frida es modelo 117 o 157</td><td class="num">1</td><td><span class="chip falta">Dato sucio</span></td></tr>
+        <tr><td>Definir «Wuilly» o «Willy» en el modelo 135</td><td class="num">1</td><td><span class="chip falta">Sembrado como Willy</span></td></tr>
+        <tr><td>Logo simplificado para encabezado móvil</td><td class="num">1</td><td><span class="chip falta">Falta</span></td></tr>
+        <tr><td>Credenciales de Mercado Pago</td><td class="num">4</td><td><span class="chip f2">Fase 5</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note w">
+    <span class="t">Sobre la resolución de las fotos</span>
+    <p>Las 80 imágenes extraídas tienen una mediana de <b>614 px</b> en el lado mayor y el 95 % está
+      por debajo de 1000 px. Alcanza bien para móvil, que es el 80 % del tráfico esperado en este
+      canal, pero obliga a tres concesiones: sin zoom en la ficha, ancho máximo limitado en
+      escritorio, y normalizar las tres proporciones distintas (1:1, 2:3, 3:4) a un solo 3:4 con
+      recorte centrado en la prenda. Si quien produjo las fotos conserva los originales, pedirlos es
+      la mejora de calidad más barata de todo el proyecto.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 14 ══════════════ -->
+<section id="s14">
+  <div class="sec-h"><span class="sec-n"></span><h2>Cumplimiento legal (México)</h2></div>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Norma</th><th>Qué obliga</th><th>Dónde vive</th></tr></thead>
+      <tbody>
+        <tr><td><b>NOM‑004‑SCFI</b></td><td>Composición de fibras en porcentaje, talla, instrucciones de cuidado, país de origen y datos del fabricante.</td><td>Campo <code>composicion</code> y <code>cuidados</code>, visibles en cada ficha.</td></tr>
+        <tr><td><b>LFPC art. 32</b></td><td>Prohíbe la publicidad engañosa. Alcanza reseñas fabricadas, descuentos sobre precios inflados y escasez ficticia.</td><td>§08 y §09 están diseñados alrededor de esto.</td></tr>
+        <tr><td><b>LFPC art. 76 bis</b></td><td>En comercio electrónico: informar precio total antes de cerrar, confirmar el pedido, y dar domicilio y teléfono reales.</td><td>Carrito, página de gracias y pie.</td></tr>
+        <tr><td><b>LFPDPPP</b></td><td>Aviso de privacidad accesible y consentimiento al capturar datos personales, incluido el teléfono para WhatsApp.</td><td><code>/privacidad</code> + casilla en el formulario de pedido.</td></tr>
+        <tr><td><b>Higiene</b></td><td>La ropa íntima admite excepción a la devolución por razones sanitarias, pero <b>solo si está declarada</b> antes de la compra.</td><td><code>/cambios</code>, y resumida en el acordeón de la ficha.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════ 15 ══════════════ -->
+<section id="s15">
+  <div class="sec-h"><span class="sec-n"></span><h2>Presupuesto de rendimiento</h2></div>
+  <p class="lede">La clienta objetivo entra desde un teléfono de gama media con datos móviles. El
+    rendimiento aquí no es una métrica de vanidad: es la diferencia entre que vea el producto o no.</p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Métrica</th><th>Objetivo</th><th>Cómo se sostiene</th></tr></thead>
+      <tbody>
+        <tr><td>LCP en 4G</td><td class="num">&lt; 2.5 s</td><td>Hero como imagen estática con <code>priority</code>. Nada de carrusel arriba del pliegue.</td></tr>
+        <tr><td>JavaScript inicial</td><td class="num">&lt; 200 KB</td><td>Server Components. Solo carrito y galería llevan cliente.</td></tr>
+        <tr><td>CLS</td><td class="num">&lt; 0.1</td><td><code>width</code> y <code>height</code> en toda imagen; espacio reservado para la barra de anuncio.</td></tr>
+        <tr><td>Fuentes</td><td class="num">≤ 4 archivos</td><td><code>next/font</code>, subset latin, <code>display:swap</code>, dos pesos por familia.</td></tr>
+        <tr><td>Imágenes</td><td class="num">AVIF / WebP</td><td><code>next/image</code> con <code>sizes</code> correcto y carga diferida bajo el pliegue.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════ 16 ══════════════ -->
+<section id="s16">
+  <div class="sec-h"><span class="sec-n"></span><h2>Fases de entrega</h2></div>
+  <p class="lede">Las fases sí son una secuencia: cada una depende de la anterior. La captura de
+    contenido (F4) corre en paralelo desde el día uno porque es lo que más tarda y no depende de
+    código.</p>
+
+  <ol class="flow">
+    <li><strong>F1 · Cimientos</strong><span>Repositorio, proyecto Supabase, esquema y RLS, autenticación, almacenamiento, CRUD de productos en el admin. Al terminar, el cliente ya puede capturar.</span></li>
+    <li><strong>F2 · Catálogo público</strong><span>Sistema de diseño en código, inicio, categorías, ficha de producto, normalización de las 80 imágenes a 3:4.</span></li>
+    <li><strong>F3 · Conversión</strong><span>Carrito, formulario de pedido, cierre por WhatsApp, botón flotante contextual, los seis mecanismos de urgencia, copy PASTOR y AIDA.</span></li>
+    <li><strong>F4 · Contenido y legal</strong><span>Captura de los 26 modelos, textos legales, guía de tallas, SEO, datos estructurados de producto. Arranca en paralelo desde F1.</span></li>
+    <li><strong>F5 · Mercado Pago</strong><span>Preferencia, webhook, conciliación, pruebas con credenciales de sandbox. Se dispara cuando lleguen las credenciales.</span></li>
+    <li><strong>F6 · Reseñas</strong><span>Solicitud automática post‑entrega, formulario con token, cola de aprobación, insignia de compra verificada. Después del lanzamiento, cuando ya haya pedidos entregados.</span></li>
+  </ol>
+
+  <div class="note g">
+    <span class="t">Ruta crítica</span>
+    <p>El sitio puede estar terminado y aun así no abrir, porque lo que bloquea el lanzamiento es la
+      lista de §13 —precios, tallas, composición, colores, envíos— y esa lista solo la llena el
+      cliente. Mandársela hoy, antes de escribir la primera línea de código, es la decisión que más
+      adelanta la fecha de apertura.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Especificación v2 · Rossy Lady · Agosto 2026. Las decisiones de §01 están cerradas. Precios,
+    tallas, colores y descripciones son propuestas ya sembradas en <code>db/seed.sql</code>, sujetas
+    a confirmación del cliente. El documento se actualiza conforme lleguen los datos pendientes.</p>
+</footer>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  var secs = Array.prototype.slice.call(document.querySelectorAll('main section'));
+  var titles = secs.map(function(s,i){
+    return { id:s.id, n:('0'+(i+1)).slice(-2), t:s.querySelector('h2').textContent };
+  });
+  function build(el){
+    titles.forEach(function(x){
+      var li = document.createElement('li');
+      var a  = document.createElement('a');
+      a.href = '#'+x.id;
+      a.innerHTML = '<span class="n">'+x.n+'</span><span>'+x.t+'</span>';
+      a.dataset.for = x.id;
+      li.appendChild(a); el.appendChild(li);
+    });
+  }
+  build(document.getElementById('tocD'));
+  build(document.getElementById('tocM'));
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc-list a'));
+  if ('IntersectionObserver' in window){
+    var seen = {};
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ seen[e.target.id] = e.isIntersecting; });
+      var active = null;
+      for (var i=0;i<secs.length;i++){ if (seen[secs[i].id]){ active = secs[i].id; break; } }
+      if (!active) return;
+      links.forEach(function(a){ a.classList.toggle('on', a.dataset.for === active); });
+    }, { rootMargin:'-10% 0px -70% 0px', threshold:0 });
+    secs.forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
