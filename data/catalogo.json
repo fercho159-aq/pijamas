@@ -1,0 +1,1020 @@
+{
+ "_nota": "Respaldo local. Si hay credenciales de Supabase, la app lee de la base y este archivo se ignora.",
+ "config": {
+  "envioGratisDesde": 699,
+  "costoEnvio": 99,
+  "horaCorte": "4:00 pm",
+  "whatsapp": "5215512345678"
+ },
+ "tallas": [
+  "CH",
+  "M",
+  "G",
+  "XG",
+  "2XG"
+ ],
+ "categorias": [
+  {
+   "slug": "dama",
+   "nombre": "Pijamas para dama",
+   "sub": "Conjuntos de dos piezas"
+  },
+  {
+   "slug": "camisones",
+   "nombre": "Camisones",
+   "sub": "Una pieza, corte holgado"
+  },
+  {
+   "slug": "caballero",
+   "nombre": "Pijamas para caballero",
+   "sub": "Manga larga y corta"
+  }
+ ],
+ "productos": [
+  {
+   "numero": 102,
+   "nombre": "Alexa",
+   "slug": "102-alexa",
+   "categoria": "dama",
+   "tipo": "Manga corta + short",
+   "descripcion": "Conjunto de manga corta con cuello en V y short con resorte suave. Estampado de florecitas en todo el cuerpo.",
+   "composicion": "60% algodón / 40% poliéster . 170 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 349,
+   "precioOferta": null,
+   "destacado": true,
+   "colores": [
+    {
+     "nombre": "Menta",
+     "hex": "#C9E4D8",
+     "sku": "RL-102-MEN",
+     "stock": 2,
+     "img": "/productos/102-menta.jpg"
+    },
+    {
+     "nombre": "Cielo",
+     "hex": "#BFD9EF",
+     "sku": "RL-102-CIE",
+     "stock": 20,
+     "img": "/productos/102-cielo.jpg"
+    },
+    {
+     "nombre": "Mantequilla",
+     "hex": "#F5E3A8",
+     "sku": "RL-102-MAN",
+     "stock": 10,
+     "img": "/productos/102-mantequilla.jpg"
+    },
+    {
+     "nombre": "Rosa",
+     "hex": "#F3C9D4",
+     "sku": "RL-102-ROS",
+     "stock": 23,
+     "img": "/productos/102-rosa.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 103,
+   "nombre": "Marilyn",
+   "slug": "103-marilyn",
+   "categoria": "dama",
+   "tipo": "Tirantes + capri",
+   "descripcion": "Blusa de tirantes ancho y capri a media pierna. Punto liso, fresco para noches templadas.",
+   "composicion": "60% algodón / 40% poliéster . 170 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 369,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Rosa",
+     "hex": "#F3C9D4",
+     "sku": "RL-103-ROS",
+     "stock": 14,
+     "img": "/productos/103-rosa.jpg"
+    },
+    {
+     "nombre": "Durazno",
+     "hex": "#F7C6A3",
+     "sku": "RL-103-DUR",
+     "stock": 27,
+     "img": "/productos/103-durazno.jpg"
+    },
+    {
+     "nombre": "Menta",
+     "hex": "#C9E4D8",
+     "sku": "RL-103-MEN",
+     "stock": 17,
+     "img": "/productos/103-menta.jpg"
+    },
+    {
+     "nombre": "Cielo",
+     "hex": "#BFD9EF",
+     "sku": "RL-103-CIE",
+     "stock": 2,
+     "img": "/productos/103-cielo.jpg"
+    },
+    {
+     "nombre": "Mantequilla",
+     "hex": "#F5E3A8",
+     "sku": "RL-103-MAN",
+     "stock": 20,
+     "img": "/productos/103-mantequilla.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 104,
+   "nombre": "Annet",
+   "slug": "104-annet",
+   "categoria": "dama",
+   "tipo": "Manga corta + capri",
+   "descripcion": "Playera blanca de manga corta con vivo de color y capri a juego. El contraste no se despinta: es tela teñida, no estampado.",
+   "composicion": "60% algodón / 40% poliéster . 170 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 389,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Durazno",
+     "hex": "#F7C6A3",
+     "sku": "RL-104-DUR",
+     "stock": 21,
+     "img": "/productos/104-durazno.jpg"
+    },
+    {
+     "nombre": "Cielo",
+     "hex": "#BFD9EF",
+     "sku": "RL-104-CIE",
+     "stock": 11,
+     "img": "/productos/104-cielo.jpg"
+    },
+    {
+     "nombre": "Rosa",
+     "hex": "#F3C9D4",
+     "sku": "RL-104-ROS",
+     "stock": 24,
+     "img": "/productos/104-rosa.jpg"
+    },
+    {
+     "nombre": "Menta",
+     "hex": "#C9E4D8",
+     "sku": "RL-104-MEN",
+     "stock": 14,
+     "img": "/productos/104-menta.jpg"
+    },
+    {
+     "nombre": "Verde agua",
+     "hex": "#BCDCD2",
+     "sku": "RL-104-VER",
+     "stock": 27,
+     "img": "/productos/104-verde-agua.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 105,
+   "nombre": "Michelle",
+   "slug": "105-michelle",
+   "categoria": "dama",
+   "tipo": "Tirantes + pantalon",
+   "descripcion": "Tirantes con pantalón largo de puño recto. El modelo más pedido para época de frío ligero.",
+   "composicion": "60% algodón / 40% poliéster . 170 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 399,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Rosa",
+     "hex": "#F3C9D4",
+     "sku": "RL-105-ROS",
+     "stock": 28,
+     "img": "/productos/105-rosa.jpg"
+    },
+    {
+     "nombre": "Cielo",
+     "hex": "#BFD9EF",
+     "sku": "RL-105-CIE",
+     "stock": 18,
+     "img": "/productos/105-cielo.jpg"
+    },
+    {
+     "nombre": "Menta",
+     "hex": "#C9E4D8",
+     "sku": "RL-105-MEN",
+     "stock": 3,
+     "img": "/productos/105-menta.jpg"
+    },
+    {
+     "nombre": "Mantequilla",
+     "hex": "#F5E3A8",
+     "sku": "RL-105-MAN",
+     "stock": 21,
+     "img": "/productos/105-mantequilla.jpg"
+    },
+    {
+     "nombre": "Durazno",
+     "hex": "#F7C6A3",
+     "sku": "RL-105-DUR",
+     "stock": 11,
+     "img": "/productos/105-durazno.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 107,
+   "nombre": "Vero",
+   "slug": "107-vero",
+   "categoria": "dama",
+   "tipo": "Manga corta + pantalon",
+   "descripcion": "Manga corta con cuello en V y pantalón largo holgado. Corte amplio, sin costuras que aprieten.",
+   "composicion": "60% algodón / 40% poliéster . 170 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 419,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Rosa",
+     "hex": "#F3C9D4",
+     "sku": "RL-107-ROS",
+     "stock": 19,
+     "img": "/productos/107-rosa.jpg"
+    },
+    {
+     "nombre": "Menta",
+     "hex": "#C9E4D8",
+     "sku": "RL-107-MEN",
+     "stock": 4,
+     "img": "/productos/107-menta.jpg"
+    },
+    {
+     "nombre": "Mantequilla",
+     "hex": "#F5E3A8",
+     "sku": "RL-107-MAN",
+     "stock": 22,
+     "img": "/productos/107-mantequilla.jpg"
+    },
+    {
+     "nombre": "Durazno",
+     "hex": "#F7C6A3",
+     "sku": "RL-107-DUR",
+     "stock": 12,
+     "img": "/productos/107-durazno.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 108,
+   "nombre": "Paty",
+   "slug": "108-paty",
+   "categoria": "camisones",
+   "tipo": "Camison",
+   "descripcion": "Camisón de manga corta con carita de perro estampada al frente. Largo a la rodilla, con abertura lateral.",
+   "composicion": "60% algodón / 40% poliéster . 165 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 259,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Mantequilla",
+     "hex": "#F5E3A8",
+     "sku": "RL-108-MAN",
+     "stock": 26,
+     "img": "/productos/108-mantequilla.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 109,
+   "nombre": "Diana",
+   "slug": "109-diana",
+   "categoria": "camisones",
+   "tipo": "Camison",
+   "descripcion": "Camisón de manga corta con estampado menudo en todo el cuerpo. Corte holgado.",
+   "composicion": "60% algodón / 40% poliéster . 165 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 259,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Cielo",
+     "hex": "#BFD9EF",
+     "sku": "RL-109-CIE",
+     "stock": 10,
+     "img": "/productos/109-cielo.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 111,
+   "nombre": "Jazmín",
+   "slug": "111-jazmin",
+   "categoria": "camisones",
+   "tipo": "Camison",
+   "descripcion": "Camisón abotonado con cuello camisero, dos bolsas y estampado menudo. Se abre por completo.",
+   "composicion": "60% algodón / 40% poliéster . 165 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 259,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Mantequilla",
+     "hex": "#F5E3A8",
+     "sku": "RL-111-MAN",
+     "stock": 24,
+     "img": "/productos/111-mantequilla.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 117,
+   "nombre": "Frida",
+   "slug": "117-frida",
+   "categoria": "dama",
+   "tipo": "Bordado + capri",
+   "descripcion": "Manga corta y capri en color firme, con flor de lis bordada en pecho y pierna. Bordado real: no se cuartea ni se despinta.",
+   "composicion": "100% algodón . 180 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 459,
+   "precioOferta": null,
+   "destacado": true,
+   "colores": [
+    {
+     "nombre": "Morado",
+     "hex": "#6B3FA0",
+     "sku": "RL-117-MOR",
+     "stock": 20,
+     "img": "/productos/117-morado.jpg"
+    },
+    {
+     "nombre": "Azul rey",
+     "hex": "#1B4FA0",
+     "sku": "RL-117-AZU",
+     "stock": 10,
+     "img": "/productos/117-azul-rey.jpg"
+    },
+    {
+     "nombre": "Fucsia",
+     "hex": "#D6007F",
+     "sku": "RL-117-FUC",
+     "stock": 23,
+     "img": "/productos/117-fucsia.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 120,
+   "nombre": "Héctor",
+   "slug": "120-hector",
+   "categoria": "caballero",
+   "tipo": "Manga larga + pantalon",
+   "descripcion": "Conjunto de caballero de manga larga con cuello redondo y pantalón largo. Punto grueso, para dormir con fresco.",
+   "composicion": "60% algodón / 40% poliéster . 180 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 469,
+   "precioOferta": 399,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Azul rey",
+     "hex": "#1B4FA0",
+     "sku": "RL-120-AZU",
+     "stock": 18,
+     "img": "/productos/120-azul-rey.jpg"
+    },
+    {
+     "nombre": "Rojo",
+     "hex": "#C8352C",
+     "sku": "RL-120-ROJ",
+     "stock": 3,
+     "img": "/productos/120-rojo.jpg"
+    },
+    {
+     "nombre": "Amarillo",
+     "hex": "#F5D547",
+     "sku": "RL-120-AMA",
+     "stock": 21,
+     "img": "/productos/120-amarillo.jpg"
+    },
+    {
+     "nombre": "Vino",
+     "hex": "#7A2233",
+     "sku": "RL-120-VIN",
+     "stock": 11,
+     "img": "/productos/120-vino.jpg"
+    },
+    {
+     "nombre": "Azul",
+     "hex": "#4A7FC1",
+     "sku": "RL-120-AZU",
+     "stock": 24,
+     "img": "/productos/120-azul.jpg"
+    },
+    {
+     "nombre": "Gris jaspe",
+     "hex": "#B9B7B4",
+     "sku": "RL-120-GRI",
+     "stock": 14,
+     "img": "/productos/120-gris-jaspe.jpg"
+    },
+    {
+     "nombre": "Verde jade",
+     "hex": "#2E9E7B",
+     "sku": "RL-120-VER",
+     "stock": 27,
+     "img": "/productos/120-verde-jade.jpg"
+    },
+    {
+     "nombre": "Negro",
+     "hex": "#1C1C1C",
+     "sku": "RL-120-NEG",
+     "stock": 17,
+     "img": "/productos/120-negro.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 124,
+   "nombre": "Alondra",
+   "slug": "124-alondra",
+   "categoria": "dama",
+   "tipo": "Manga corta + pantalon",
+   "descripcion": "Camisa de botones con bolsa al pecho y pantalón largo. El clásico de dos piezas abotonado.",
+   "composicion": "60% algodón / 40% poliéster . 170 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 419,
+   "precioOferta": 349,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Durazno",
+     "hex": "#F7C6A3",
+     "sku": "RL-124-DUR",
+     "stock": 23,
+     "img": "/productos/124-durazno.jpg"
+    },
+    {
+     "nombre": "Cielo",
+     "hex": "#BFD9EF",
+     "sku": "RL-124-CIE",
+     "stock": 13,
+     "img": "/productos/124-cielo.jpg"
+    },
+    {
+     "nombre": "Coral",
+     "hex": "#F0A088",
+     "sku": "RL-124-COR",
+     "stock": 26,
+     "img": "/productos/124-coral.jpg"
+    },
+    {
+     "nombre": "Menta",
+     "hex": "#C9E4D8",
+     "sku": "RL-124-MEN",
+     "stock": 16,
+     "img": "/productos/124-menta.jpg"
+    },
+    {
+     "nombre": "Mantequilla",
+     "hex": "#F5E3A8",
+     "sku": "RL-124-MAN",
+     "stock": 0,
+     "img": "/productos/124-mantequilla.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 126,
+   "nombre": "Linda",
+   "slug": "126-linda",
+   "categoria": "camisones",
+   "tipo": "Camison",
+   "descripcion": "Camisón de manga corta con carita de gato al frente. Largo a la rodilla.",
+   "composicion": "60% algodón / 40% poliéster . 165 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 259,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Rosa",
+     "hex": "#F3C9D4",
+     "sku": "RL-126-ROS",
+     "stock": 14,
+     "img": "/productos/126-rosa.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 127,
+   "nombre": "Denise",
+   "slug": "127-denise",
+   "categoria": "camisones",
+   "tipo": "Camison",
+   "descripcion": "Camisón de manga corta con rana estampada al frente. Corte amplio.",
+   "composicion": "60% algodón / 40% poliéster . 165 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 259,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Menta",
+     "hex": "#C9E4D8",
+     "sku": "RL-127-MEN",
+     "stock": 21,
+     "img": "/productos/127-menta.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 128,
+   "nombre": "Katy",
+   "slug": "128-katy",
+   "categoria": "camisones",
+   "tipo": "Camison",
+   "descripcion": "Camisón de manga corta con gatito estampado de cuerpo entero. Largo a la rodilla.",
+   "composicion": "60% algodón / 40% poliéster . 165 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 259,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Cielo",
+     "hex": "#BFD9EF",
+     "sku": "RL-128-CIE",
+     "stock": 28,
+     "img": "/productos/128-cielo.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 129,
+   "nombre": "Jackie",
+   "slug": "129-jackie",
+   "categoria": "camisones",
+   "tipo": "Camison",
+   "descripcion": "Camisón de manga corta con pollito estampado al frente. Corte holgado.",
+   "composicion": "60% algodón / 40% poliéster . 165 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 259,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Rosa",
+     "hex": "#F3C9D4",
+     "sku": "RL-129-ROS",
+     "stock": 12,
+     "img": "/productos/129-rosa.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 135,
+   "nombre": "Willy",
+   "slug": "135-willy",
+   "categoria": "caballero",
+   "tipo": "Manga corta + short",
+   "descripcion": "Playera de manga corta con ribete en cuello y mangas, y short con bolsas. Conjunto de caballero para calor.",
+   "composicion": "60% algodón / 40% poliéster . 175 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 389,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Rosa",
+     "hex": "#F3C9D4",
+     "sku": "RL-135-ROS",
+     "stock": 3,
+     "img": "/productos/135-rosa.jpg"
+    },
+    {
+     "nombre": "Cielo",
+     "hex": "#BFD9EF",
+     "sku": "RL-135-CIE",
+     "stock": 21,
+     "img": "/productos/135-cielo.jpg"
+    },
+    {
+     "nombre": "Mantequilla",
+     "hex": "#F5E3A8",
+     "sku": "RL-135-MAN",
+     "stock": 11,
+     "img": "/productos/135-mantequilla.jpg"
+    },
+    {
+     "nombre": "Aqua",
+     "hex": "#A8DCD9",
+     "sku": "RL-135-AQU",
+     "stock": 24,
+     "img": "/productos/135-aqua.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 137,
+   "nombre": "Cindy",
+   "slug": "137-cindy",
+   "categoria": "dama",
+   "tipo": "Tirantes + short",
+   "descripcion": "Tirantes delgados y short suelto. La opción más fresca del catálogo.",
+   "composicion": "60% algodón / 40% poliéster . 170 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 329,
+   "precioOferta": 279,
+   "destacado": true,
+   "colores": [
+    {
+     "nombre": "Mantequilla",
+     "hex": "#F5E3A8",
+     "sku": "RL-137-MAN",
+     "stock": 22,
+     "img": "/productos/137-mantequilla.jpg"
+    },
+    {
+     "nombre": "Hueso",
+     "hex": "#F2EDE4",
+     "sku": "RL-137-HUE",
+     "stock": 12,
+     "img": "/productos/137-hueso.jpg"
+    },
+    {
+     "nombre": "Rosa",
+     "hex": "#F3C9D4",
+     "sku": "RL-137-ROS",
+     "stock": 25,
+     "img": "/productos/137-rosa.jpg"
+    },
+    {
+     "nombre": "Cielo",
+     "hex": "#BFD9EF",
+     "sku": "RL-137-CIE",
+     "stock": 15,
+     "img": "/productos/137-cielo.jpg"
+    },
+    {
+     "nombre": "Durazno",
+     "hex": "#F7C6A3",
+     "sku": "RL-137-DUR",
+     "stock": 28,
+     "img": "/productos/137-durazno.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 141,
+   "nombre": "Vivian",
+   "slug": "141-vivian",
+   "categoria": "dama",
+   "tipo": "Manga corta + pantalon",
+   "descripcion": "Manga corta con pantalón largo de corte recto. Punto liso en tonos pastel.",
+   "composicion": "60% algodón / 40% poliéster . 170 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 419,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Menta",
+     "hex": "#C9E4D8",
+     "sku": "RL-141-MEN",
+     "stock": 27,
+     "img": "/productos/141-menta.jpg"
+    },
+    {
+     "nombre": "Durazno",
+     "hex": "#F7C6A3",
+     "sku": "RL-141-DUR",
+     "stock": 17,
+     "img": "/productos/141-durazno.jpg"
+    },
+    {
+     "nombre": "Mantequilla",
+     "hex": "#F5E3A8",
+     "sku": "RL-141-MAN",
+     "stock": 2,
+     "img": "/productos/141-mantequilla.jpg"
+    },
+    {
+     "nombre": "Rosa",
+     "hex": "#F3C9D4",
+     "sku": "RL-141-ROS",
+     "stock": 20,
+     "img": "/productos/141-rosa.jpg"
+    },
+    {
+     "nombre": "Cielo",
+     "hex": "#BFD9EF",
+     "sku": "RL-141-CIE",
+     "stock": 10,
+     "img": "/productos/141-cielo.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 142,
+   "nombre": "Penny",
+   "slug": "142-penny",
+   "categoria": "dama",
+   "tipo": "Tirantes + pantalon",
+   "descripcion": "Tirantes con pantalón largo entallado al tobillo. Silueta larga y ligera.",
+   "composicion": "60% algodón / 40% poliéster . 170 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 399,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Durazno",
+     "hex": "#F7C6A3",
+     "sku": "RL-142-DUR",
+     "stock": 11,
+     "img": "/productos/142-durazno.jpg"
+    },
+    {
+     "nombre": "Menta",
+     "hex": "#C9E4D8",
+     "sku": "RL-142-MEN",
+     "stock": 24,
+     "img": "/productos/142-menta.jpg"
+    },
+    {
+     "nombre": "Mantequilla",
+     "hex": "#F5E3A8",
+     "sku": "RL-142-MAN",
+     "stock": 14,
+     "img": "/productos/142-mantequilla.jpg"
+    },
+    {
+     "nombre": "Rosa",
+     "hex": "#F3C9D4",
+     "sku": "RL-142-ROS",
+     "stock": 27,
+     "img": "/productos/142-rosa.jpg"
+    },
+    {
+     "nombre": "Cielo",
+     "hex": "#BFD9EF",
+     "sku": "RL-142-CIE",
+     "stock": 17,
+     "img": "/productos/142-cielo.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 143,
+   "nombre": "Mike",
+   "slug": "143-mike",
+   "categoria": "caballero",
+   "tipo": "Manga larga + franela",
+   "descripcion": "Manga larga con botones al cuello, bolsa al pecho y pantalón de cuadros en franela de algodón. El más abrigador del catálogo.",
+   "composicion": "100% algodón, tejido franela . 160 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 499,
+   "precioOferta": null,
+   "destacado": true,
+   "colores": [
+    {
+     "nombre": "Azul",
+     "hex": "#4A7FC1",
+     "sku": "RL-143-AZU",
+     "stock": 18,
+     "img": "/productos/143-azul.jpg"
+    },
+    {
+     "nombre": "Azul rey",
+     "hex": "#1B4FA0",
+     "sku": "RL-143-AZU",
+     "stock": 3,
+     "img": "/productos/143-azul-rey.jpg"
+    },
+    {
+     "nombre": "Camel",
+     "hex": "#B07D4F",
+     "sku": "RL-143-CAM",
+     "stock": 21,
+     "img": "/productos/143-camel.jpg"
+    },
+    {
+     "nombre": "Gris topo",
+     "hex": "#9A8F84",
+     "sku": "RL-143-GRI",
+     "stock": 11,
+     "img": "/productos/143-gris-topo.jpg"
+    },
+    {
+     "nombre": "Azul marino",
+     "hex": "#22314F",
+     "sku": "RL-143-AZU",
+     "stock": 24,
+     "img": "/productos/143-azul-marino.jpg"
+    },
+    {
+     "nombre": "Negro",
+     "hex": "#1C1C1C",
+     "sku": "RL-143-NEG",
+     "stock": 14,
+     "img": "/productos/143-negro.jpg"
+    },
+    {
+     "nombre": "Rojo",
+     "hex": "#C8352C",
+     "sku": "RL-143-ROJ",
+     "stock": 27,
+     "img": "/productos/143-rojo.jpg"
+    },
+    {
+     "nombre": "Vino",
+     "hex": "#7A2233",
+     "sku": "RL-143-VIN",
+     "stock": 17,
+     "img": "/productos/143-vino.jpg"
+    },
+    {
+     "nombre": "Cielo",
+     "hex": "#BFD9EF",
+     "sku": "RL-143-CIE",
+     "stock": 2,
+     "img": "/productos/143-cielo.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 157,
+   "nombre": "Sandra",
+   "slug": "157-sandra",
+   "categoria": "dama",
+   "tipo": "Bordado + capri",
+   "descripcion": "Manga corta y capri con girasoles bordados en pecho y piernas. Colores firmes que aguantan lavada tras lavada.",
+   "composicion": "100% algodón . 180 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 459,
+   "precioOferta": null,
+   "destacado": true,
+   "colores": [
+    {
+     "nombre": "Verde bandera",
+     "hex": "#0E7A4B",
+     "sku": "RL-157-VER",
+     "stock": 24,
+     "img": "/productos/157-verde-bandera.jpg"
+    },
+    {
+     "nombre": "Fucsia",
+     "hex": "#D6007F",
+     "sku": "RL-157-FUC",
+     "stock": 14,
+     "img": "/productos/157-fucsia.jpg"
+    },
+    {
+     "nombre": "Morado",
+     "hex": "#6B3FA0",
+     "sku": "RL-157-MOR",
+     "stock": 27,
+     "img": "/productos/157-morado.jpg"
+    },
+    {
+     "nombre": "Azul rey",
+     "hex": "#1B4FA0",
+     "sku": "RL-157-AZU",
+     "stock": 17,
+     "img": "/productos/157-azul-rey.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 158,
+   "nombre": "Eloísa",
+   "slug": "158-eloisa",
+   "categoria": "dama",
+   "tipo": "Bordado + capri",
+   "descripcion": "Manga corta y capri con margaritas bordadas. Bordado a hilo, no estampado.",
+   "composicion": "100% algodón . 180 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 459,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Morado",
+     "hex": "#6B3FA0",
+     "sku": "RL-158-MOR",
+     "stock": 3,
+     "img": "/productos/158-morado.jpg"
+    },
+    {
+     "nombre": "Azul rey",
+     "hex": "#1B4FA0",
+     "sku": "RL-158-AZU",
+     "stock": 21,
+     "img": "/productos/158-azul-rey.jpg"
+    },
+    {
+     "nombre": "Fucsia",
+     "hex": "#D6007F",
+     "sku": "RL-158-FUC",
+     "stock": 11,
+     "img": "/productos/158-fucsia.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 160,
+   "nombre": "Gloria",
+   "slug": "160-gloria",
+   "categoria": "dama",
+   "tipo": "Tirantes + short bordado",
+   "descripcion": "Blusa blanca de tirantes con short de color y flores bordadas en ambas piezas.",
+   "composicion": "100% algodón . 180 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 359,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Azul marino",
+     "hex": "#22314F",
+     "sku": "RL-160-AZU",
+     "stock": 22,
+     "img": "/productos/160-azul-marino.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 161,
+   "nombre": "Mara",
+   "slug": "161-mara",
+   "categoria": "dama",
+   "tipo": "Tirantes + short bordado",
+   "descripcion": "Blusa blanca de tirantes con short naranja y girasoles bordados. Short con bolsas laterales.",
+   "composicion": "100% algodón . 180 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 359,
+   "precioOferta": null,
+   "destacado": true,
+   "colores": [
+    {
+     "nombre": "Naranja",
+     "hex": "#F07A21",
+     "sku": "RL-161-NAR",
+     "stock": 0,
+     "img": "/productos/161-naranja.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 162,
+   "nombre": "Sonia",
+   "slug": "162-sonia",
+   "categoria": "dama",
+   "tipo": "Tirantes + short bordado",
+   "descripcion": "Blusa blanca de tirantes con short de color y flores bordadas. Short con bolsas.",
+   "composicion": "100% algodón . 180 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 359,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Morado",
+     "hex": "#6B3FA0",
+     "sku": "RL-162-MOR",
+     "stock": 13,
+     "img": "/productos/162-morado.jpg"
+    }
+   ]
+  },
+  {
+   "numero": 163,
+   "nombre": "Nelly",
+   "slug": "163-nelly",
+   "categoria": "dama",
+   "tipo": "Tirantes + short bordado",
+   "descripcion": "Blusa blanca de tirantes con ribete de color, short a juego y flores bordadas.",
+   "composicion": "100% algodón . 180 g/m²",
+   "cuidados": "Lavar a maquina en agua fria con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del reves.",
+   "precioLista": 359,
+   "precioOferta": null,
+   "destacado": false,
+   "colores": [
+    {
+     "nombre": "Rojo",
+     "hex": "#C8352C",
+     "sku": "RL-163-ROJ",
+     "stock": 20,
+     "img": "/productos/163-rojo.jpg"
+    }
+   ]
+  }
+ ]
+}
