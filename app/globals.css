@@ -256,23 +256,71 @@ details.acc .cuerpo { padding: 0 0 15px; font-size: 14.5px; color: var(--ink2); 
   .barra { position: static; margin: 26px 0 0; padding: 0; border: none; background: none; backdrop-filter: none; }
 }
 
-/* ── Hero ─────────────────────────────────────────────────────── */
-.hero { position: relative; background: var(--surface); }
-.hero img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 22%; }
-.hero-ov {
-  position: absolute; inset: auto 0 0 0; padding: 90px 0 26px; color: #fff;
-  background: linear-gradient(to top, rgba(28,10,22,.86), rgba(28,10,22,.32) 55%, transparent);
+/* ── Hero ─────────────────────────────────────────────────────
+   La foto nunca se agranda: en movil ocupa el ancho de pantalla
+   con su proporcion 3:4, y en escritorio se topa en 500 px. El
+   origen tiene 1005 px nativos, asi que aguanta densidad doble.
+   ───────────────────────────────────────────────────────────── */
+.hero { background: var(--surface); border-bottom: 1px solid var(--line); }
+/* a sangre en movil: el contenedor recupera su padding en escritorio */
+.hero-in { position: relative; padding-left: 0; padding-right: 0; }
+.hero-foto { position: relative; }
+.hero-foto img {
+  width: 100%; height: auto; aspect-ratio: 3/4;
+  object-fit: cover; object-position: center 18%;
 }
-.hero h1 { font-size: clamp(28px, 6.4vw, 46px); color: #fff; letter-spacing: -.022em; max-width: 16ch; }
-.hero p { margin: 10px 0 18px; font-size: clamp(14px, 2.4vw, 17px); opacity: .94; max-width: 44ch; }
+
+/* Movil: el texto va encima de la foto, sobre un degradado. */
+.hero-txt {
+  position: absolute; inset: auto 0 0 0; z-index: 2;
+  padding: 100px 16px 24px; color: #fff;
+  background: linear-gradient(to top, rgba(28,10,22,.9), rgba(28,10,22,.42) 52%, transparent);
+}
+.hero-eyebrow {
+  display: block; font-size: 11px; font-weight: 700; letter-spacing: .13em;
+  text-transform: uppercase; opacity: .85; margin-bottom: 9px;
+}
+.hero h1 {
+  font-size: clamp(29px, 7vw, 40px); color: inherit;
+  letter-spacing: -.022em; max-width: 15ch;
+}
+.hero-txt p { margin: 10px 0 18px; font-size: 15px; opacity: .93; max-width: 40ch; }
 .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
 .hero-gho {
-  background: rgba(255,255,255,.16); color: #fff;
-  border: 1px solid rgba(255,255,255,.5); backdrop-filter: blur(4px);
+  background: rgba(255,255,255,.17); color: #fff;
+  border: 1px solid rgba(255,255,255,.55); backdrop-filter: blur(4px);
 }
-@media (min-width: 820px) {
-  .hero img { aspect-ratio: 21/9; object-position: center 18%; }
-  .hero-ov { padding: 130px 0 44px; }
+.hero-puntos {
+  display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 18px 0 0;
+  padding: 0; list-style: none; font-size: 13px; opacity: .9;
+}
+.hero-puntos li { display: flex; align-items: center; gap: 7px; }
+.hero-puntos li::before {
+  content: ''; width: 6px; height: 6px; border-radius: 10px;
+  background: currentColor; flex: none; opacity: .7;
+}
+
+/* Escritorio: dos columnas, sin superposicion. */
+@media (min-width: 900px) {
+  .hero-in {
+    display: grid; grid-template-columns: 1fr minmax(0, 500px);
+    gap: 56px; align-items: center;
+    padding: 52px 28px;
+  }
+  .hero-foto { order: 2; }
+  .hero-foto img { border-radius: 16px; aspect-ratio: 4/5; }
+  .hero-txt {
+    position: static; order: 1; padding: 0; color: var(--ink);
+    background: none;
+  }
+  .hero-eyebrow { color: var(--accent); opacity: 1; }
+  .hero h1 { font-size: clamp(38px, 4.4vw, 56px); }
+  .hero-txt p { color: var(--ink2); font-size: 17px; opacity: 1; }
+  .hero-gho {
+    background: var(--ground); color: var(--ink);
+    border: 1px solid var(--line-fuerte); backdrop-filter: none;
+  }
+  .hero-puntos { color: var(--ink2); opacity: 1; font-size: 13.5px; }
 }
 
 /* ── Categorías ───────────────────────────────────────────────── */

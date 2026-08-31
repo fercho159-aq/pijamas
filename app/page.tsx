@@ -26,7 +26,6 @@ export default async function Inicio() {
     .sort((a, b) => b.estrellas - a.estrellas || b.fecha.localeCompare(a.fecha))
     .slice(0, 6)
 
-  const heroe = todos.find((p) => p.numero === 161) ?? todos[0]
   const portadaDe = (slug: string) =>
     todos.find((p) => p.categoria === slug)?.colores[0].img ?? '/logo.png'
 
@@ -59,31 +58,43 @@ export default async function Inicio() {
 
   return (
     <>
-      {/* Hero: una sola foto, sin carrusel. El carrusel arruina el LCP en móvil. */}
+      {/*
+        Hero partido. Antes era una foto retrato estirada a 21:9 a todo lo
+        ancho: 600 px de origen sobre 1400 px de pantalla, de ahi lo borroso.
+        Ahora la columna de la foto nunca pasa de 500 px, y el origen tiene
+        1005 px nativos: nitida incluso en pantallas de doble densidad.
+      */}
       <section className="hero">
-        <Image
-          src={heroe.colores[0].img}
-          alt={`Pijama ${heroe.nombre}, modelo ${heroe.numero}`}
-          width={600}
-          height={800}
-          priority
-          sizes="100vw"
-        />
-        <div className="hero-ov">
-          <div className="envoltura">
+        <div className="hero-in envoltura">
+          <div className="hero-foto">
+            <Image
+              src="/hero/hero-163.jpg"
+              alt="Modelo con el conjunto Nelly, blusa de tirantes blanca y short rojo con flores bordadas"
+              width={1005}
+              height={1335}
+              priority
+              sizes="(min-width: 900px) 500px, 100vw"
+            />
+          </div>
+
+          <div className="hero-txt">
+            <span className="hero-eyebrow">Hechas en México desde 2019</span>
             <h1>Pijamas que aguantan lavada tras lavada.</h1>
             <p>
-              {todos.length} modelos en algodón, para dama y caballero. Hechos en México desde
-              2019.
+              {todos.length} modelos en algodón, para dama y caballero. De la talla CH a la 2XG.
             </p>
             <div className="hero-btns">
               <Link className="btn btn-pri" href="/dama">
                 Ver catálogo
               </Link>
-              <Link className="btn hero-gho" href={`/producto/${heroe.slug}`}>
+              <Link className="btn hero-gho" href="/producto/163-nelly">
                 Ver este modelo
               </Link>
             </div>
+            <ul className="hero-puntos">
+              <li>Envío gratis desde {pesos(config.envioGratisDesde)}</li>
+              <li>Cambio de talla sin costo</li>
+            </ul>
           </div>
         </div>
       </section>
