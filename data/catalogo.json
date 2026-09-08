@@ -168,7 +168,7 @@
     {
      "nombre": "Verde agua",
      "hex": "#BCDCD2",
-     "sku": "RL-104-VER",
+     "sku": "RL-104-VEA",
      "stock": 27,
      "img": "/productos/104-verde-agua.jpg"
     }
@@ -356,7 +356,7 @@
     {
      "nombre": "Azul rey",
      "hex": "#1B4FA0",
-     "sku": "RL-117-AZU",
+     "sku": "RL-117-AZR",
      "stock": 10,
      "img": "/productos/117-azul-rey.jpg"
     },
@@ -385,7 +385,7 @@
     {
      "nombre": "Azul rey",
      "hex": "#1B4FA0",
-     "sku": "RL-120-AZU",
+     "sku": "RL-120-AZR",
      "stock": 18,
      "img": "/productos/120-azul-rey.jpg"
     },
@@ -420,14 +420,14 @@
     {
      "nombre": "Gris jaspe",
      "hex": "#B9B7B4",
-     "sku": "RL-120-GRI",
+     "sku": "RL-120-GRJ",
      "stock": 14,
      "img": "/productos/120-gris-jaspe.jpg"
     },
     {
      "nombre": "Verde jade",
      "hex": "#2E9E7B",
-     "sku": "RL-120-VER",
+     "sku": "RL-120-VEJ",
      "stock": 27,
      "img": "/productos/120-verde-jade.jpg"
     },
@@ -794,7 +794,7 @@
     {
      "nombre": "Azul rey",
      "hex": "#1B4FA0",
-     "sku": "RL-143-AZU",
+     "sku": "RL-143-AZR",
      "stock": 3,
      "img": "/productos/143-azul-rey.jpg"
     },
@@ -808,14 +808,14 @@
     {
      "nombre": "Gris topo",
      "hex": "#9A8F84",
-     "sku": "RL-143-GRI",
+     "sku": "RL-143-GRT",
      "stock": 11,
      "img": "/productos/143-gris-topo.jpg"
     },
     {
      "nombre": "Azul marino",
      "hex": "#22314F",
-     "sku": "RL-143-AZU",
+     "sku": "RL-143-AZM",
      "stock": 24,
      "img": "/productos/143-azul-marino.jpg"
     },
@@ -865,7 +865,7 @@
     {
      "nombre": "Verde bandera",
      "hex": "#0E7A4B",
-     "sku": "RL-157-VER",
+     "sku": "RL-157-VEB",
      "stock": 24,
      "img": "/productos/157-verde-bandera.jpg"
     },
@@ -886,7 +886,7 @@
     {
      "nombre": "Azul rey",
      "hex": "#1B4FA0",
-     "sku": "RL-157-AZU",
+     "sku": "RL-157-AZR",
      "stock": 17,
      "img": "/productos/157-azul-rey.jpg"
     }
@@ -915,7 +915,7 @@
     {
      "nombre": "Azul rey",
      "hex": "#1B4FA0",
-     "sku": "RL-158-AZU",
+     "sku": "RL-158-AZR",
      "stock": 21,
      "img": "/productos/158-azul-rey.jpg"
     },
@@ -944,7 +944,7 @@
     {
      "nombre": "Azul marino",
      "hex": "#22314F",
-     "sku": "RL-160-AZU",
+     "sku": "RL-160-AZM",
      "stock": 22,
      "img": "/productos/160-azul-marino.jpg"
     }

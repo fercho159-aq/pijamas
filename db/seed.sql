@@ -108,7 +108,7 @@ with p as (
     ('Cielo', '#BFD9EF', 'RL-104-CIE', 1),
     ('Rosa', '#F3C9D4', 'RL-104-ROS', 2),
     ('Menta', '#C9E4D8', 'RL-104-MEN', 3),
-    ('Verde agua', '#BCDCD2', 'RL-104-VER', 4)
+    ('Verde agua', '#BCDCD2', 'RL-104-VEA', 4)
   ) as c(nombre, hex, sku, orden)
   returning id
 )
@@ -248,7 +248,7 @@ with p as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
   select p.id, c.nombre, c.hex, c.sku, 0, c.orden from p, (values
     ('Morado', '#6B3FA0', 'RL-117-MOR', 0),
-    ('Azul rey', '#1B4FA0', 'RL-117-AZU', 1),
+    ('Azul rey', '#1B4FA0', 'RL-117-AZR', 1),
     ('Fucsia', '#D6007F', 'RL-117-FUC', 2)
   ) as c(nombre, hex, sku, orden)
   returning id
@@ -271,13 +271,13 @@ with p as (
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
   select p.id, c.nombre, c.hex, c.sku, 0, c.orden from p, (values
-    ('Azul rey', '#1B4FA0', 'RL-120-AZU', 0),
+    ('Azul rey', '#1B4FA0', 'RL-120-AZR', 0),
     ('Rojo', '#C8352C', 'RL-120-ROJ', 1),
     ('Amarillo', '#F5D547', 'RL-120-AMA', 2),
     ('Vino', '#7A2233', 'RL-120-VIN', 3),
     ('Azul', '#4A7FC1', 'RL-120-AZU', 4),
-    ('Gris jaspe', '#B9B7B4', 'RL-120-GRI', 5),
-    ('Verde jade', '#2E9E7B', 'RL-120-VER', 6),
+    ('Gris jaspe', '#B9B7B4', 'RL-120-GRJ', 5),
+    ('Verde jade', '#2E9E7B', 'RL-120-VEJ', 6),
     ('Negro', '#1C1C1C', 'RL-120-NEG', 7)
   ) as c(nombre, hex, sku, orden)
   returning id
@@ -518,10 +518,10 @@ with p as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
   select p.id, c.nombre, c.hex, c.sku, 0, c.orden from p, (values
     ('Azul', '#4A7FC1', 'RL-143-AZU', 0),
-    ('Azul rey', '#1B4FA0', 'RL-143-AZU', 1),
+    ('Azul rey', '#1B4FA0', 'RL-143-AZR', 1),
     ('Camel', '#B07D4F', 'RL-143-CAM', 2),
-    ('Gris topo', '#9A8F84', 'RL-143-GRI', 3),
-    ('Azul marino', '#22314F', 'RL-143-AZU', 4),
+    ('Gris topo', '#9A8F84', 'RL-143-GRT', 3),
+    ('Azul marino', '#22314F', 'RL-143-AZM', 4),
     ('Negro', '#1C1C1C', 'RL-143-NEG', 5),
     ('Rojo', '#C8352C', 'RL-143-ROJ', 6),
     ('Vino', '#7A2233', 'RL-143-VIN', 7),
@@ -547,10 +547,10 @@ with p as (
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
   select p.id, c.nombre, c.hex, c.sku, 0, c.orden from p, (values
-    ('Verde bandera', '#0E7A4B', 'RL-157-VER', 0),
+    ('Verde bandera', '#0E7A4B', 'RL-157-VEB', 0),
     ('Fucsia', '#D6007F', 'RL-157-FUC', 1),
     ('Morado', '#6B3FA0', 'RL-157-MOR', 2),
-    ('Azul rey', '#1B4FA0', 'RL-157-AZU', 3)
+    ('Azul rey', '#1B4FA0', 'RL-157-AZR', 3)
   ) as c(nombre, hex, sku, orden)
   returning id
 )
@@ -573,7 +573,7 @@ with p as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
   select p.id, c.nombre, c.hex, c.sku, 0, c.orden from p, (values
     ('Morado', '#6B3FA0', 'RL-158-MOR', 0),
-    ('Azul rey', '#1B4FA0', 'RL-158-AZU', 1),
+    ('Azul rey', '#1B4FA0', 'RL-158-AZR', 1),
     ('Fucsia', '#D6007F', 'RL-158-FUC', 2)
   ) as c(nombre, hex, sku, orden)
   returning id
@@ -596,7 +596,7 @@ with p as (
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
   select p.id, c.nombre, c.hex, c.sku, 0, c.orden from p, (values
-    ('Azul marino', '#22314F', 'RL-160-AZU', 0)
+    ('Azul marino', '#22314F', 'RL-160-AZM', 0)
   ) as c(nombre, hex, sku, orden)
   returning id
 )
