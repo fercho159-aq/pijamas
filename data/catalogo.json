@@ -40,7 +40,7 @@
    "descripcion": "Conjunto de manga corta con cuello en V y short con resorte suave. Estampado de florecitas en todo el cuerpo.",
    "composicion": "60% algodón / 40% poliéster · 170 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 349,
+   "precioLista": 159,
    "precioOferta": null,
    "destacado": true,
    "colores": [
@@ -83,7 +83,7 @@
    "descripcion": "Blusa de tirantes ancho y capri a media pierna. Punto liso, fresco para noches templadas.",
    "composicion": "60% algodón / 40% poliéster · 170 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 369,
+   "precioLista": 179,
    "precioOferta": null,
    "destacado": false,
    "colores": [
@@ -133,7 +133,7 @@
    "descripcion": "Playera blanca de manga corta con vivo de color y capri a juego. El contraste no se despinta: es tela teñida, no estampado.",
    "composicion": "60% algodón / 40% poliéster · 170 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 389,
+   "precioLista": 189,
    "precioOferta": null,
    "destacado": false,
    "colores": [
@@ -183,7 +183,7 @@
    "descripcion": "Tirantes con pantalón largo de puño recto. El modelo más pedido para época de frío ligero.",
    "composicion": "60% algodón / 40% poliéster · 170 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 399,
+   "precioLista": 169,
    "precioOferta": null,
    "destacado": false,
    "colores": [
@@ -233,7 +233,7 @@
    "descripcion": "Manga corta con cuello en V y pantalón largo holgado. Corte amplio, sin costuras que aprieten.",
    "composicion": "60% algodón / 40% poliéster · 170 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 419,
+   "precioLista": 189,
    "precioOferta": null,
    "destacado": false,
    "colores": [
@@ -276,7 +276,7 @@
    "descripcion": "Camisón de manga corta con carita de perro estampada al frente. Largo a la rodilla, con abertura lateral.",
    "composicion": "60% algodón / 40% poliéster · 165 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 259,
+   "precioLista": 129,
    "precioOferta": null,
    "destacado": false,
    "colores": [
@@ -320,7 +320,7 @@
    "descripcion": "Camisón abotonado con cuello camisero, dos bolsas y estampado menudo. Se abre por completo.",
    "composicion": "60% algodón / 40% poliéster · 165 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 259,
+   "precioLista": 169,
    "precioOferta": null,
    "destacado": false,
    "colores": [
@@ -342,7 +342,7 @@
    "descripcion": "Manga corta y capri en color firme, con flor de lis bordada en pecho y pierna. Bordado real: no se cuartea ni se despinta.",
    "composicion": "100% algodón · 180 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 459,
+   "precioLista": 239,
    "precioOferta": null,
    "destacado": true,
    "colores": [
@@ -378,8 +378,8 @@
    "descripcion": "Conjunto de caballero de manga larga con cuello redondo y pantalón largo. Punto grueso, para dormir con fresco.",
    "composicion": "60% algodón / 40% poliéster · 180 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 469,
-   "precioOferta": 399,
+   "precioLista": 219,
+   "precioOferta": null,
    "destacado": false,
    "colores": [
     {
@@ -449,8 +449,8 @@
    "descripcion": "Camisa de botones con bolsa al pecho y pantalón largo. El clásico de dos piezas abotonado.",
    "composicion": "60% algodón / 40% poliéster · 170 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 419,
-   "precioOferta": 349,
+   "precioLista": 189,
+   "precioOferta": null,
    "destacado": false,
    "colores": [
     {
@@ -499,7 +499,7 @@
    "descripcion": "Camisón de manga corta con carita de gato al frente. Largo a la rodilla.",
    "composicion": "60% algodón / 40% poliéster · 165 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 259,
+   "precioLista": 129,
    "precioOferta": null,
    "destacado": false,
    "colores": [
@@ -543,7 +543,7 @@
    "descripcion": "Camisón de manga corta con gatito estampado de cuerpo entero. Largo a la rodilla.",
    "composicion": "60% algodón / 40% poliéster · 165 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 259,
+   "precioLista": 129,
    "precioOferta": null,
    "destacado": false,
    "colores": [
@@ -565,7 +565,7 @@
    "descripcion": "Camisón de manga corta con pollito estampado al frente. Corte holgado.",
    "composicion": "60% algodón / 40% poliéster · 165 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 259,
+   "precioLista": 129,
    "precioOferta": null,
    "destacado": false,
    "colores": [
@@ -587,7 +587,7 @@
    "descripcion": "Playera de manga corta con ribete en cuello y mangas, y short con bolsas. Conjunto de caballero para calor.",
    "composicion": "60% algodón / 40% poliéster · 175 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 389,
+   "precioLista": 195,
    "precioOferta": null,
    "destacado": false,
    "colores": [
@@ -630,8 +630,8 @@
    "descripcion": "Tirantes delgados y short suelto. La opción más fresca del catálogo.",
    "composicion": "60% algodón / 40% poliéster · 170 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 329,
-   "precioOferta": 279,
+   "precioLista": 149,
+   "precioOferta": null,
    "destacado": true,
    "colores": [
     {
@@ -680,7 +680,7 @@
    "descripcion": "Manga corta con pantalón largo de corte recto. Punto liso en tonos pastel.",
    "composicion": "60% algodón / 40% poliéster · 170 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 419,
+   "precioLista": 169,
    "precioOferta": null,
    "destacado": false,
    "colores": [
@@ -730,7 +730,7 @@
    "descripcion": "Tirantes con pantalón largo entallado al tobillo. Silueta larga y ligera.",
    "composicion": "60% algodón / 40% poliéster · 170 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 399,
+   "precioLista": 179,
    "precioOferta": null,
    "destacado": false,
    "colores": [
@@ -780,7 +780,7 @@
    "descripcion": "Manga larga con botones al cuello, bolsa al pecho y pantalón de cuadros en franela de algodón. El más abrigador del catálogo.",
    "composicion": "100% algodón, tejido franela · 160 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 499,
+   "precioLista": 299,
    "precioOferta": null,
    "destacado": true,
    "colores": [
@@ -858,7 +858,7 @@
    "descripcion": "Manga corta y capri con girasoles bordados en pecho y piernas. Colores firmes que aguantan lavada tras lavada.",
    "composicion": "100% algodón · 180 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 459,
+   "precioLista": 239,
    "precioOferta": null,
    "destacado": true,
    "colores": [
@@ -901,7 +901,7 @@
    "descripcion": "Manga corta y capri con margaritas bordadas. Bordado a hilo, no estampado.",
    "composicion": "100% algodón · 180 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 459,
+   "precioLista": 239,
    "precioOferta": null,
    "destacado": false,
    "colores": [
@@ -937,7 +937,7 @@
    "descripcion": "Blusa blanca de tirantes con short de color y flores bordadas en ambas piezas.",
    "composicion": "100% algodón · 180 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 359,
+   "precioLista": 129,
    "precioOferta": null,
    "destacado": false,
    "colores": [
@@ -959,7 +959,7 @@
    "descripcion": "Blusa blanca de tirantes con short naranja y girasoles bordados. Short con bolsas laterales.",
    "composicion": "100% algodón · 180 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 359,
+   "precioLista": 129,
    "precioOferta": null,
    "destacado": true,
    "colores": [
@@ -981,7 +981,7 @@
    "descripcion": "Blusa blanca de tirantes con short de color y flores bordadas. Short con bolsas.",
    "composicion": "100% algodón · 180 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 359,
+   "precioLista": 129,
    "precioOferta": null,
    "destacado": false,
    "colores": [
@@ -1003,7 +1003,7 @@
    "descripcion": "Blusa blanca de tirantes con ribete de color, short a juego y flores bordadas.",
    "composicion": "100% algodón · 180 g/m²",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
-   "precioLista": 359,
+   "precioLista": 129,
    "precioOferta": null,
    "destacado": false,
    "colores": [

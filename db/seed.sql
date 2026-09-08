@@ -48,7 +48,7 @@ with p as (
      'Conjunto de manga corta con cuello en V y short con resorte suave. Estampado de florecitas en todo el cuerpo.',
      '60% algodón / 40% poliéster · 170 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     349, true)
+     159, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -73,7 +73,7 @@ with p as (
      'Blusa de tirantes ancho y capri a media pierna. Punto liso, fresco para noches templadas.',
      '60% algodón / 40% poliéster · 170 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     369, true)
+     179, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -99,7 +99,7 @@ with p as (
      'Playera blanca de manga corta con vivo de color y capri a juego. El contraste no se despinta: es tela teñida, no estampado.',
      '60% algodón / 40% poliéster · 170 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     389, true)
+     189, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -125,7 +125,7 @@ with p as (
      'Tirantes con pantalón largo de puño recto. El modelo más pedido para época de frío ligero.',
      '60% algodón / 40% poliéster · 170 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     399, true)
+     169, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -151,7 +151,7 @@ with p as (
      'Manga corta con cuello en V y pantalón largo holgado. Corte amplio, sin costuras que aprieten.',
      '60% algodón / 40% poliéster · 170 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     419, true)
+     189, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -176,7 +176,7 @@ with p as (
      'Camisón de manga corta con carita de perro estampada al frente. Largo a la rodilla, con abertura lateral.',
      '60% algodón / 40% poliéster · 165 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     259, true)
+     129, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -220,7 +220,7 @@ with p as (
      'Camisón abotonado con cuello camisero, dos bolsas y estampado menudo. Se abre por completo.',
      '60% algodón / 40% poliéster · 165 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     259, true)
+     169, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -242,7 +242,7 @@ with p as (
      'Manga corta y capri en color firme, con flor de lis bordada en pecho y pierna. Bordado real: no se cuartea ni se despinta.',
      '100% algodón · 180 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     459, true)
+     239, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -266,7 +266,7 @@ with p as (
      'Conjunto de caballero de manga larga con cuello redondo y pantalón largo. Punto grueso, para dormir con fresco.',
      '60% algodón / 40% poliéster · 180 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     469, true)
+     219, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -295,7 +295,7 @@ with p as (
      'Camisa de botones con bolsa al pecho y pantalón largo. El clásico de dos piezas abotonado.',
      '60% algodón / 40% poliéster · 170 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     419, true)
+     189, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -321,7 +321,7 @@ with p as (
      'Camisón de manga corta con carita de gato al frente. Largo a la rodilla.',
      '60% algodón / 40% poliéster · 165 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     259, true)
+     129, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -365,7 +365,7 @@ with p as (
      'Camisón de manga corta con gatito estampado de cuerpo entero. Largo a la rodilla.',
      '60% algodón / 40% poliéster · 165 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     259, true)
+     129, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -387,7 +387,7 @@ with p as (
      'Camisón de manga corta con pollito estampado al frente. Corte holgado.',
      '60% algodón / 40% poliéster · 165 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     259, true)
+     129, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -409,7 +409,7 @@ with p as (
      'Playera de manga corta con ribete en cuello y mangas, y short con bolsas. Conjunto de caballero para calor.',
      '60% algodón / 40% poliéster · 175 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     389, true)
+     195, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -434,7 +434,7 @@ with p as (
      'Tirantes delgados y short suelto. La opción más fresca del catálogo.',
      '60% algodón / 40% poliéster · 170 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     329, true)
+     149, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -460,7 +460,7 @@ with p as (
      'Manga corta con pantalón largo de corte recto. Punto liso en tonos pastel.',
      '60% algodón / 40% poliéster · 170 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     419, true)
+     169, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -486,7 +486,7 @@ with p as (
      'Tirantes con pantalón largo entallado al tobillo. Silueta larga y ligera.',
      '60% algodón / 40% poliéster · 170 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     399, true)
+     179, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -512,7 +512,7 @@ with p as (
      'Manga larga con botones al cuello, bolsa al pecho y pantalón de cuadros en franela de algodón. El más abrigador del catálogo.',
      '100% algodón, tejido franela · 160 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     499, true)
+     299, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -542,7 +542,7 @@ with p as (
      'Manga corta y capri con girasoles bordados en pecho y piernas. Colores firmes que aguantan lavada tras lavada.',
      '100% algodón · 180 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     459, true)
+     239, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -567,7 +567,7 @@ with p as (
      'Manga corta y capri con margaritas bordadas. Bordado a hilo, no estampado.',
      '100% algodón · 180 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     459, true)
+     239, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -591,7 +591,7 @@ with p as (
      'Blusa blanca de tirantes con short de color y flores bordadas en ambas piezas.',
      '100% algodón · 180 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     359, true)
+     129, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -613,7 +613,7 @@ with p as (
      'Blusa blanca de tirantes con short naranja y girasoles bordados. Short con bolsas laterales.',
      '100% algodón · 180 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     359, true)
+     129, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -635,7 +635,7 @@ with p as (
      'Blusa blanca de tirantes con short de color y flores bordadas. Short con bolsas.',
      '100% algodón · 180 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     359, true)
+     129, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -657,7 +657,7 @@ with p as (
      'Blusa blanca de tirantes con ribete de color, short a juego y flores bordadas.',
      '100% algodón · 180 g/m²',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     359, true)
+     129, true)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
