@@ -26,7 +26,7 @@ export default function Encabezado({ config, menu }: { config: Config; menu: Ram
           <Navegacion menu={menu} wa={waGeneral(config.whatsapp)} />
 
           <Link href="/" className="hdr-logo" aria-label="Rossy Lady, inicio">
-            <Image src="/logo.png" alt="Rossy Lady" width={520} height={241} priority />
+            <Image src="/logo.png" alt="Rossy Lady" width={583} height={900} priority />
           </Link>
 
           <Link

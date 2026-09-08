@@ -6,7 +6,7 @@ export default function Pie({ demo, whatsapp }: { demo: boolean; whatsapp: strin
   return (
     <footer className="pie">
       <div className="envoltura">
-        <Image src="/logo.png" alt="Rossy Lady" width={520} height={241} className="pie-logo" />
+        <Image src="/logo.png" alt="Rossy Lady" width={583} height={900} className="pie-logo" />
         <p>
           Pijamas y camisones hechos en México desde 2019.
           <br />

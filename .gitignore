@@ -6,6 +6,9 @@
 /*.jpeg
 /*.png
 /*.cdr
+/*.xlsx
+/*.xls
+/*.docx
 
 # fotos individuales extraídas de los PDFs
 /assets/

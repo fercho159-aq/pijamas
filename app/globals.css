@@ -178,7 +178,14 @@ details.acc .cuerpo { padding: 0 0 15px; font-size: 14.5px; color: var(--ink2); 
 
 /* ── Pie ──────────────────────────────────────────────────────── */
 .pie { background: var(--plum); color: #f3dce9; padding: 34px 0 38px; margin-top: 40px; font-size: 13.5px; }
-.pie-logo { height: 30px; width: auto; margin-bottom: 14px; filter: brightness(0) invert(1) opacity(.92); }
+/* Antes el logotipo era solo el nombre y bastaba aplanarlo a blanco con un
+   filtro. El bloque registrado no lo tolera: la silueta se define por los
+   huecos del cabello, y al volverse todo blanco queda una mancha sin forma.
+   Va en sus colores reales sobre una placa clara. */
+.pie-logo {
+  height: 124px; width: auto; margin-bottom: 16px;
+  background: var(--ground); border-radius: var(--r); padding: 10px 14px;
+}
 .pie p { opacity: .85; line-height: 1.65; }
 .pie-links { display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 18px 0; }
 .pie-links a { opacity: .88; text-decoration: underline; text-underline-offset: 3px; }
@@ -421,9 +428,11 @@ details.acc .cuerpo { padding: 0 0 15px; font-size: 14.5px; color: var(--ink2); 
 }
 .hdr-in { display: flex; align-items: center; gap: 10px; padding-top: 8px; padding-bottom: 8px; }
 
-/* el logo pedía 70% menos: de 241px de alto a 72px en escritorio */
+/* El logotipo registrado es el bloque completo: silueta negra sobre el
+   nombre. Es vertical (0.65 de ancho por alto), no la banda horizontal
+   de antes, así que manda el alto de la barra en lugar de acomodarse. */
 .hdr-logo { order: 2; display: block; flex: none; margin-inline: auto; }
-.hdr-logo img { height: 44px; width: auto; }
+.hdr-logo img { height: 58px; width: auto; }
 
 .hdr-carrito {
   order: 3; position: relative; width: 42px; height: 42px;
@@ -557,7 +566,7 @@ details.acc .cuerpo { padding: 0 0 15px; font-size: 14.5px; color: var(--ink2); 
   .mega { display: flex; }
   .hdr-in { gap: 16px; padding-top: 10px; padding-bottom: 10px; }
   .hdr-logo { order: 1; margin-inline: 0; margin-right: 8px; }
-  .hdr-logo img { height: 72px; }
+  .hdr-logo img { height: 88px; }
   .hdr-carrito { margin-left: auto; }
 }
 
