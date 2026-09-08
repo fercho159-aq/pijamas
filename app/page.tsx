@@ -10,7 +10,7 @@ import {
   getProductos,
   getConfig,
 } from '@/lib/datos'
-import { pesos } from '@/lib/formato'
+import { pesos, portada } from '@/lib/formato'
 
 export default async function Inicio() {
   const [destacados, ofertas, categorias, todos, config, resenas] = await Promise.all([
@@ -27,7 +27,7 @@ export default async function Inicio() {
     .slice(0, 6)
 
   const portadaDe = (slug: string) =>
-    todos.find((p) => p.categoria === slug)?.colores[0].img ?? '/logo.png'
+    todos.filter((p) => p.categoria === slug).map(portada).find((c) => c.img)?.img ?? '/logo.png'
 
   const faq: [string, string][] = [
     [

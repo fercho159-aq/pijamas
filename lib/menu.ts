@@ -1,9 +1,9 @@
 import { getProductos, getCategorias } from './datos'
-import { precio } from './formato'
+import { precio, portada } from './formato'
 import type { Producto } from './tipos'
 
 export type EntradaTipo = { etiqueta: string; cuantos: number; href: string }
-export type Vitrina = { nombre: string; slug: string; img: string; precio: number }
+export type Vitrina = { nombre: string; slug: string; img: string | null; hex: string; precio: number }
 export type RamaMenu = {
   slug: string
   nombre: string
@@ -45,7 +45,8 @@ export async function getMenu(): Promise<RamaMenu[]> {
       .map((p) => ({
         nombre: p.nombre,
         slug: p.slug,
-        img: p.colores[0].img,
+        img: portada(p).img,
+        hex: portada(p).hex,
         precio: precio(p),
       }))
 

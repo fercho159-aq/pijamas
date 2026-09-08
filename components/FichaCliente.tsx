@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
+import FotoColor from './FotoColor'
 import { useRouter } from 'next/navigation'
 import { useCarrito } from './CarritoProvider'
 import { pesos, precio, descuento } from '@/lib/formato'
@@ -18,7 +18,12 @@ export default function FichaCliente({
   tallas: string[]
   numeroWa: string
 }) {
-  const [iColor, setIColor] = useState(0)
+  // arranca en un color que ya tenga foto: abrir en una muestra de color
+  // cuando hay fotografía disponible vende peor y no aporta nada
+  const [iColor, setIColor] = useState(() => {
+    const i = p.colores.findIndex((c) => c.img)
+    return i === -1 ? 0 : i
+  })
   const [talla, setTalla] = useState<string | null>(null)
   const [agregado, setAgregado] = useState(false)
   const { agregar } = useCarrito()
@@ -45,13 +50,12 @@ export default function FichaCliente({
     <div className="ficha">
       <div className="ficha-foto">
         {off > 0 && <span className="tag tag-off">−{off}%</span>}
-        <Image
-          src={color.img}
+        <FotoColor
+          c={color}
           alt={`${p.nombre}, modelo ${p.numero}, color ${color.nombre}`}
-          width={600}
-          height={800}
           sizes="(min-width: 820px) 500px, 100vw"
-          priority
+          prioridad
+          etiqueta
         />
       </div>
 

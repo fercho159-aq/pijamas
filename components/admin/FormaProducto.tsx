@@ -1,7 +1,7 @@
 'use client'
 
 import { useActionState, useState, useTransition } from 'react'
-import Image from 'next/image'
+import FotoColor from '../FotoColor'
 import { guardarProducto, guardarStock } from '@/lib/acciones'
 import { pesos, descuento } from '@/lib/formato'
 import type { Producto } from '@/lib/tipos'
@@ -116,7 +116,7 @@ function Variante({
   nombre: string
   hex: string
   stock: number
-  img: string
+  img: string | null
 }) {
   const [n, setN] = useState(stock)
   const [aviso, setAviso] = useState<string | null>(null)
@@ -124,7 +124,7 @@ function Variante({
 
   return (
     <div className="adm-var">
-      <Image src={img} alt="" width={600} height={800} sizes="40px" />
+      <FotoColor c={{ nombre, hex, sku, stock, img }} alt={nombre} sizes="40px" />
       <span className="adm-punto" style={{ background: hex }} aria-hidden="true" />
       <div className="adm-var-txt">
         <b>{nombre}</b>

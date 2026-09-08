@@ -14,3 +14,10 @@ export const existencias = (p: Producto) =>
 
 export const colorPorNombre = (p: Producto, nombre: string) =>
   p.colores.find((c) => c.nombre === nombre) ?? p.colores[0]
+
+/**
+ * La foto de portada. No siempre es el primer color: la clienta publica más
+ * colores de los que tiene fotografiados, así que se toma el primero que sí
+ * tenga foto y, si ninguno la tiene, el primero a secas para su muestra.
+ */
+export const portada = (p: Producto) => p.colores.find((c) => c.img) ?? p.colores[0]

@@ -22,6 +22,7 @@ create table if not exists productos (
   slug             text unique not null,
   categoria_id     uuid references categorias(id),
   descripcion      text,
+  tipo             text,                      -- "Manga corta + short": alimenta el menú y los filtros
   composicion      text,                      -- NOM-004-SCFI
   cuidados         text,
   precio_lista     numeric(10,2) not null check (precio_lista > 0),

@@ -3,7 +3,8 @@ export type Color = {
   hex: string
   sku: string
   stock: number
-  img: string
+  /** null mientras no llegue la foto de ese color: se muestra la muestra sólida. */
+  img: string | null
 }
 
 export type Producto = {
@@ -18,8 +19,12 @@ export type Producto = {
   precioLista: number
   precioOferta: number | null
   destacado: boolean
+  /** La escala varía por modelo: la clienta maneja M–XX, M–XXX, CH–XG y petite CH–G. */
+  tallas: string[]
   colores: Color[]
 }
+
+export type ColorPaleta = { numero: number; nombre: string; hex: string }
 
 export type Categoria = { slug: string; nombre: string; sub: string }
 

@@ -1,7 +1,7 @@
-import Image from 'next/image'
 import Link from 'next/link'
+import FotoColor from './FotoColor'
 import type { Producto } from '@/lib/tipos'
-import { pesos, precio, descuento, existencias } from '@/lib/formato'
+import { pesos, precio, descuento, existencias, portada as portadaDe } from '@/lib/formato'
 
 export default function TarjetaProducto({
   p,
@@ -14,7 +14,7 @@ export default function TarjetaProducto({
   const agotado = stock === 0
   const pocos = stock > 0 && stock <= 8
   const off = descuento(p)
-  const portada = p.colores[0]
+  const portada = portadaDe(p)
 
   return (
     <Link href={`/producto/${p.slug}`} className={`tp ${agotado ? 'tp-gris' : ''}`}>
@@ -26,13 +26,12 @@ export default function TarjetaProducto({
         ) : pocos ? (
           <span className="tag tag-few">Últimas {stock}</span>
         ) : null}
-        <Image
-          src={portada.img}
+        <FotoColor
+          c={portada}
           alt={`${p.nombre}, modelo ${p.numero}, color ${portada.nombre}`}
-          width={600}
-          height={800}
           sizes="(min-width: 940px) 260px, (min-width: 620px) 32vw, 46vw"
-          priority={prioridad}
+          prioridad={prioridad}
+          etiqueta
         />
       </div>
 

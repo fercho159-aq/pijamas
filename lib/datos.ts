@@ -1,6 +1,6 @@
 import 'server-only'
 import respaldo from '@/data/catalogo.json'
-import type { Producto, Categoria, Config } from './tipos'
+import type { Producto, Categoria, Config, ColorPaleta } from './tipos'
 
 /**
  * Origen de datos.
@@ -17,6 +17,7 @@ export const usaSupabase = Boolean(
 const local = respaldo as unknown as {
   config: Config
   tallas: string[]
+  paleta: ColorPaleta[]
   categorias: Categoria[]
   productos: Producto[]
 }
@@ -40,6 +41,7 @@ type FilaProducto = {
   nombre: string
   slug: string
   descripcion: string
+  tipo: string | null
   composicion: string
   cuidados: string
   precio_lista: string
@@ -53,6 +55,7 @@ type FilaProducto = {
     sku: string
     stock: number
     orden: number
+    variante_tallas: { talla_codigo: string }[]
     variante_imagenes: { url: string; orden: number }[]
   }[]
 }
@@ -67,13 +70,17 @@ function normaliza(f: FilaProducto): Producto {
     nombre: f.nombre,
     slug: f.slug,
     categoria: f.categorias?.slug ?? 'dama',
-    tipo: '',
+    tipo: f.tipo ?? '',
     descripcion: f.descripcion,
     composicion: f.composicion,
     cuidados: f.cuidados,
     precioLista: Number(f.precio_lista),
     precioOferta: vigente,
     destacado: f.destacado,
+    // la escala vive en variante_tallas; aquí se une y se ordena como la tabla tallas
+    tallas: local.tallas.filter((codigo) =>
+      f.variantes.some((v) => v.variante_tallas?.some((t) => t.talla_codigo === codigo))
+    ),
     colores: [...f.variantes]
       .sort((a, b) => a.orden - b.orden)
       .map((v) => ({
@@ -82,8 +89,7 @@ function normaliza(f: FilaProducto): Producto {
         sku: v.sku,
         stock: v.stock,
         img:
-          [...(v.variante_imagenes ?? [])].sort((a, b) => a.orden - b.orden)[0]?.url ??
-          '/productos/placeholder.jpg',
+          [...(v.variante_imagenes ?? [])].sort((a, b) => a.orden - b.orden)[0]?.url ?? null,
       })),
   }
 }
@@ -91,7 +97,7 @@ function normaliza(f: FilaProducto): Producto {
 export async function getProductos(): Promise<Producto[]> {
   if (!usaSupabase) return local.productos
   const filas = await sb<FilaProducto[]>(
-    'productos?activo=eq.true&select=*,categorias(slug),variantes(*,variante_imagenes(*))&order=numero_modelo'
+    'productos?activo=eq.true&select=*,categorias(slug),variantes(*,variante_tallas(talla_codigo),variante_imagenes(*))&order=numero_modelo'
   )
   return filas.map(normaliza)
 }
@@ -120,8 +126,12 @@ export async function getCategorias(): Promise<Categoria[]> {
   return local.categorias
 }
 
+/** Los 17 colores con los que trabaja el taller. Numerados como en su lista. */
+export const PALETA = local.paleta
+
 export async function getConfig(): Promise<Config> {
   return { ...local.config, whatsapp: process.env.NEXT_PUBLIC_WA_NUMERO || local.config.whatsapp }
 }
 
+/** Unión de todas las escalas. Cada modelo trae la suya en `producto.tallas`. */
 export const TALLAS = local.tallas

@@ -1,7 +1,7 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
+import FotoColor from './FotoColor'
 import { useCarrito } from './CarritoProvider'
 import { pesos, precio, colorPorNombre } from '@/lib/formato'
 import type { Producto, Config } from '@/lib/tipos'
@@ -48,7 +48,7 @@ export default function CarritoCliente({
       {filas.map((f, i) => (
         <div className="cl" key={`${f.l.numero}-${f.l.color}-${f.l.talla}`}>
           <Link href={`/producto/${f.p.slug}`}>
-            <Image src={f.c.img} alt={f.p.nombre} width={600} height={800} sizes="80px" />
+            <FotoColor c={f.c} alt={f.p.nombre} sizes="80px" />
           </Link>
           <div>
             <h3>{f.p.nombre}</h3>

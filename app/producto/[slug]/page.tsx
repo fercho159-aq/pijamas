@@ -5,8 +5,8 @@ import FichaCliente from '@/components/FichaCliente'
 import TarjetaProducto from '@/components/TarjetaProducto'
 import Resenas from '@/components/Resenas'
 import { getResenasDe, resenasSonEjemplo, promedio } from '@/lib/resenas'
-import { getProducto, getProductos, getConfig, TALLAS } from '@/lib/datos'
-import { precio, existencias, pesos } from '@/lib/formato'
+import { getProducto, getProductos, getConfig } from '@/lib/datos'
+import { precio, existencias, pesos, portada } from '@/lib/formato'
 
 export async function generateStaticParams() {
   const todos = await getProductos()
@@ -24,7 +24,7 @@ export async function generateMetadata({
   return {
     title: `${p.nombre} · Modelo ${p.numero}`,
     description: p.descripcion,
-    openGraph: { images: [p.colores[0].img], title: p.nombre, description: p.descripcion },
+    openGraph: { images: [portada(p).img ?? '/logo.png'], title: p.nombre, description: p.descripcion },
   }
 }
 
@@ -45,7 +45,7 @@ export default async function Ficha({ params }: { params: Promise<{ slug: string
     description: p.descripcion,
     sku: p.colores[0].sku,
     brand: { '@type': 'Brand', name: 'Rossy Lady' },
-    image: p.colores.map((c) => c.img),
+    image: p.colores.map((c) => c.img).filter((u): u is string => Boolean(u)),
     ...(resenas.length >= 3 && !resenasSonEjemplo
       ? {
           aggregateRating: {
@@ -73,7 +73,7 @@ export default async function Ficha({ params }: { params: Promise<{ slug: string
       />
 
       <div className="envoltura">
-        <FichaCliente p={p} tallas={TALLAS} numeroWa={config.whatsapp} />
+        <FichaCliente p={p} tallas={p.tallas} numeroWa={config.whatsapp} />
 
         <div className="ficha-acc">
           <details className="acc">

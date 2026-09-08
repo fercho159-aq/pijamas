@@ -1,10 +1,10 @@
 'use client'
 
 import { useState, useTransition } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
+import FotoColor from '../FotoColor'
 import { alternarBandera, borrarProducto } from '@/lib/acciones'
-import { pesos, precio, descuento, existencias } from '@/lib/formato'
+import { pesos, precio, descuento, existencias, portada } from '@/lib/formato'
 import type { Producto } from '@/lib/tipos'
 
 type Fila = Producto & { activo?: boolean }
@@ -69,7 +69,7 @@ export default function TablaProductos({ productos }: { productos: Producto[] })
               return (
                 <tr key={p.numero} className={stock === 0 ? 'sinStock' : ''}>
                   <td className="adm-mini">
-                    <Image src={p.colores[0].img} alt="" width={600} height={800} sizes="46px" />
+                    <FotoColor c={portada(p)} alt={p.nombre} sizes="46px" />
                   </td>
                   <td>
                     <Link href={`/admin/productos/${p.slug}`} className="adm-enlace">

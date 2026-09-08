@@ -1,7 +1,10 @@
 # Rossy Lady · E‑commerce
 
 Tienda en línea para **Rossy Lady**, marca mexicana de pijamas y camisones fabricada en México
-desde 2019. Catálogo de 26 modelos y 85 variantes de color, para dama, caballero y camisones.
+desde 2019. Catálogo de 34 modelos y 184 variantes de color, en 6 secciones.
+
+Precios, colores y tallas salen de la lista de la clienta. Las fotos todavía no: hay 77 de
+184 variantes fotografiadas, y las demás se muestran como muestra de color hasta que lleguen.
 
 **Next.js 16 · React 19 · TypeScript · Vercel.** Funciona sin base de datos: si no hay
 credenciales de Supabase, lee el catálogo de `data/catalogo.json`.
@@ -24,7 +27,7 @@ En http://localhost:3000. No hace falta configurar nada para verlo funcionando.
 ```
 app/
   page.tsx                  inicio
-  [categoria]/page.tsx      dama · camisones · caballero · ofertas
+  [categoria]/page.tsx      las 6 secciones · ofertas
   producto/[slug]/page.tsx  ficha, con datos estructurados para Google
   carrito/page.tsx
   pedido/page.tsx           datos de envío y cierre por WhatsApp
@@ -39,10 +42,10 @@ components/
 lib/
   datos.ts                  Supabase o respaldo local, misma interfaz
   formato.ts · whatsapp.ts · tipos.ts
-data/catalogo.json          respaldo: 26 productos, 85 variantes
+data/catalogo.json          respaldo: 34 productos, 184 variantes, paleta de 17 colores
 db/                         schema.sql y seed.sql para Supabase
 docs/especificacion.html    la especificación completa, 18 secciones
-public/productos/           85 fotos normalizadas a 3:4
+public/productos/           77 fotos normalizadas a 3:4
 ```
 
 ---
@@ -81,6 +84,9 @@ Todo lo que empuja la venta está amarrado a un dato real, nunca inventado:
 | «Te faltan $X para envío gratis» | carrito contra `envioGratisDesde` |
 | Precio de oferta y ahorro | `precioOferta` con su fecha de fin |
 
+Hoy no hay ninguna oferta activa: las que había eran propuestas mías y se retiraron al cargar
+los precios reales.
+
 El botón flotante de WhatsApp cambia el mensaje según el contexto: en la ficha lleva modelo,
 color y talla ya escritos; en el resto del sitio, un saludo general.
 
@@ -103,8 +109,12 @@ razón social, RFC y domicilio fiscal · política de cambios · credenciales de
 > cosida. Los valores actuales son marcadores de posición: reemplazarlos con la ficha técnica del
 > proveedor **antes** de publicar.
 
-Precios, tallas, nombres de color y descripciones son **propuestas** calibradas contra el mercado
-mexicano (Coppel, Andrea, Suburbia). Confirmarlos antes de abrir.
+Precios, tallas y nombres de color ya son los de la clienta, tomados de su lista. Falta que
+confirme **si los precios son de mayoreo o de venta al público**: $129 por un camisón de algodón
+queda muy abajo del mercado mexicano al menudeo.
+
+El umbral de envío gratis ($699) y el costo de envío ($99) siguen siendo marcadores míos:
+se calibraron contra precios que ya no son los vigentes.
 
 ---
 

@@ -105,7 +105,11 @@ export default function Navegacion({ menu, wa }: { menu: RamaMenu[]; wa: string 
                     <div className="mega-fotos">
                       {r.vitrina.map((v) => (
                         <Link key={v.slug} href={`/producto/${v.slug}`}>
-                          <Image src={v.img} alt={v.nombre} width={600} height={800} sizes="150px" />
+                          {v.img ? (
+                            <Image src={v.img} alt={v.nombre} width={600} height={800} sizes="150px" />
+                          ) : (
+                            <span className="muestra" style={{ background: v.hex }} aria-hidden="true" />
+                          )}
                           <b>{v.nombre}</b>
                           <span className="money">{pesos(v.precio)}</span>
                         </Link>
