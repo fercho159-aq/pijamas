@@ -243,10 +243,10 @@
      "hex": "#F5E3A8",
      "sku": "RL-102-AMA",
      "stock": 10,
-     "img": "/productos/102-mantequilla.jpg"
+     "img": "/productos/102-amarillo.jpg"
     }
    ],
-   "portada": "Agua"
+   "portada": "Amarillo"
   },
   {
    "numero": 103,
@@ -303,7 +303,7 @@
      "img": "/productos/103-mantequilla.jpg"
     }
    ],
-   "portada": "Cielo"
+   "portada": "Rosa"
   },
   {
    "numero": 104,
@@ -529,7 +529,7 @@
      "hex": "#D6007F",
      "sku": "RL-108-FUC",
      "stock": 10,
-     "img": null
+     "img": "/productos/108-fucsia.jpg"
     },
     {
      "nombre": "Gris",
@@ -546,7 +546,7 @@
      "img": null
     }
    ],
-   "portada": "Amarillo"
+   "portada": "Fucsia"
   },
   {
    "numero": 109,
@@ -603,9 +603,16 @@
      "sku": "RL-111-AMA",
      "stock": 10,
      "img": "/productos/111-mantequilla.jpg"
+    },
+    {
+     "nombre": "Rosa",
+     "hex": "#F3C9D4",
+     "sku": "RL-111-ROS",
+     "stock": 10,
+     "img": "/productos/111-rosa.jpg"
     }
    ],
-   "portada": "Amarillo"
+   "portada": "Rosa"
   },
   {
    "numero": 117,
@@ -859,10 +866,10 @@
      "hex": "#8A93A8",
      "sku": "RL-126-PLU",
      "stock": 10,
-     "img": null
+     "img": "/productos/126-plumbago.jpg"
     }
    ],
-   "portada": "Rosa"
+   "portada": "Plumbago"
   },
   {
    "numero": 127,
@@ -919,7 +926,7 @@
      "hex": "#F3C9D4",
      "sku": "RL-128-ROS",
      "stock": 10,
-     "img": null
+     "img": "/productos/128-rosa.jpg"
     },
     {
      "nombre": "Coral",
@@ -964,11 +971,11 @@
      "img": null
     }
    ],
-   "portada": null
+   "portada": "Rosa"
   },
   {
    "numero": 129,
-   "nombre": "Jac",
+   "nombre": "Jacobo",
    "slug": "129-jac",
    "categoria": "camisones",
    "tipo": "Camisón",
@@ -1247,7 +1254,7 @@
      "hex": "#BCDCD2",
      "sku": "RL-141-AGU",
      "stock": 10,
-     "img": "/productos/141-menta.jpg"
+     "img": "/productos/141-agua.jpg"
     },
     {
      "nombre": "Cielo",
@@ -1264,7 +1271,7 @@
      "img": "/productos/141-mantequilla.jpg"
     }
    ],
-   "portada": "Amarillo"
+   "portada": "Agua"
   },
   {
    "numero": 142,
@@ -1461,7 +1468,7 @@
      "hex": "#D6007F",
      "sku": "RL-144-FUC",
      "stock": 10,
-     "img": null
+     "img": "/productos/144-fucsia.jpg"
     },
     {
      "nombre": "Gris",
@@ -1478,7 +1485,7 @@
      "img": null
     }
    ],
-   "portada": null
+   "portada": "Fucsia"
   },
   {
    "numero": 145,
@@ -1561,7 +1568,7 @@
      "hex": "#F3C9D4",
      "sku": "RL-146-ROS",
      "stock": 10,
-     "img": null
+     "img": "/productos/146-rosa.jpg"
     },
     {
      "nombre": "Coral",
@@ -1592,7 +1599,7 @@
      "img": null
     }
    ],
-   "portada": null
+   "portada": "Rosa"
   },
   {
    "numero": 147,
@@ -1632,7 +1639,7 @@
      "hex": "#BCDCD2",
      "sku": "RL-147-AGU",
      "stock": 10,
-     "img": null
+     "img": "/productos/147-agua.jpg"
     },
     {
      "nombre": "Cielo",
@@ -1649,7 +1656,7 @@
      "img": null
     }
    ],
-   "portada": null
+   "portada": "Agua"
   },
   {
    "numero": 157,
@@ -2112,10 +2119,10 @@
      "hex": "#F5E3A8",
      "sku": "RL-164-AMA",
      "stock": 10,
-     "img": null
+     "img": "/productos/164-amarillo.jpg"
     }
    ],
-   "portada": null
+   "portada": "Amarillo"
   },
   {
    "numero": 165,

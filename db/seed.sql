@@ -44,7 +44,7 @@ insert into config (clave, valor) values
   ('banner_anuncio',     '"Envío gratis en pedidos desde $699"'::jsonb)
 on conflict (clave) do update set valor = excluded.valor;
 
--- ── 101 DANIELA ───────────────────────────
+-- ── 101 DANIELA ─────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -71,7 +71,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX');
 
--- ── 102 ALEXA ─────────────────────────────
+-- ── 102 ALEXA ───────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -82,7 +82,7 @@ with p as (
      'Manga corta + bermuda',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     159, true, true, 'Agua')
+     159, true, true, 'Amarillo')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -100,13 +100,13 @@ with p as (
     ('RL-102-ROS', '/productos/102-rosa.jpg', 'Alexa, modelo 102, color Rosa'),
     ('RL-102-AGU', '/productos/102-menta.jpg', 'Alexa, modelo 102, color Agua'),
     ('RL-102-CIE', '/productos/102-cielo.jpg', 'Alexa, modelo 102, color Cielo'),
-    ('RL-102-AMA', '/productos/102-mantequilla.jpg', 'Alexa, modelo 102, color Amarillo')
+    ('RL-102-AMA', '/productos/102-amarillo.jpg', 'Alexa, modelo 102, color Amarillo')
   ) as x(sku, url, alt) on x.sku = v.sku
 )
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX');
 
--- ── 103 MARILYN ───────────────────────────
+-- ── 103 MARILYN ─────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -117,7 +117,7 @@ with p as (
      'Tirantes + capri',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     179, false, true, 'Cielo')
+     179, false, true, 'Rosa')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -142,7 +142,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX');
 
--- ── 104 ANNET ─────────────────────────────
+-- ── 104 ANNET ───────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -177,7 +177,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX');
 
--- ── 105 MICHELLE ──────────────────────────
+-- ── 105 MICHELLE ────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -213,7 +213,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX');
 
--- ── 107 VERO ──────────────────────────────
+-- ── 107 VERO ────────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -248,7 +248,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX');
 
--- ── 108 PATY ──────────────────────────────
+-- ── 108 PATY ────────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -259,7 +259,7 @@ with p as (
      'Camisón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     129, false, true, 'Amarillo')
+     129, false, true, 'Fucsia')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -276,13 +276,14 @@ with p as (
 ), i as (
   insert into variante_imagenes (variante_id, url, alt, orden)
   select v.id, x.url, x.alt, 0 from v join (values
-    ('RL-108-AMA', '/productos/108-mantequilla.jpg', 'Paty, modelo 108, color Amarillo')
+    ('RL-108-AMA', '/productos/108-mantequilla.jpg', 'Paty, modelo 108, color Amarillo'),
+    ('RL-108-FUC', '/productos/108-fucsia.jpg', 'Paty, modelo 108, color Fucsia')
   ) as x(sku, url, alt) on x.sku = v.sku
 )
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX', 'XXX');
 
--- ── 109 DIANA ─────────────────────────────
+-- ── 109 DIANA ───────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -310,7 +311,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX', 'XXX');
 
--- ── 111 JAZMIN ────────────────────────────
+-- ── 111 JAZMÍN ──────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -321,24 +322,26 @@ with p as (
      'Bata manga corta',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     169, false, true, 'Amarillo')
+     169, false, true, 'Rosa')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
   select p.id, x.* from p, (values
-    ('Amarillo', '#F5E3A8', 'RL-111-AMA', 0, 0)
+    ('Amarillo', '#F5E3A8', 'RL-111-AMA', 0, 0),
+    ('Rosa', '#F3C9D4', 'RL-111-ROS', 0, 1)
   ) as x(color_nombre, color_hex, sku, stock, orden)
   returning id, sku
 ), i as (
   insert into variante_imagenes (variante_id, url, alt, orden)
   select v.id, x.url, x.alt, 0 from v join (values
-    ('RL-111-AMA', '/productos/111-mantequilla.jpg', 'Jazmin, modelo 111, color Amarillo')
+    ('RL-111-AMA', '/productos/111-mantequilla.jpg', 'Jazmín, modelo 111, color Amarillo'),
+    ('RL-111-ROS', '/productos/111-rosa.jpg', 'Jazmín, modelo 111, color Rosa')
   ) as x(sku, url, alt) on x.sku = v.sku
 )
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX');
 
--- ── 117 FRIDA ─────────────────────────────
+-- ── 117 FRIDA ───────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -370,7 +373,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX');
 
--- ── 120 HEC ───────────────────────────────
+-- ── 120 HEC ─────────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -412,7 +415,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 'XG');
 
--- ── 124 ALONDRA ───────────────────────────
+-- ── 124 ALONDRA ─────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -447,7 +450,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX');
 
--- ── 126 LINDA ─────────────────────────────
+-- ── 126 LINDA ───────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -458,7 +461,7 @@ with p as (
      'Camisón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     129, false, true, 'Rosa')
+     129, false, true, 'Plumbago')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -475,13 +478,14 @@ with p as (
 ), i as (
   insert into variante_imagenes (variante_id, url, alt, orden)
   select v.id, x.url, x.alt, 0 from v join (values
-    ('RL-126-ROS', '/productos/126-rosa.jpg', 'Linda, modelo 126, color Rosa')
+    ('RL-126-ROS', '/productos/126-rosa.jpg', 'Linda, modelo 126, color Rosa'),
+    ('RL-126-PLU', '/productos/126-plumbago.jpg', 'Linda, modelo 126, color Plumbago')
   ) as x(sku, url, alt) on x.sku = v.sku
 )
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX', 'XXX');
 
--- ── 127 DENISE ────────────────────────────
+-- ── 127 DENISE ──────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -509,7 +513,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX', 'XXX');
 
--- ── 128 KATY ──────────────────────────────
+-- ── 128 KATY ────────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -520,7 +524,7 @@ with p as (
      'Camisón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     129, false, true, null)
+     129, false, true, 'Rosa')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -534,16 +538,21 @@ with p as (
     ('Plumbago', '#8A93A8', 'RL-128-PLU', 0, 6)
   ) as x(color_nombre, color_hex, sku, stock, orden)
   returning id, sku
+), i as (
+  insert into variante_imagenes (variante_id, url, alt, orden)
+  select v.id, x.url, x.alt, 0 from v join (values
+    ('RL-128-ROS', '/productos/128-rosa.jpg', 'Katy, modelo 128, color Rosa')
+  ) as x(sku, url, alt) on x.sku = v.sku
 )
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX', 'XXX');
 
--- ── 129 JAC ───────────────────────────────
+-- ── 129 JACOBO ──────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
      composicion, cuidados, precio_lista, destacado, activo, color_portada)
-  values (129, 'Jac', '129-jac',
+  values (129, 'Jacobo', '129-jac',
      (select id from categorias where slug = 'camisones'),
      'Camisón liso de manga corta y cuello redondo, con pollito estampado en serigrafía al frente.',
      'Camisón',
@@ -566,13 +575,13 @@ with p as (
 ), i as (
   insert into variante_imagenes (variante_id, url, alt, orden)
   select v.id, x.url, x.alt, 0 from v join (values
-    ('RL-129-ROS', '/productos/129-rosa.jpg', 'Jac, modelo 129, color Rosa')
+    ('RL-129-ROS', '/productos/129-rosa.jpg', 'Jacobo, modelo 129, color Rosa')
   ) as x(sku, url, alt) on x.sku = v.sku
 )
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX', 'XXX');
 
--- ── 135 WILLY ─────────────────────────────
+-- ── 135 WILLY ───────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -607,7 +616,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 'XG');
 
--- ── 136 HARRY ─────────────────────────────
+-- ── 136 HARRY ───────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -634,7 +643,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 'XG');
 
--- ── 137 CINDY ─────────────────────────────
+-- ── 137 CINDY ───────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -669,7 +678,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 'XG');
 
--- ── 141 VIVIAN ────────────────────────────
+-- ── 141 VIVIAN ──────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -680,7 +689,7 @@ with p as (
      'Manga corta + pantalón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     169, false, true, 'Amarillo')
+     169, false, true, 'Agua')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -697,7 +706,7 @@ with p as (
   select v.id, x.url, x.alt, 0 from v join (values
     ('RL-141-ROS', '/productos/141-rosa.jpg', 'Vivian, modelo 141, color Rosa'),
     ('RL-141-COR', '/productos/141-durazno.jpg', 'Vivian, modelo 141, color Coral'),
-    ('RL-141-AGU', '/productos/141-menta.jpg', 'Vivian, modelo 141, color Agua'),
+    ('RL-141-AGU', '/productos/141-agua.jpg', 'Vivian, modelo 141, color Agua'),
     ('RL-141-CIE', '/productos/141-cielo.jpg', 'Vivian, modelo 141, color Cielo'),
     ('RL-141-AMA', '/productos/141-mantequilla.jpg', 'Vivian, modelo 141, color Amarillo')
   ) as x(sku, url, alt) on x.sku = v.sku
@@ -705,7 +714,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 'XG');
 
--- ── 142 PENNY ─────────────────────────────
+-- ── 142 PENNY ───────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -741,7 +750,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 'XG');
 
--- ── 143 MIKE ──────────────────────────────
+-- ── 143 MIKE ────────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -785,7 +794,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 'XG');
 
--- ── 144 JESSICA ───────────────────────────
+-- ── 144 JESSICA ─────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -796,7 +805,7 @@ with p as (
      'Camisón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     129, false, true, null)
+     129, false, true, 'Fucsia')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -810,11 +819,16 @@ with p as (
     ('Plumbago', '#8A93A8', 'RL-144-PLU', 0, 6)
   ) as x(color_nombre, color_hex, sku, stock, orden)
   returning id, sku
+), i as (
+  insert into variante_imagenes (variante_id, url, alt, orden)
+  select v.id, x.url, x.alt, 0 from v join (values
+    ('RL-144-FUC', '/productos/144-fucsia.jpg', 'Jessica, modelo 144, color Fucsia')
+  ) as x(sku, url, alt) on x.sku = v.sku
 )
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX', 'XXX');
 
--- ── 145 ANAHI ─────────────────────────────
+-- ── 145 ANAHÍ ───────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -841,7 +855,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX');
 
--- ── 146 ISABELA ───────────────────────────
+-- ── 146 ISABELA ─────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -852,7 +866,7 @@ with p as (
      'Manga larga + pantalón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     229, false, true, null)
+     229, false, true, 'Rosa')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -864,11 +878,16 @@ with p as (
     ('Amarillo', '#F5E3A8', 'RL-146-AMA', 0, 4)
   ) as x(color_nombre, color_hex, sku, stock, orden)
   returning id, sku
+), i as (
+  insert into variante_imagenes (variante_id, url, alt, orden)
+  select v.id, x.url, x.alt, 0 from v join (values
+    ('RL-146-ROS', '/productos/146-rosa.jpg', 'Isabela, modelo 146, color Rosa')
+  ) as x(sku, url, alt) on x.sku = v.sku
 )
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 'XG');
 
--- ── 147 AMAYA ─────────────────────────────
+-- ── 147 AMAYA ───────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -879,7 +898,7 @@ with p as (
      'Manga larga + pantalón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     229, false, true, null)
+     229, false, true, 'Agua')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -891,11 +910,16 @@ with p as (
     ('Amarillo', '#F5E3A8', 'RL-147-AMA', 0, 4)
   ) as x(color_nombre, color_hex, sku, stock, orden)
   returning id, sku
+), i as (
+  insert into variante_imagenes (variante_id, url, alt, orden)
+  select v.id, x.url, x.alt, 0 from v join (values
+    ('RL-147-AGU', '/productos/147-agua.jpg', 'Amaya, modelo 147, color Agua')
+  ) as x(sku, url, alt) on x.sku = v.sku
 )
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 'XG');
 
--- ── 157 SANDRA ────────────────────────────
+-- ── 157 SANDRA ──────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -928,7 +952,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX');
 
--- ── 158 ELOISA ────────────────────────────
+-- ── 158 ELOÍSA ──────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -953,14 +977,14 @@ with p as (
 ), i as (
   insert into variante_imagenes (variante_id, url, alt, orden)
   select v.id, x.url, x.alt, 0 from v join (values
-    ('RL-158-MOR', '/productos/158-morado.jpg', 'Eloisa, modelo 158, color Morado'),
-    ('RL-158-FUC', '/productos/158-fucsia.jpg', 'Eloisa, modelo 158, color Fucsia')
+    ('RL-158-MOR', '/productos/158-morado.jpg', 'Eloísa, modelo 158, color Morado'),
+    ('RL-158-FUC', '/productos/158-fucsia.jpg', 'Eloísa, modelo 158, color Fucsia')
   ) as x(sku, url, alt) on x.sku = v.sku
 )
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX');
 
--- ── 160 GLORIA ────────────────────────────
+-- ── 160 GLORIA ──────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -990,7 +1014,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G');
 
--- ── 161 MARA ──────────────────────────────
+-- ── 161 MARA ────────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -1025,7 +1049,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G');
 
--- ── 162 SONIA ─────────────────────────────
+-- ── 162 SONIA ───────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -1060,7 +1084,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G');
 
--- ── 163 NELLY ─────────────────────────────
+-- ── 163 NELLY ───────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -1095,7 +1119,7 @@ with p as (
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G');
 
--- ── 164 FARRAH ────────────────────────────
+-- ── 164 FARRAH ──────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
@@ -1106,7 +1130,7 @@ with p as (
      'Bata sin mangas',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     169, false, true, null)
+     169, false, true, 'Amarillo')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -1118,11 +1142,16 @@ with p as (
     ('Amarillo', '#F5E3A8', 'RL-164-AMA', 0, 4)
   ) as x(color_nombre, color_hex, sku, stock, orden)
   returning id, sku
+), i as (
+  insert into variante_imagenes (variante_id, url, alt, orden)
+  select v.id, x.url, x.alt, 0 from v join (values
+    ('RL-164-AMA', '/productos/164-amarillo.jpg', 'Farrah, modelo 164, color Amarillo')
+  ) as x(sku, url, alt) on x.sku = v.sku
 )
 insert into variante_tallas (variante_id, talla_codigo, disponible)
 select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 'XX', 'XXX');
 
--- ── 165 SOILA ─────────────────────────────
+-- ── 165 SOILA ───────────────────────────────
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,

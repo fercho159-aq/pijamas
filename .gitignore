@@ -50,3 +50,7 @@ yarn-error.log*
 # El prototipo lleva las 85 fotos del cliente embebidas en base64.
 # No versionar mientras el repo sea publico.
 docs/prototipo.html
+
+# Originales en PNG que manda la clienta (2 MB cada uno). A la tienda
+# entran optimizados en public/productos; los crudos no se versionan.
+public/productos/img-*/
