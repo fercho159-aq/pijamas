@@ -5,7 +5,7 @@ import TablaProductos from '@/components/admin/TablaProductos'
 
 export default async function Productos() {
   if (!(await haySesion())) redirect('/admin/entrar')
-  const productos = await getProductos()
+  const productos = await getProductos({ incluirOcultos: true })
   return (
     <>
       <div className="adm-cabecera">

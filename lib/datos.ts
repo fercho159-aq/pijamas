@@ -48,6 +48,7 @@ type FilaProducto = {
   precio_oferta: string | null
   oferta_termina: string | null
   destacado: boolean
+  activo: boolean
   color_portada: string | null
   categorias: { slug: string } | null
   variantes: {
@@ -78,6 +79,7 @@ function normaliza(f: FilaProducto): Producto {
     precioLista: Number(f.precio_lista),
     precioOferta: vigente,
     destacado: f.destacado,
+    activo: f.activo,
     portada: f.color_portada,
     // la escala vive en variante_tallas; aquí se une y se ordena como la tabla tallas
     tallas: local.tallas.filter((codigo) =>
@@ -96,16 +98,24 @@ function normaliza(f: FilaProducto): Producto {
   }
 }
 
-export async function getProductos(): Promise<Producto[]> {
-  if (!usaSupabase) return local.productos
+type Opciones = { incluirOcultos?: boolean }
+
+/**
+ * Solo lo publicado. El panel pide `incluirOcultos` para poder volver a
+ * publicar lo que la clienta oculta, por ejemplo por poca existencia.
+ */
+export async function getProductos({ incluirOcultos = false }: Opciones = {}): Promise<Producto[]> {
+  if (!usaSupabase)
+    return incluirOcultos ? local.productos : local.productos.filter((p) => p.activo !== false)
+  const filtro = incluirOcultos ? '' : 'activo=eq.true&'
   const filas = await sb<FilaProducto[]>(
-    'productos?activo=eq.true&select=*,categorias(slug),variantes(*,variante_tallas(talla_codigo),variante_imagenes(*))&order=numero_modelo'
+    `productos?${filtro}select=*,categorias(slug),variantes(*,variante_tallas(talla_codigo),variante_imagenes(*))&order=numero_modelo`
   )
   return filas.map(normaliza)
 }
 
-export async function getProducto(slug: string): Promise<Producto | undefined> {
-  const todos = await getProductos()
+export async function getProducto(slug: string, opciones: Opciones = {}): Promise<Producto | undefined> {
+  const todos = await getProductos(opciones)
   return todos.find((p) => p.slug === slug)
 }
 
@@ -124,8 +134,10 @@ export async function getOfertas(): Promise<Producto[]> {
   return todos.filter((p) => p.precioOferta)
 }
 
+/** Una sección sin nada publicado no aparece: ni en el menú, ni en el inicio, ni en el pie. */
 export async function getCategorias(): Promise<Categoria[]> {
-  return local.categorias
+  const productos = await getProductos()
+  return local.categorias.filter((c) => productos.some((p) => p.categoria === c.slug))
 }
 
 /** Los 17 colores con los que trabaja el taller. Numerados como en su lista. */

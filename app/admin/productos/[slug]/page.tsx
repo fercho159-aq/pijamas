@@ -11,7 +11,7 @@ export default async function EditarProducto({
 }) {
   if (!(await haySesion())) redirect('/admin/entrar')
   const { slug } = await params
-  const p = await getProducto(slug)
+  const p = await getProducto(slug, { incluirOcultos: true })
   if (!p) notFound()
 
   return (

@@ -146,6 +146,7 @@
    "precioLista": 149,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -172,7 +173,7 @@
      "hex": "#BCDCD2",
      "sku": "RL-101-AGU",
      "stock": 10,
-     "img": null
+     "img": "/productos/101-agua.jpg"
     },
     {
      "nombre": "Cielo",
@@ -189,7 +190,7 @@
      "img": null
     }
    ],
-   "portada": null
+   "portada": "Agua"
   },
   {
    "numero": 102,
@@ -203,6 +204,7 @@
    "precioLista": 159,
    "precioOferta": null,
    "destacado": true,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -260,6 +262,7 @@
    "precioLista": 179,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -317,6 +320,7 @@
    "precioLista": 189,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -360,7 +364,7 @@
      "img": null
     }
    ],
-   "portada": "Coral"
+   "portada": "Cielo"
   },
   {
    "numero": 105,
@@ -374,6 +378,7 @@
    "precioLista": 169,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -393,7 +398,7 @@
      "hex": "#F0A088",
      "sku": "RL-105-COR",
      "stock": 10,
-     "img": "/productos/105-durazno.jpg"
+     "img": "/productos/105-coral.jpg"
     },
     {
      "nombre": "Agua",
@@ -431,6 +436,7 @@
    "precioLista": 189,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -464,7 +470,7 @@
      "hex": "#BFD9EF",
      "sku": "RL-107-CIE",
      "stock": 10,
-     "img": null
+     "img": "/productos/107-cielo.jpg"
     },
     {
      "nombre": "Amarillo",
@@ -474,7 +480,7 @@
      "img": "/productos/107-mantequilla.jpg"
     }
    ],
-   "portada": "Agua"
+   "portada": "Cielo"
   },
   {
    "numero": 108,
@@ -488,6 +494,7 @@
    "precioLista": 129,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -560,6 +567,7 @@
    "precioLista": 259,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -590,6 +598,7 @@
    "precioLista": 169,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -639,7 +648,8 @@
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 239,
    "precioOferta": null,
-   "destacado": true,
+   "destacado": false,
+   "activo": false,
    "tallas": [
     "M",
     "G",
@@ -690,6 +700,7 @@
    "precioLista": 219,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "CH",
     "M",
@@ -744,7 +755,7 @@
      "hex": "#2E9E7B",
      "sku": "RL-120-JAD",
      "stock": 10,
-     "img": "/productos/120-verde-jade.jpg"
+     "img": "/productos/120-jade.jpg"
     },
     {
      "nombre": "Negro",
@@ -754,7 +765,7 @@
      "img": "/productos/120-negro.jpg"
     }
    ],
-   "portada": "Negro"
+   "portada": "Jade"
   },
   {
    "numero": 124,
@@ -768,6 +779,7 @@
    "precioLista": 189,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -780,7 +792,7 @@
      "hex": "#F3C9D4",
      "sku": "RL-124-ROS",
      "stock": 10,
-     "img": null
+     "img": "/productos/124-rosa.jpg"
     },
     {
      "nombre": "Coral",
@@ -811,7 +823,7 @@
      "img": "/productos/124-mantequilla.jpg"
     }
    ],
-   "portada": "Cielo"
+   "portada": "Rosa"
   },
   {
    "numero": 126,
@@ -825,6 +837,7 @@
    "precioLista": 129,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -897,6 +910,7 @@
    "precioLista": 259,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -927,6 +941,7 @@
    "precioLista": 129,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -999,6 +1014,7 @@
    "precioLista": 129,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -1071,6 +1087,7 @@
    "precioLista": 195,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "CH",
     "M",
@@ -1114,7 +1131,7 @@
      "img": "/productos/135-mantequilla.jpg"
     }
    ],
-   "portada": "Rosa"
+   "portada": "Cielo"
   },
   {
    "numero": 136,
@@ -1128,6 +1145,7 @@
    "precioLista": 195,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "CH",
     "M",
@@ -1161,7 +1179,7 @@
      "hex": "#BFD9EF",
      "sku": "RL-136-CIE",
      "stock": 10,
-     "img": null
+     "img": "/productos/136-cielo.jpg"
     },
     {
      "nombre": "Amarillo",
@@ -1171,7 +1189,7 @@
      "img": null
     }
    ],
-   "portada": null
+   "portada": "Cielo"
   },
   {
    "numero": 137,
@@ -1185,6 +1203,7 @@
    "precioLista": 149,
    "precioOferta": null,
    "destacado": true,
+   "activo": true,
    "tallas": [
     "CH",
     "M",
@@ -1211,7 +1230,7 @@
      "hex": "#BCDCD2",
      "sku": "RL-137-AGU",
      "stock": 10,
-     "img": null
+     "img": "/productos/137-agua.jpg"
     },
     {
      "nombre": "Cielo",
@@ -1228,7 +1247,7 @@
      "img": "/productos/137-mantequilla.jpg"
     }
    ],
-   "portada": "Rosa"
+   "portada": "Agua"
   },
   {
    "numero": 141,
@@ -1242,6 +1261,7 @@
    "precioLista": 169,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "CH",
     "M",
@@ -1299,6 +1319,7 @@
    "precioLista": 179,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "CH",
     "M",
@@ -1339,10 +1360,10 @@
      "hex": "#F5E3A8",
      "sku": "RL-142-AMA",
      "stock": 10,
-     "img": "/productos/142-mantequilla.jpg"
+     "img": "/productos/142-amarillo.jpg"
     }
    ],
-   "portada": "Cielo"
+   "portada": "Amarillo"
   },
   {
    "numero": 143,
@@ -1356,6 +1377,7 @@
    "precioLista": 299,
    "precioOferta": null,
    "destacado": true,
+   "activo": true,
    "tallas": [
     "CH",
     "M",
@@ -1396,7 +1418,7 @@
      "hex": "#22314F",
      "sku": "RL-143-MAR",
      "stock": 10,
-     "img": "/productos/143-azul-marino.jpg"
+     "img": "/productos/143-marino.jpg"
     },
     {
      "nombre": "Negro",
@@ -1427,7 +1449,7 @@
      "img": "/productos/143-cielo.jpg"
     }
    ],
-   "portada": "Vino"
+   "portada": "Marino"
   },
   {
    "numero": 144,
@@ -1441,6 +1463,7 @@
    "precioLista": 129,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -1513,6 +1536,7 @@
    "precioLista": 119,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -1546,7 +1570,7 @@
      "hex": "#BFD9EF",
      "sku": "RL-145-CIE",
      "stock": 10,
-     "img": null
+     "img": "/productos/145-cielo.jpg"
     },
     {
      "nombre": "Amarillo",
@@ -1556,7 +1580,7 @@
      "img": null
     }
    ],
-   "portada": null
+   "portada": "Cielo"
   },
   {
    "numero": 146,
@@ -1569,7 +1593,8 @@
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 229,
    "precioOferta": null,
-   "destacado": false,
+   "destacado": true,
+   "activo": true,
    "tallas": [
     "CH",
     "M",
@@ -1627,6 +1652,7 @@
    "precioLista": 229,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "CH",
     "M",
@@ -1683,7 +1709,8 @@
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 239,
    "precioOferta": null,
-   "destacado": true,
+   "destacado": false,
+   "activo": false,
    "tallas": [
     "M",
     "G",
@@ -1734,6 +1761,7 @@
    "precioLista": 239,
    "precioOferta": null,
    "destacado": false,
+   "activo": false,
    "tallas": [
     "M",
     "G",
@@ -1784,6 +1812,7 @@
    "precioLista": 129,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "CH",
     "M",
@@ -1795,7 +1824,7 @@
      "hex": "#F5E3A8",
      "sku": "RL-160-AMA",
      "stock": 10,
-     "img": null
+     "img": "/productos/160-amarillo.jpg"
     },
     {
      "nombre": "Morado",
@@ -1847,7 +1876,7 @@
      "img": null
     }
    ],
-   "portada": null
+   "portada": "Amarillo"
   },
   {
    "numero": 161,
@@ -1861,6 +1890,7 @@
    "precioLista": 129,
    "precioOferta": null,
    "destacado": true,
+   "activo": true,
    "tallas": [
     "CH",
     "M",
@@ -1886,7 +1916,7 @@
      "hex": "#D6007F",
      "sku": "RL-161-FUC",
      "stock": 10,
-     "img": null
+     "img": "/productos/161-fucsia.jpg"
     },
     {
      "nombre": "Jade",
@@ -1924,7 +1954,7 @@
      "img": null
     }
    ],
-   "portada": "Naranja"
+   "portada": "Fucsia"
   },
   {
    "numero": 162,
@@ -1938,6 +1968,7 @@
    "precioLista": 129,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "CH",
     "M",
@@ -1991,7 +2022,7 @@
      "hex": "#1B4FA0",
      "sku": "RL-162-REY",
      "stock": 10,
-     "img": null
+     "img": "/productos/162-rey.jpg"
     },
     {
      "nombre": "Turquesa",
@@ -2001,7 +2032,7 @@
      "img": null
     }
    ],
-   "portada": "Morado"
+   "portada": "Rey"
   },
   {
    "numero": 163,
@@ -2015,6 +2046,7 @@
    "precioLista": 129,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "CH",
     "M",
@@ -2091,7 +2123,8 @@
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 169,
    "precioOferta": null,
-   "destacado": false,
+   "destacado": true,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -2150,6 +2183,7 @@
    "precioLista": 169,
    "precioOferta": null,
    "destacado": false,
+   "activo": true,
    "tallas": [
     "M",
     "G",
@@ -2177,7 +2211,7 @@
      "hex": "#BCDCD2",
      "sku": "RL-165-AGU",
      "stock": 10,
-     "img": null
+     "img": "/productos/165-agua.jpg"
     },
     {
      "nombre": "Cielo",
@@ -2194,7 +2228,7 @@
      "img": null
     }
    ],
-   "portada": null
+   "portada": "Agua"
   }
  ],
  "_resenasSonEjemplo": true,

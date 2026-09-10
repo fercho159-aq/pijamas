@@ -161,3 +161,6 @@
 @media (prefers-reduced-motion: reduce) {
   .adm-toggle, .adm-toggle i { transition: none; }
 }
+
+/* producto oculto de la tienda: se atenúa, pero el interruptor queda nítido */
+.adm-tabla tr.oculto .adm-mini, .adm-tabla tr.oculto .adm-enlace, .adm-tabla tr.oculto .adm-sub { opacity: .45; }

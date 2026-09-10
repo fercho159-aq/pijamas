@@ -59,6 +59,7 @@ export default function TablaProductos({ productos }: { productos: Producto[] })
               <th>Categoría</th>
               <th>Precio</th>
               <th>Existencias</th>
+              <th>Publicado</th>
               <th>Destacado</th>
               <th></th>
             </tr>
@@ -67,7 +68,10 @@ export default function TablaProductos({ productos }: { productos: Producto[] })
             {visibles.map((p) => {
               const stock = existencias(p)
               return (
-                <tr key={p.numero} className={stock === 0 ? 'sinStock' : ''}>
+                <tr
+                  key={p.numero}
+                  className={[stock === 0 ? 'sinStock' : '', p.activo === false ? 'oculto' : ''].join(' ').trim()}
+                >
                   <td className="adm-mini">
                     <FotoColor c={portada(p)} alt={p.nombre} sizes="46px" />
                   </td>
@@ -89,6 +93,17 @@ export default function TablaProductos({ productos }: { productos: Producto[] })
                     <span className={stock === 0 ? 'adm-rojo' : stock <= 8 ? 'adm-ambar' : ''}>
                       {stock}
                     </span>
+                  </td>
+                  <td>
+                    <button
+                      className={`adm-toggle ${p.activo !== false ? 'on' : ''}`}
+                      disabled={pendiente}
+                      aria-pressed={p.activo !== false}
+                      aria-label={`Publicar ${p.nombre}`}
+                      onClick={() => accion(() => alternarBandera(p.numero, 'activo', p.activo === false))}
+                    >
+                      <i />
+                    </button>
                   </td>
                   <td>
                     <button
