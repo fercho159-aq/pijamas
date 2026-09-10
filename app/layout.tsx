@@ -5,7 +5,7 @@ import { CarritoProvider } from '@/components/CarritoProvider'
 import Encabezado from '@/components/Encabezado'
 import Pie from '@/components/Pie'
 import BotonWhatsApp from '@/components/BotonWhatsApp'
-import { getConfig, usaSupabase } from '@/lib/datos'
+import { getConfig, getCategorias, getOfertas, usaSupabase } from '@/lib/datos'
 import { getMenu } from '@/lib/menu'
 
 const fraunces = Fraunces({
@@ -22,13 +22,14 @@ const karla = Karla({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://pijamas-woad.vercel.app'),
+  // al conectar rossylady.com basta con definir NEXT_PUBLIC_SITE_URL
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://pijamas-woad.vercel.app'),
   title: {
     default: 'Rossy Lady · Pijamas hechas en México',
     template: '%s · Rossy Lady',
   },
   description:
-    'Pijamas y camisones de algodón para dama y caballero. 26 modelos, tallas CH a 2XG. Hechos en México desde 2019. Envío a todo el país.',
+    'Pijamas y batas de algodón para dama y pijamas para caballero, diseñadas y confeccionadas en nuestro propio taller desde 1999. Envío a todo el país.',
   openGraph: {
     type: 'website',
     locale: 'es_MX',
@@ -43,14 +44,19 @@ export const viewport: Viewport = {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const [config, menu] = await Promise.all([getConfig(), getMenu()])
+  const [config, menu, categorias, ofertas] = await Promise.all([
+    getConfig(),
+    getMenu(),
+    getCategorias(),
+    getOfertas(),
+  ])
   return (
     <html lang="es" className={`${fraunces.variable} ${karla.variable}`}>
       <body>
         <CarritoProvider>
-          <Encabezado config={config} menu={menu} />
+          <Encabezado config={config} menu={menu} hayOfertas={ofertas.length > 0} />
           <main id="contenido">{children}</main>
-          <Pie demo={!usaSupabase} whatsapp={config.whatsapp} />
+          <Pie demo={!usaSupabase} whatsapp={config.whatsapp} categorias={categorias} />
           <BotonWhatsApp numero={config.whatsapp} />
         </CarritoProvider>
       </body>

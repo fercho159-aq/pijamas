@@ -3,12 +3,14 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import ListadoFiltrable from '@/components/ListadoFiltrable'
-import { getCategorias, getPorCategoria, getOfertas } from '@/lib/datos'
+import { getCategorias, getPorCategoria, getOfertas, getProductos } from '@/lib/datos'
 
 const OFERTAS = { slug: 'ofertas', nombre: 'Ofertas', sub: 'Precios especiales por tiempo limitado' }
+const CATALOGO = { slug: 'catalogo', nombre: 'Catálogo', sub: 'Todos nuestros modelos' }
 
 async function resolver(slug: string) {
   if (slug === 'ofertas') return { cat: OFERTAS, items: await getOfertas() }
+  if (slug === 'catalogo') return { cat: CATALOGO, items: await getProductos() }
   const cats = await getCategorias()
   const cat = cats.find((c) => c.slug === slug)
   if (!cat) return null
@@ -17,7 +19,11 @@ async function resolver(slug: string) {
 
 export async function generateStaticParams() {
   const cats = await getCategorias()
-  return [...cats.map((c) => ({ categoria: c.slug })), { categoria: 'ofertas' }]
+  return [
+    ...cats.map((c) => ({ categoria: c.slug })),
+    { categoria: 'ofertas' },
+    { categoria: 'catalogo' },
+  ]
 }
 
 export async function generateMetadata({
@@ -57,7 +63,7 @@ export default async function Categoria({
               ? 'Cuando bajemos algún precio, los modelos aparecen en esta página.'
               : 'Estamos preparando esta sección.'}
           </p>
-          <Link className="btn btn-pri" href="/dama">
+          <Link className="btn btn-pri" href="/catalogo">
             Ver catálogo
           </Link>
         </div>

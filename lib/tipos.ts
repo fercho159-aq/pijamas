@@ -19,6 +19,8 @@ export type Producto = {
   precioLista: number
   precioOferta: number | null
   destacado: boolean
+  /** Color de la portada. Se reparte entre modelos para que el catálogo muestre variedad. */
+  portada?: string | null
   /** La escala varía por modelo: la clienta maneja M–XX, M–XXX, CH–XG y petite CH–G. */
   tallas: string[]
   colores: Color[]

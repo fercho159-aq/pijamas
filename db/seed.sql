@@ -29,8 +29,8 @@ insert into categorias (slug, nombre, orden) values
   ('camisones', 'Camisones', 2),
   ('batas', 'Batas', 3),
   ('pijamas-largas', 'Pijamas largas', 4),
-  ('casa-y-calle', 'Casa y calle', 5),
-  ('caballero', 'Caballero', 6)
+  ('casa-y-calle', 'Conjuntos casa y calle', 5),
+  ('caballero', 'Pijamas para caballero', 6)
 on conflict (slug) do nothing;
 
 -- ── Configuración ───────────────────────────────────────────────
@@ -48,14 +48,14 @@ on conflict (clave) do update set valor = excluded.valor;
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (101, 'Daniela', '101-daniela',
      (select id from categorias where slug = 'pijamas-cortas'),
      'Conjunto de camiseta de tirantes y bermuda, en chifón de algodón con estampado en todo el cuerpo.',
      'Tirantes + bermuda',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     149, false, true)
+     149, false, true, null)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -75,14 +75,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (102, 'Alexa', '102-alexa',
      (select id from categorias where slug = 'pijamas-cortas'),
-     'Conjunto de manga corta con cuello en V y short con resorte suave. Estampado de florecitas en todo el cuerpo.',
-     'Manga corta + short',
+     'Playera de manga corta y cuello en V con bermuda, en chifón de algodón con estampado en todo el cuerpo.',
+     'Manga corta + bermuda',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     159, true, true)
+     159, true, true, 'Agua')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -110,14 +110,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (103, 'Marilyn', '103-marilyn',
      (select id from categorias where slug = 'pijamas-cortas'),
-     'Blusa de tirantes ancho y capri a media pierna. Punto liso, fresco para noches templadas.',
+     'Camiseta de tirantes lisa con bordado y pescador estampado en todo el cuerpo, en chifón de algodón.',
      'Tirantes + capri',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     179, false, true)
+     179, false, true, 'Cielo')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -146,14 +146,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (104, 'Annet', '104-annet',
      (select id from categorias where slug = 'pijamas-cortas'),
-     'Playera blanca de manga corta con vivo de color y capri a juego. El contraste no se despinta: es tela teñida, no estampado.',
+     'Playera blanca de manga corta y cuello en V con bordado en contraste, y pescador estampado en chifón de algodón.',
      'Manga corta + capri',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     189, false, true)
+     189, false, true, 'Coral')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -181,14 +181,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (105, 'Michelle', '105-michelle',
      (select id from categorias where slug = 'pijamas-largas'),
-     'Tirantes con pantalón largo de puño recto. El modelo más pedido para época de frío ligero.',
-     'Tirantes + pantalón',
+     'Playera de manga corta y cuello en V con pantalón, en chifón de algodón con estampado en todo el cuerpo.',
+     'Manga corta + pantalón',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     169, false, true)
+     169, false, true, 'Coral')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -217,14 +217,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (107, 'Vero', '107-vero',
      (select id from categorias where slug = 'pijamas-largas'),
-     'Manga corta con cuello en V y pantalón largo holgado. Corte amplio, sin costuras que aprieten.',
+     'Blusa de manga corta con cuello, plisada y con botones, y pantalón. Algodón con estampado en todo el cuerpo.',
      'Manga corta + pantalón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     189, false, true)
+     189, false, true, 'Agua')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -252,14 +252,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (108, 'Paty', '108-paty',
      (select id from categorias where slug = 'camisones'),
-     'Camisón de manga corta con carita de perro estampada al frente. Largo a la rodilla, con abertura lateral.',
+     'Camisón liso de manga corta y cuello redondo, con carita estampada en serigrafía al frente.',
      'Camisón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     129, false, true)
+     129, false, true, 'Amarillo')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -286,14 +286,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (109, 'Diana', '109-diana',
      (select id from categorias where slug = 'camisones'),
      'Camisón de manga corta con estampado menudo en todo el cuerpo. Corte holgado.',
      'Camisón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     259, false, true)
+     259, false, true, 'Cielo')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -314,14 +314,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
-  values (111, 'Jazmin', '111-jazmin',
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
+  values (111, 'Jazmín', '111-jazmin',
      (select id from categorias where slug = 'batas'),
-     'Camisón abotonado con cuello camisero, dos bolsas y estampado menudo. Se abre por completo.',
+     'Bata de manga corta con cuello, abierta con botones, plisada y con bolsas. Chifón de algodón con estampado en todo el cuerpo.',
      'Bata manga corta',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     169, false, true)
+     169, false, true, 'Amarillo')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -342,14 +342,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (117, 'Frida', '117-frida',
      (select id from categorias where slug = 'casa-y-calle'),
-     'Manga corta y capri en color firme, con flor de lis bordada en pecho y pierna. Bordado real: no se cuartea ni se despinta.',
-     'Bordado + capri',
+     'Blusa amplia de manga corta y cuello redondo con pescador, estampada en serigrafía con alcatraces. Chifón de algodón.',
+     'Manga corta + capri',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     239, true, true)
+     239, true, true, 'Fucsia')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -374,14 +374,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (120, 'Hec', '120-hec',
      (select id from categorias where slug = 'caballero'),
-     'Conjunto de caballero de manga larga con cuello redondo y pantalón largo. Punto grueso, para dormir con fresco.',
+     'Playera de manga larga y cuello en V con bolsa, y pantalón de jareta con bolsas. Tela piqué de algodón en colores de contraste.',
      'Manga larga + pantalón',
      'Tela piqué 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     219, false, true)
+     219, false, true, 'Negro')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -416,14 +416,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (124, 'Alondra', '124-alondra',
      (select id from categorias where slug = 'pijamas-largas'),
-     'Camisa de botones con bolsa al pecho y pantalón largo. El clásico de dos piezas abotonado.',
+     'Blusa de manga corta con cuello, plisada y con botones, y pantalón. Algodón.',
      'Manga corta + pantalón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     189, false, true)
+     189, false, true, 'Cielo')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -451,14 +451,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (126, 'Linda', '126-linda',
      (select id from categorias where slug = 'camisones'),
-     'Camisón de manga corta con carita de gato al frente. Largo a la rodilla.',
+     'Camisón liso de manga corta y cuello redondo, con gato estampado en serigrafía al frente.',
      'Camisón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     129, false, true)
+     129, false, true, 'Rosa')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -485,14 +485,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (127, 'Denise', '127-denise',
      (select id from categorias where slug = 'camisones'),
      'Camisón de manga corta con rana estampada al frente. Corte amplio.',
      'Camisón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     259, false, true)
+     259, false, true, 'Agua')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -513,14 +513,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (128, 'Katy', '128-katy',
      (select id from categorias where slug = 'camisones'),
-     'Camisón de manga corta con gatito estampado de cuerpo entero. Largo a la rodilla.',
+     'Camisón liso de manga corta y cuello redondo, con estampado en serigrafía al frente.',
      'Camisón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     129, false, true)
+     129, false, true, null)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -542,14 +542,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (129, 'Jac', '129-jac',
      (select id from categorias where slug = 'camisones'),
-     'Camisón de manga corta con pollito estampado al frente. Corte holgado.',
+     'Camisón liso de manga corta y cuello redondo, con pollito estampado en serigrafía al frente.',
      'Camisón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     129, false, true)
+     129, false, true, 'Rosa')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -576,14 +576,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (135, 'Willy', '135-willy',
      (select id from categorias where slug = 'caballero'),
-     'Playera de manga corta con ribete en cuello y mangas, y short con bolsas. Conjunto de caballero para calor.',
-     'Manga corta + short',
+     'Playera de manga corta y cuello en V con serigrafía «Recarga café», y bermuda negra de jareta con bolsas.',
+     'Manga corta + bermuda',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     195, false, true)
+     195, false, true, 'Rosa')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -611,14 +611,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (136, 'Harry', '136-harry',
      (select id from categorias where slug = 'caballero'),
      'Playera de cuello en V manga corta con serigrafía «You are doing», y bermuda negra con jareta y bolsas.',
      'Manga corta + bermuda',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     195, false, true)
+     195, false, true, null)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -638,14 +638,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (137, 'Cindy', '137-cindy',
      (select id from categorias where slug = 'pijamas-cortas'),
-     'Tirantes delgados y short suelto. La opción más fresca del catálogo.',
+     'Camiseta con botones y short, en chifón de algodón con estampado en todo el cuerpo.',
      'Tirantes + short',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     149, true, true)
+     149, true, true, 'Rosa')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -673,14 +673,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (141, 'Vivian', '141-vivian',
      (select id from categorias where slug = 'pijamas-largas'),
-     'Manga corta con pantalón largo de corte recto. Punto liso en tonos pastel.',
+     'Playera de manga integrada y escote redondo con pantalón de jareta y bolsas. Algodón con estampado en todo el cuerpo.',
      'Manga corta + pantalón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     169, false, true)
+     169, false, true, 'Amarillo')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -709,14 +709,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (142, 'Penny', '142-penny',
      (select id from categorias where slug = 'pijamas-largas'),
-     'Tirantes con pantalón largo entallado al tobillo. Silueta larga y ligera.',
+     'Camiseta con botones y pantalón de jareta con bolsas. Algodón con estampado en todo el cuerpo.',
      'Tirantes + pantalón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     179, false, true)
+     179, false, true, 'Cielo')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -745,14 +745,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (143, 'Mike', '143-mike',
      (select id from categorias where slug = 'caballero'),
-     'Manga larga con botones al cuello, bolsa al pecho y pantalón de cuadros en franela de algodón. El más abrigador del catálogo.',
+     'Playera de manga larga con aletilla y bolsa, y pantalón de franela a cuadros con bragueta y bolsas.',
      'Manga larga + franela',
      'Franela y chifón, 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     299, true, true)
+     299, true, true, 'Vino')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -789,14 +789,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (144, 'Jessica', '144-jessica',
      (select id from categorias where slug = 'camisones'),
      'Camisón de manga corta y cuello redondo, liso, con estampado serigrafiado al frente.',
      'Camisón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     129, false, true)
+     129, false, true, null)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -818,14 +818,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
-  values (145, 'Anahi', '145-anahi',
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
+  values (145, 'Anahí', '145-anahi',
      (select id from categorias where slug = 'camisones'),
      'Camisón de manga corta y cuello redondo, en chifón de algodón con estampado en todo el cuerpo.',
      'Camisón',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     119, false, true)
+     119, false, true, null)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -845,14 +845,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (146, 'Isabela', '146-isabela',
      (select id from categorias where slug = 'pijamas-largas'),
      'Pantalón con jareta y bolsas, estampado en todo el cuerpo, con blusa blanca de manga larga y cuello en V bordada con una dama y una flor.',
      'Manga larga + pantalón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     229, false, true)
+     229, false, true, null)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -872,14 +872,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (147, 'Amaya', '147-amaya',
      (select id from categorias where slug = 'pijamas-largas'),
      'Pantalón con jareta y bolsas, estampado en todo el cuerpo, con blusa negra de manga larga y cuello redondo bordada con una luna.',
      'Manga larga + pantalón',
      '100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     229, false, true)
+     229, false, true, null)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -899,14 +899,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (157, 'Sandra', '157-sandra',
      (select id from categorias where slug = 'casa-y-calle'),
-     'Manga corta y capri con girasoles bordados en pecho y piernas. Colores firmes que aguantan lavada tras lavada.',
-     'Bordado + capri',
+     'Blusa amplia de manga corta y cuello redondo con pescador, estampada en serigrafía con girasoles. Chifón de algodón.',
+     'Manga corta + capri',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     239, true, true)
+     239, true, true, 'Jade')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -932,14 +932,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
-  values (158, 'Eloisa', '158-eloisa',
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
+  values (158, 'Eloísa', '158-eloisa',
      (select id from categorias where slug = 'casa-y-calle'),
-     'Manga corta y capri con margaritas bordadas. Bordado a hilo, no estampado.',
-     'Bordado + capri',
+     'Blusa amplia de manga corta y cuello redondo con pescador, estampada en serigrafía con margaritas. Chifón de algodón.',
+     'Manga corta + capri',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     239, false, true)
+     239, false, true, 'Morado')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -964,14 +964,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (160, 'Gloria', '160-gloria',
      (select id from categorias where slug = 'pijamas-cortas'),
-     'Blusa blanca de tirantes con short de color y flores bordadas en ambas piezas.',
-     'Tirantes + short bordado',
+     'Camiseta blanca y short de color, estampados en serigrafía con rosas. Chifón de algodón.',
+     'Tirantes + short',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     129, false, true)
+     129, false, true, null)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -994,14 +994,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G');
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (161, 'Mara', '161-mara',
      (select id from categorias where slug = 'pijamas-cortas'),
-     'Blusa blanca de tirantes con short naranja y girasoles bordados. Short con bolsas laterales.',
-     'Tirantes + short bordado',
+     'Camiseta blanca y short de color, estampados en serigrafía con girasoles. Chifón de algodón.',
+     'Tirantes + short',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     129, true, true)
+     129, true, true, 'Naranja')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -1029,14 +1029,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G');
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (162, 'Sonia', '162-sonia',
      (select id from categorias where slug = 'pijamas-cortas'),
-     'Blusa blanca de tirantes con short de color y flores bordadas. Short con bolsas.',
-     'Tirantes + short bordado',
+     'Camiseta blanca y short de color, estampados en serigrafía con margaritas. Chifón de algodón.',
+     'Tirantes + short',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     129, false, true)
+     129, false, true, 'Morado')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -1064,14 +1064,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G');
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (163, 'Nelly', '163-nelly',
      (select id from categorias where slug = 'pijamas-cortas'),
-     'Blusa blanca de tirantes con ribete de color, short a juego y flores bordadas.',
-     'Tirantes + short bordado',
+     'Camiseta blanca y short de color, estampados en serigrafía con alcatraces. Chifón de algodón.',
+     'Tirantes + short',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     129, false, true)
+     129, false, true, 'Rojo')
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -1099,14 +1099,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('CH', 'M', 'G');
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (164, 'Farrah', '164-farrah',
      (select id from categorias where slug = 'batas'),
      'Bata sin mangas de escote redondo, plisada en el busto, abierta con botones y con bolsas laterales. Chifón de algodón estampado.',
      'Bata sin mangas',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     169, false, true)
+     169, false, true, null)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
@@ -1126,14 +1126,14 @@ select v.id, t.codigo, true from v, tallas t where t.codigo in ('M', 'G', 'XG', 
 with p as (
   insert into productos
     (numero_modelo, nombre, slug, categoria_id, descripcion, tipo,
-     composicion, cuidados, precio_lista, destacado, activo)
+     composicion, cuidados, precio_lista, destacado, activo, color_portada)
   values (165, 'Soila', '165-soila',
      (select id from categorias where slug = 'batas'),
      'Bata sin mangas de escote redondo, plisada en el busto y abierta con botones. Chifón de algodón con estampado en todo el cuerpo.',
      'Bata sin mangas',
      'Chifón 100% algodón',
      'Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.',
-     169, false, true)
+     169, false, true, null)
   returning id
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)

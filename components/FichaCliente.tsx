@@ -5,7 +5,7 @@ import Link from 'next/link'
 import FotoColor from './FotoColor'
 import { useRouter } from 'next/navigation'
 import { useCarrito } from './CarritoProvider'
-import { pesos, precio, descuento } from '@/lib/formato'
+import { pesos, precio, descuento, portada } from '@/lib/formato'
 import { waProducto } from '@/lib/whatsapp'
 import type { Producto } from '@/lib/tipos'
 
@@ -18,10 +18,10 @@ export default function FichaCliente({
   tallas: string[]
   numeroWa: string
 }) {
-  // arranca en un color que ya tenga foto: abrir en una muestra de color
-  // cuando hay fotografía disponible vende peor y no aporta nada
+  // arranca en el color de la portada: la ficha abre en la misma foto que se
+  // vio en la tarjeta
   const [iColor, setIColor] = useState(() => {
-    const i = p.colores.findIndex((c) => c.img)
+    const i = p.colores.indexOf(portada(p))
     return i === -1 ? 0 : i
   })
   const [talla, setTalla] = useState<string | null>(null)

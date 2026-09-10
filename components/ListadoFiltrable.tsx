@@ -7,7 +7,7 @@ import type { Producto } from '@/lib/tipos'
 /**
  * El filtro vive en el cliente para que las páginas de categoría sigan
  * siendo estáticas: leer searchParams en el servidor las volvería dinámicas
- * y perderíamos el prerenderizado de las 4 listas.
+ * y perderíamos el prerenderizado de las listas.
  */
 export default function ListadoFiltrable({ items }: { items: Producto[] }) {
   const params = useSearchParams()
@@ -29,23 +29,16 @@ export default function ListadoFiltrable({ items }: { items: Producto[] }) {
       {tipos.length > 1 && (
         <div className="chips" role="group" aria-label="Filtrar por tipo">
           <button onClick={() => elegir(null)} aria-pressed={!activo}>
-            Todos <em>{items.length}</em>
+            Todos
           </button>
           {tipos.map((t) => (
             <button key={t} onClick={() => elegir(t)} aria-pressed={activo === t}>
-              {t} <em>{items.filter((p) => p.tipo === t).length}</em>
+              {t}
             </button>
           ))}
         </div>
       )}
 
-      <p className="apunte" style={{ margin: '0 0 20px' }}>
-        {visibles.length} {visibles.length === 1 ? 'modelo' : 'modelos'} ·{' '}
-        {(() => {
-          const c = visibles.reduce((t, p) => t + p.colores.length, 0)
-          return `${c} ${c === 1 ? 'color' : 'colores'}`
-        })()}
-      </p>
 
       {visibles.length === 0 ? (
         <div className="vacio">

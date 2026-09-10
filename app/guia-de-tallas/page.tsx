@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Guía de tallas',
-  description: 'Medidas en centímetros para dama y caballero, de la talla CH a la 2XG.',
+  description: 'Medidas en centímetros para dama y caballero. Cada modelo indica su escala, de CH a XXX.',
 }
 
 const DAMA = [
@@ -10,14 +10,14 @@ const DAMA = [
   ['M', '34 – 36', '90 – 95', '72 – 77', '96 – 101'],
   ['G', '38 – 40', '96 – 101', '78 – 84', '102 – 107'],
   ['XG', '42 – 44', '102 – 108', '85 – 92', '108 – 114'],
-  ['2XG', '46 – 48', '109 – 116', '93 – 100', '115 – 122'],
+  ['XX', '46 – 48', '109 – 116', '93 – 100', '115 – 122'],
+  ['XXX', '50 – 52', '117 – 124', '101 – 108', '123 – 130'],
 ]
 const CAB = [
   ['CH', '89 – 94', '76 – 81', '89 – 94'],
   ['M', '95 – 100', '82 – 87', '95 – 100'],
   ['G', '101 – 107', '88 – 94', '101 – 106'],
   ['XG', '108 – 114', '95 – 102', '107 – 113'],
-  ['2XG', '115 – 122', '103 – 110', '114 – 121'],
 ]
 
 export default function GuiaTallas() {
@@ -28,7 +28,8 @@ export default function GuiaTallas() {
         Mide sobre tu cuerpo, no sobre la ropa, y con la cinta sin apretar.
       </p>
       <div className="nota">
-        Si quedas entre dos tallas, <b>pide la mayor</b>: nuestros modelos son de corte holgado.
+        Cada modelo trae su propia escala: unos van de CH a XG, otros de M a XX o de M a XXX, y
+        los petite de CH a G. La ficha de cada modelo indica cuáles tiene.
       </div>
 
       <h2 style={{ fontSize: 20, marginTop: 30, marginBottom: 12 }}>Dama</h2>

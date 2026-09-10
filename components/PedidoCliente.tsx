@@ -32,7 +32,7 @@ export default function PedidoCliente({
       <div className="vacio">
         <h2>No hay nada que confirmar</h2>
         <p>Tu carrito está vacío.</p>
-        <Link className="btn btn-pri" href="/dama">
+        <Link className="btn btn-pri" href="/catalogo">
           Ver catálogo
         </Link>
       </div>

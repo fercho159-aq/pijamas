@@ -48,6 +48,7 @@ type FilaProducto = {
   precio_oferta: string | null
   oferta_termina: string | null
   destacado: boolean
+  color_portada: string | null
   categorias: { slug: string } | null
   variantes: {
     color_nombre: string
@@ -77,6 +78,7 @@ function normaliza(f: FilaProducto): Producto {
     precioLista: Number(f.precio_lista),
     precioOferta: vigente,
     destacado: f.destacado,
+    portada: f.color_portada,
     // la escala vive en variante_tallas; aquí se une y se ordena como la tabla tallas
     tallas: local.tallas.filter((codigo) =>
       f.variantes.some((v) => v.variante_tallas?.some((t) => t.talla_codigo === codigo))

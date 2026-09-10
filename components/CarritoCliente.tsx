@@ -22,7 +22,7 @@ export default function CarritoCliente({
       <div className="vacio">
         <h2>Tu carrito está vacío</h2>
         <p>Todavía no has agregado nada.</p>
-        <Link className="btn btn-pri" href="/dama">
+        <Link className="btn btn-pri" href="/catalogo">
           Ver catálogo
         </Link>
       </div>

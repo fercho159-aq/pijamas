@@ -8,7 +8,15 @@ import { usePathname } from 'next/navigation'
 import { pesos } from '@/lib/formato'
 import type { RamaMenu } from '@/lib/menu'
 
-export default function Navegacion({ menu, wa }: { menu: RamaMenu[]; wa: string }) {
+export default function Navegacion({
+  menu,
+  wa,
+  hayOfertas,
+}: {
+  menu: RamaMenu[]
+  wa: string
+  hayOfertas: boolean
+}) {
   const [abierto, setAbierto] = useState<string | null>(null) // mega menú de escritorio
   const [cajon, setCajon] = useState(false) // menú vertical en móvil
   const [rama, setRama] = useState<string | null>(null) // acordeón dentro del cajón
@@ -74,7 +82,10 @@ export default function Navegacion({ menu, wa }: { menu: RamaMenu[]; wa: string 
               aria-expanded={abierto === r.slug}
               aria-haspopup="true"
             >
-              {r.nombre.replace('Pijamas para ', '').replace(/^\w/, (m) => m.toUpperCase())}
+              {r.nombre
+                .replace('Pijamas para ', '')
+                .replace('Conjuntos ', '')
+                .replace(/^\w/, (m) => m.toUpperCase())}
               <svg viewBox="0 0 24 24" aria-hidden="true" className="mega-flecha">
                 <path d="M6 9l6 6 6-6" />
               </svg>
@@ -90,18 +101,17 @@ export default function Navegacion({ menu, wa }: { menu: RamaMenu[]; wa: string 
                         <li key={t.etiqueta}>
                           <Link href={t.href}>
                             {t.etiqueta}
-                            <em>{t.cuantos}</em>
                           </Link>
                         </li>
                       ))}
                     </ul>
                     <Link href={`/${r.slug}`} className="mega-todo">
-                      Ver los {r.cuantos} modelos →
+                      Ver todos →
                     </Link>
                   </div>
 
                   <div className="mega-col mega-vitrina">
-                    <h3>Los más pedidos</h3>
+                    <h3>Destacados</h3>
                     <div className="mega-fotos">
                       {r.vitrina.map((v) => (
                         <Link key={v.slug} href={`/producto/${v.slug}`}>
@@ -120,8 +130,8 @@ export default function Navegacion({ menu, wa }: { menu: RamaMenu[]; wa: string 
                   <div className="mega-col mega-nota">
                     <h3>¿Dudas de talla?</h3>
                     <p>
-                      Manejamos CH a 2XG con medidas en centímetros. Si quedas entre dos tallas,
-                      pide la mayor: el corte es holgado.
+                      Cada modelo trae su propia escala, de CH a XXX, y la guía tiene las medidas
+                      en centímetros. Si dudas entre dos tallas, te orientamos.
                     </p>
                     <Link href="/guia-de-tallas" className="btn btn-out">
                       Ver guía de tallas
@@ -136,9 +146,12 @@ export default function Navegacion({ menu, wa }: { menu: RamaMenu[]; wa: string 
           </div>
         ))}
 
-        <Link href="/ofertas" className="mega-tab mega-ofertas">
-          Ofertas
-        </Link>
+        {/* sin ofertas vigentes, la pestaña llevaría a una página vacía */}
+        {hayOfertas && (
+          <Link href="/ofertas" className="mega-tab mega-ofertas">
+            Ofertas
+          </Link>
+        )}
       </nav>
 
       {/* ── Móvil ──────────────────────────────────────────────── */}
@@ -192,7 +205,6 @@ export default function Navegacion({ menu, wa }: { menu: RamaMenu[]; wa: string 
                     >
                       <span>
                         {r.nombre}
-                        <em>{r.cuantos}</em>
                       </span>
                       <svg
                         viewBox="0 0 24 24"
@@ -206,12 +218,11 @@ export default function Navegacion({ menu, wa }: { menu: RamaMenu[]; wa: string 
                     {rama === r.slug && (
                       <div className="cajon-sub">
                         <Link href={`/${r.slug}`} className="cajon-todo">
-                          Ver los {r.cuantos} modelos
+                          Ver todos
                         </Link>
                         {r.tipos.map((t) => (
                           <Link key={t.etiqueta} href={t.href}>
                             {t.etiqueta}
-                            <em>{t.cuantos}</em>
                           </Link>
                         ))}
                       </div>
@@ -219,9 +230,14 @@ export default function Navegacion({ menu, wa }: { menu: RamaMenu[]; wa: string 
                   </div>
                 ))}
 
-                <Link href="/ofertas" className="cajon-suelto destaque">
-                  Ofertas
+                <Link href="/catalogo" className="cajon-suelto">
+                  Catálogo completo
                 </Link>
+                {hayOfertas && (
+                  <Link href="/ofertas" className="cajon-suelto destaque">
+                    Ofertas
+                  </Link>
+                )}
                 <Link href="/guia-de-tallas" className="cajon-suelto">
                   Guía de tallas
                 </Link>

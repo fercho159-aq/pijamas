@@ -1,32 +1,44 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Redes from './Redes'
+import type { Categoria } from '@/lib/tipos'
 
-export default function Pie({ demo, whatsapp }: { demo: boolean; whatsapp: string }) {
+export default function Pie({
+  demo,
+  whatsapp,
+  categorias,
+}: {
+  demo: boolean
+  whatsapp: string
+  categorias: Categoria[]
+}) {
   return (
     <footer className="pie">
       <div className="envoltura">
         <Image src="/logo.png" alt="Rossy Lady" width={583} height={900} className="pie-logo" />
         <p>
-          Pijamas y camisones hechos en México desde 2019.
+          Pijamas y batas hechas en nuestro propio taller desde 1999.
           <br />
-          Dama, caballero y camisones, de la talla CH a la 2XG.
+          Rossy Lady es una marca registrada ante el IMPI.
         </p>
 
         <Redes whatsapp={whatsapp} />
 
         <nav className="pie-links">
+          <Link href="/catalogo">Catálogo</Link>
+          {categorias.map((c) => (
+            <Link key={c.slug} href={`/${c.slug}`}>
+              {c.nombre}
+            </Link>
+          ))}
           <Link href="/guia-de-tallas">Guía de tallas</Link>
-          <Link href="/dama">Dama</Link>
-          <Link href="/camisones">Camisones</Link>
-          <Link href="/caballero">Caballero</Link>
-          <Link href="/ofertas">Ofertas</Link>
         </nav>
 
         <div className="pie-fin">
           <p>
-            Composición de fibras conforme a la NOM‑004‑SCFI indicada en cada producto.
-            Razón social, RFC y domicilio pendientes de captura.
+            Tienda operada por Paralelogramo Diseño, S.A. de C.V. · RFC y domicilio fiscal
+            pendientes de captura. Composición de fibras conforme a la NOM-004-SCFI indicada
+            en cada producto.
           </p>
           {demo && (
             <p className="pie-demo">

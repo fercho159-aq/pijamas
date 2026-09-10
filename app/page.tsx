@@ -32,19 +32,19 @@ export default async function Inicio() {
   const faq: [string, string][] = [
     [
       '¿Qué talla pido?',
-      'Manejamos CH a 2XG con medidas en centímetros, no solo letras. Si quedas entre dos tallas, pide la mayor: nuestros modelos son de corte holgado.',
+      'Cada modelo indica sus tallas disponibles, de CH a XXX según el modelo, y en la guía están las medidas en centímetros. Si dudas entre dos tallas, escríbenos por WhatsApp y te orientamos.',
     ],
     [
       '¿Y si no me queda?',
       'Cambio de talla sin costo dentro de los primeros 15 días, siempre que la prenda no se haya usado y conserve su etiqueta.',
     ],
     [
-      '¿La tela se transparenta?',
-      'No. Trabajamos punto de 165 a 180 gramos por metro. En cada ficha viene el gramaje exacto del modelo.',
+      '¿De qué tela son?',
+      'Todas nuestras prendas son 100 % algodón, con materiales nacionales: chifón, piqué o franela según el modelo. La composición exacta viene en cada ficha.',
     ],
     [
-      '¿Se despinta el diseño?',
-      'Los modelos bordados llevan hilo, no estampado: no se cuartean ni se despintan. En cada ficha se indica cuál es cuál.',
+      '¿Cómo las cuido?',
+      'Lávalas a máquina en agua fría, del revés y con colores similares, sin cloro, y sécalas a la sombra. Así los estampados y bordados duran mucho más.',
     ],
     [
       '¿Cuánto tarda en llegar?',
@@ -69,7 +69,7 @@ export default async function Inicio() {
           <div className="hero-foto">
             <Image
               src="/hero/hero-163.jpg"
-              alt="Modelo con el conjunto Nelly, blusa de tirantes blanca y short rojo con flores bordadas"
+              alt="Modelo con el conjunto Nelly, blusa de tirantes blanca y short rojo con alcatraces"
               width={1005}
               height={1335}
               priority
@@ -78,13 +78,13 @@ export default async function Inicio() {
           </div>
 
           <div className="hero-txt">
-            <span className="hero-eyebrow">Hechas en México desde 2019</span>
+            <span className="hero-eyebrow">Hechas en México desde 1999</span>
             <h1>Pijamas que aguantan lavada tras lavada.</h1>
             <p>
-              {todos.length} modelos en algodón, para dama y caballero. De la talla CH a la 2XG.
+              Pijamas y batas para dama y pijamas para caballero, diseñadas y confeccionadas en nuestro propio taller.
             </p>
             <div className="hero-btns">
-              <Link className="btn btn-pri" href="/dama">
+              <Link className="btn btn-pri" href="/catalogo">
                 Ver catálogo
               </Link>
               <Link className="btn hero-gho" href="/producto/163-nelly">
@@ -107,7 +107,7 @@ export default async function Inicio() {
               <span>
                 {c.nombre}
                 <small>
-                  {todos.filter((p) => p.categoria === c.slug).length} modelos · {c.sub}
+                  {c.sub}
                 </small>
               </span>
             </Link>
@@ -117,8 +117,8 @@ export default async function Inicio() {
 
       <section className="seccion envoltura">
         <div className="seccion-t">
-          <h2>Los más pedidos</h2>
-          <Link href="/dama">Ver todo</Link>
+          <h2>Destacados</h2>
+          <Link href="/catalogo">Ver todo</Link>
         </div>
         <div className="riel">
           {destacados.map((p) => (
@@ -131,7 +131,7 @@ export default async function Inicio() {
         <div className="envoltura confianza-g">
           <div>
             <b>Hechos en México</b>
-            <span>Taller propio desde 2019.</span>
+            <span>Taller propio desde 1999.</span>
           </div>
           <div>
             <b>Cambio de talla</b>
@@ -144,6 +144,35 @@ export default async function Inicio() {
           <div>
             <b>Te atiende una persona</b>
             <span>Cerramos tu pedido por WhatsApp.</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="historia">
+        <div className="historia-in envoltura">
+          <div className="historia-txt">
+            <span className="historia-eyebrow">Desde 1999</span>
+            <h2>Una marca hecha por quien conoce el oficio</h2>
+            <p>
+              Rossy Lady nació en 1999. La fundó la señora Rossy Espejel Morales, que después de
+              varios años como jefa de producción para diferentes marcas decidió crear la suya.
+            </p>
+            <p>
+              Desde entonces nos especializamos en pijamas y batas para dama, y en pijamas para
+              caballero y niños. Todo se diseña y se confecciona en nuestro propio taller, con
+              materiales 100 % nacionales, cuidando que las tallas sean exactas y que los modelos
+              estén a la moda.
+            </p>
+            <p className="historia-impi">Rossy Lady es una marca registrada ante el IMPI.</p>
+          </div>
+          <div className="historia-foto">
+            <Image
+              src="/hero/hero-161.jpg"
+              alt="Pijama Mara de Rossy Lady, camiseta blanca con girasoles"
+              width={856}
+              height={1137}
+              sizes="(min-width: 900px) 380px, 100vw"
+            />
           </div>
         </div>
       </section>

@@ -30,6 +30,7 @@ create table if not exists productos (
   oferta_inicia    timestamptz,
   oferta_termina   timestamptz,
   destacado        boolean default false,
+  color_portada    text,                      -- color de la portada; se reparte para dar variedad
   orden_destacado  int,
   activo           boolean default true,
   meta_titulo      text,
@@ -41,6 +42,9 @@ create table if not exists productos (
   constraint oferta_con_fin
     check (precio_oferta is null or oferta_termina is not null)
 );
+
+-- bases creadas antes de color_portada
+alter table productos add column if not exists color_portada text;
 
 create table if not exists variantes (
   id           uuid primary key default gen_random_uuid(),

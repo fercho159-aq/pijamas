@@ -14,7 +14,15 @@ import type { RamaMenu } from '@/lib/menu'
  * clase de ámbito en elementos nativos, no en componentes como <Link>, y eso
  * dejaba sin estilo al logo, al carrito y al botón de regreso.
  */
-export default function Encabezado({ config, menu }: { config: Config; menu: RamaMenu[] }) {
+export default function Encabezado({
+  config,
+  menu,
+  hayOfertas,
+}: {
+  config: Config
+  menu: RamaMenu[]
+  hayOfertas: boolean
+}) {
   const { piezas, listo } = useCarrito()
 
   return (
@@ -23,7 +31,7 @@ export default function Encabezado({ config, menu }: { config: Config; menu: Ram
 
       <header className="hdr">
         <div className="hdr-in envoltura">
-          <Navegacion menu={menu} wa={waGeneral(config.whatsapp)} />
+          <Navegacion menu={menu} wa={waGeneral(config.whatsapp)} hayOfertas={hayOfertas} />
 
           <Link href="/" className="hdr-logo" aria-label="Rossy Lady, inicio">
             <Image src="/logo.png" alt="Rossy Lady" width={583} height={900} priority />

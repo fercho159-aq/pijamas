@@ -124,12 +124,12 @@
   },
   {
    "slug": "casa-y-calle",
-   "nombre": "Casa y calle",
+   "nombre": "Conjuntos casa y calle",
    "sub": "Conjunto pescador para salir"
   },
   {
    "slug": "caballero",
-   "nombre": "Caballero",
+   "nombre": "Pijamas para caballero",
    "sub": "Manga larga y corta"
   }
  ],
@@ -188,15 +188,16 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": null
   },
   {
    "numero": 102,
    "nombre": "Alexa",
    "slug": "102-alexa",
    "categoria": "pijamas-cortas",
-   "tipo": "Manga corta + short",
-   "descripcion": "Conjunto de manga corta con cuello en V y short con resorte suave. Estampado de florecitas en todo el cuerpo.",
+   "tipo": "Manga corta + bermuda",
+   "descripcion": "Playera de manga corta y cuello en V con bermuda, en chifón de algodón con estampado en todo el cuerpo.",
    "composicion": "Chifón 100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 159,
@@ -244,7 +245,8 @@
      "stock": 10,
      "img": "/productos/102-mantequilla.jpg"
     }
-   ]
+   ],
+   "portada": "Agua"
   },
   {
    "numero": 103,
@@ -252,7 +254,7 @@
    "slug": "103-marilyn",
    "categoria": "pijamas-cortas",
    "tipo": "Tirantes + capri",
-   "descripcion": "Blusa de tirantes ancho y capri a media pierna. Punto liso, fresco para noches templadas.",
+   "descripcion": "Camiseta de tirantes lisa con bordado y pescador estampado en todo el cuerpo, en chifón de algodón.",
    "composicion": "Chifón 100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 179,
@@ -300,7 +302,8 @@
      "stock": 10,
      "img": "/productos/103-mantequilla.jpg"
     }
-   ]
+   ],
+   "portada": "Cielo"
   },
   {
    "numero": 104,
@@ -308,7 +311,7 @@
    "slug": "104-annet",
    "categoria": "pijamas-cortas",
    "tipo": "Manga corta + capri",
-   "descripcion": "Playera blanca de manga corta con vivo de color y capri a juego. El contraste no se despinta: es tela teñida, no estampado.",
+   "descripcion": "Playera blanca de manga corta y cuello en V con bordado en contraste, y pescador estampado en chifón de algodón.",
    "composicion": "Chifón 100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 189,
@@ -356,15 +359,16 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": "Coral"
   },
   {
    "numero": 105,
    "nombre": "Michelle",
    "slug": "105-michelle",
    "categoria": "pijamas-largas",
-   "tipo": "Tirantes + pantalón",
-   "descripcion": "Tirantes con pantalón largo de puño recto. El modelo más pedido para época de frío ligero.",
+   "tipo": "Manga corta + pantalón",
+   "descripcion": "Playera de manga corta y cuello en V con pantalón, en chifón de algodón con estampado en todo el cuerpo.",
    "composicion": "Chifón 100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 169,
@@ -412,7 +416,8 @@
      "stock": 10,
      "img": "/productos/105-mantequilla.jpg"
     }
-   ]
+   ],
+   "portada": "Coral"
   },
   {
    "numero": 107,
@@ -420,7 +425,7 @@
    "slug": "107-vero",
    "categoria": "pijamas-largas",
    "tipo": "Manga corta + pantalón",
-   "descripcion": "Manga corta con cuello en V y pantalón largo holgado. Corte amplio, sin costuras que aprieten.",
+   "descripcion": "Blusa de manga corta con cuello, plisada y con botones, y pantalón. Algodón con estampado en todo el cuerpo.",
    "composicion": "100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 189,
@@ -468,7 +473,8 @@
      "stock": 10,
      "img": "/productos/107-mantequilla.jpg"
     }
-   ]
+   ],
+   "portada": "Agua"
   },
   {
    "numero": 108,
@@ -476,7 +482,7 @@
    "slug": "108-paty",
    "categoria": "camisones",
    "tipo": "Camisón",
-   "descripcion": "Camisón de manga corta con carita de perro estampada al frente. Largo a la rodilla, con abertura lateral.",
+   "descripcion": "Camisón liso de manga corta y cuello redondo, con carita estampada en serigrafía al frente.",
    "composicion": "100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 129,
@@ -539,7 +545,8 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": "Amarillo"
   },
   {
    "numero": 109,
@@ -568,15 +575,16 @@
      "stock": 10,
      "img": "/productos/109-cielo.jpg"
     }
-   ]
+   ],
+   "portada": "Cielo"
   },
   {
    "numero": 111,
-   "nombre": "Jazmin",
+   "nombre": "Jazmín",
    "slug": "111-jazmin",
    "categoria": "batas",
    "tipo": "Bata manga corta",
-   "descripcion": "Camisón abotonado con cuello camisero, dos bolsas y estampado menudo. Se abre por completo.",
+   "descripcion": "Bata de manga corta con cuello, abierta con botones, plisada y con bolsas. Chifón de algodón con estampado en todo el cuerpo.",
    "composicion": "Chifón 100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 169,
@@ -596,15 +604,16 @@
      "stock": 10,
      "img": "/productos/111-mantequilla.jpg"
     }
-   ]
+   ],
+   "portada": "Amarillo"
   },
   {
    "numero": 117,
    "nombre": "Frida",
    "slug": "117-frida",
    "categoria": "casa-y-calle",
-   "tipo": "Bordado + capri",
-   "descripcion": "Manga corta y capri en color firme, con flor de lis bordada en pecho y pierna. Bordado real: no se cuartea ni se despinta.",
+   "tipo": "Manga corta + capri",
+   "descripcion": "Blusa amplia de manga corta y cuello redondo con pescador, estampada en serigrafía con alcatraces. Chifón de algodón.",
    "composicion": "Chifón 100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 239,
@@ -645,7 +654,8 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": "Fucsia"
   },
   {
    "numero": 120,
@@ -653,7 +663,7 @@
    "slug": "120-hec",
    "categoria": "caballero",
    "tipo": "Manga larga + pantalón",
-   "descripcion": "Conjunto de caballero de manga larga con cuello redondo y pantalón largo. Punto grueso, para dormir con fresco.",
+   "descripcion": "Playera de manga larga y cuello en V con bolsa, y pantalón de jareta con bolsas. Tela piqué de algodón en colores de contraste.",
    "composicion": "Tela piqué 100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 219,
@@ -722,7 +732,8 @@
      "stock": 10,
      "img": "/productos/120-negro.jpg"
     }
-   ]
+   ],
+   "portada": "Negro"
   },
   {
    "numero": 124,
@@ -730,7 +741,7 @@
    "slug": "124-alondra",
    "categoria": "pijamas-largas",
    "tipo": "Manga corta + pantalón",
-   "descripcion": "Camisa de botones con bolsa al pecho y pantalón largo. El clásico de dos piezas abotonado.",
+   "descripcion": "Blusa de manga corta con cuello, plisada y con botones, y pantalón. Algodón.",
    "composicion": "100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 189,
@@ -778,7 +789,8 @@
      "stock": 10,
      "img": "/productos/124-mantequilla.jpg"
     }
-   ]
+   ],
+   "portada": "Cielo"
   },
   {
    "numero": 126,
@@ -786,7 +798,7 @@
    "slug": "126-linda",
    "categoria": "camisones",
    "tipo": "Camisón",
-   "descripcion": "Camisón de manga corta con carita de gato al frente. Largo a la rodilla.",
+   "descripcion": "Camisón liso de manga corta y cuello redondo, con gato estampado en serigrafía al frente.",
    "composicion": "100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 129,
@@ -849,7 +861,8 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": "Rosa"
   },
   {
    "numero": 127,
@@ -878,7 +891,8 @@
      "stock": 10,
      "img": "/productos/127-menta.jpg"
     }
-   ]
+   ],
+   "portada": "Agua"
   },
   {
    "numero": 128,
@@ -886,7 +900,7 @@
    "slug": "128-katy",
    "categoria": "camisones",
    "tipo": "Camisón",
-   "descripcion": "Camisón de manga corta con gatito estampado de cuerpo entero. Largo a la rodilla.",
+   "descripcion": "Camisón liso de manga corta y cuello redondo, con estampado en serigrafía al frente.",
    "composicion": "100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 129,
@@ -949,7 +963,8 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": null
   },
   {
    "numero": 129,
@@ -957,7 +972,7 @@
    "slug": "129-jac",
    "categoria": "camisones",
    "tipo": "Camisón",
-   "descripcion": "Camisón de manga corta con pollito estampado al frente. Corte holgado.",
+   "descripcion": "Camisón liso de manga corta y cuello redondo, con pollito estampado en serigrafía al frente.",
    "composicion": "100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 129,
@@ -1020,15 +1035,16 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": "Rosa"
   },
   {
    "numero": 135,
    "nombre": "Willy",
    "slug": "135-willy",
    "categoria": "caballero",
-   "tipo": "Manga corta + short",
-   "descripcion": "Playera de manga corta con ribete en cuello y mangas, y short con bolsas. Conjunto de caballero para calor.",
+   "tipo": "Manga corta + bermuda",
+   "descripcion": "Playera de manga corta y cuello en V con serigrafía «Recarga café», y bermuda negra de jareta con bolsas.",
    "composicion": "100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 195,
@@ -1076,7 +1092,8 @@
      "stock": 10,
      "img": "/productos/135-mantequilla.jpg"
     }
-   ]
+   ],
+   "portada": "Rosa"
   },
   {
    "numero": 136,
@@ -1132,7 +1149,8 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": null
   },
   {
    "numero": 137,
@@ -1140,7 +1158,7 @@
    "slug": "137-cindy",
    "categoria": "pijamas-cortas",
    "tipo": "Tirantes + short",
-   "descripcion": "Tirantes delgados y short suelto. La opción más fresca del catálogo.",
+   "descripcion": "Camiseta con botones y short, en chifón de algodón con estampado en todo el cuerpo.",
    "composicion": "Chifón 100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 149,
@@ -1188,7 +1206,8 @@
      "stock": 10,
      "img": "/productos/137-mantequilla.jpg"
     }
-   ]
+   ],
+   "portada": "Rosa"
   },
   {
    "numero": 141,
@@ -1196,7 +1215,7 @@
    "slug": "141-vivian",
    "categoria": "pijamas-largas",
    "tipo": "Manga corta + pantalón",
-   "descripcion": "Manga corta con pantalón largo de corte recto. Punto liso en tonos pastel.",
+   "descripcion": "Playera de manga integrada y escote redondo con pantalón de jareta y bolsas. Algodón con estampado en todo el cuerpo.",
    "composicion": "100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 169,
@@ -1244,7 +1263,8 @@
      "stock": 10,
      "img": "/productos/141-mantequilla.jpg"
     }
-   ]
+   ],
+   "portada": "Amarillo"
   },
   {
    "numero": 142,
@@ -1252,7 +1272,7 @@
    "slug": "142-penny",
    "categoria": "pijamas-largas",
    "tipo": "Tirantes + pantalón",
-   "descripcion": "Tirantes con pantalón largo entallado al tobillo. Silueta larga y ligera.",
+   "descripcion": "Camiseta con botones y pantalón de jareta con bolsas. Algodón con estampado en todo el cuerpo.",
    "composicion": "100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 179,
@@ -1300,7 +1320,8 @@
      "stock": 10,
      "img": "/productos/142-mantequilla.jpg"
     }
-   ]
+   ],
+   "portada": "Cielo"
   },
   {
    "numero": 143,
@@ -1308,7 +1329,7 @@
    "slug": "143-mike",
    "categoria": "caballero",
    "tipo": "Manga larga + franela",
-   "descripcion": "Manga larga con botones al cuello, bolsa al pecho y pantalón de cuadros en franela de algodón. El más abrigador del catálogo.",
+   "descripcion": "Playera de manga larga con aletilla y bolsa, y pantalón de franela a cuadros con bragueta y bolsas.",
    "composicion": "Franela y chifón, 100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 299,
@@ -1384,7 +1405,8 @@
      "stock": 10,
      "img": "/productos/143-cielo.jpg"
     }
-   ]
+   ],
+   "portada": "Vino"
   },
   {
    "numero": 144,
@@ -1455,11 +1477,12 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": null
   },
   {
    "numero": 145,
-   "nombre": "Anahi",
+   "nombre": "Anahí",
    "slug": "145-anahi",
    "categoria": "camisones",
    "tipo": "Camisón",
@@ -1511,7 +1534,8 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": null
   },
   {
    "numero": 146,
@@ -1567,7 +1591,8 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": null
   },
   {
    "numero": 147,
@@ -1623,15 +1648,16 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": null
   },
   {
    "numero": 157,
    "nombre": "Sandra",
    "slug": "157-sandra",
    "categoria": "casa-y-calle",
-   "tipo": "Bordado + capri",
-   "descripcion": "Manga corta y capri con girasoles bordados en pecho y piernas. Colores firmes que aguantan lavada tras lavada.",
+   "tipo": "Manga corta + capri",
+   "descripcion": "Blusa amplia de manga corta y cuello redondo con pescador, estampada en serigrafía con girasoles. Chifón de algodón.",
    "composicion": "Chifón 100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 239,
@@ -1672,15 +1698,16 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": "Jade"
   },
   {
    "numero": 158,
-   "nombre": "Eloisa",
+   "nombre": "Eloísa",
    "slug": "158-eloisa",
    "categoria": "casa-y-calle",
-   "tipo": "Bordado + capri",
-   "descripcion": "Manga corta y capri con margaritas bordadas. Bordado a hilo, no estampado.",
+   "tipo": "Manga corta + capri",
+   "descripcion": "Blusa amplia de manga corta y cuello redondo con pescador, estampada en serigrafía con margaritas. Chifón de algodón.",
    "composicion": "Chifón 100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 239,
@@ -1721,15 +1748,16 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": "Morado"
   },
   {
    "numero": 160,
    "nombre": "Gloria",
    "slug": "160-gloria",
    "categoria": "pijamas-cortas",
-   "tipo": "Tirantes + short bordado",
-   "descripcion": "Blusa blanca de tirantes con short de color y flores bordadas en ambas piezas.",
+   "tipo": "Tirantes + short",
+   "descripcion": "Camiseta blanca y short de color, estampados en serigrafía con rosas. Chifón de algodón.",
    "composicion": "Chifón 100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 129,
@@ -1797,15 +1825,16 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": null
   },
   {
    "numero": 161,
    "nombre": "Mara",
    "slug": "161-mara",
    "categoria": "pijamas-cortas",
-   "tipo": "Tirantes + short bordado",
-   "descripcion": "Blusa blanca de tirantes con short naranja y girasoles bordados. Short con bolsas laterales.",
+   "tipo": "Tirantes + short",
+   "descripcion": "Camiseta blanca y short de color, estampados en serigrafía con girasoles. Chifón de algodón.",
    "composicion": "Chifón 100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 129,
@@ -1873,15 +1902,16 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": "Naranja"
   },
   {
    "numero": 162,
    "nombre": "Sonia",
    "slug": "162-sonia",
    "categoria": "pijamas-cortas",
-   "tipo": "Tirantes + short bordado",
-   "descripcion": "Blusa blanca de tirantes con short de color y flores bordadas. Short con bolsas.",
+   "tipo": "Tirantes + short",
+   "descripcion": "Camiseta blanca y short de color, estampados en serigrafía con margaritas. Chifón de algodón.",
    "composicion": "Chifón 100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 129,
@@ -1949,15 +1979,16 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": "Morado"
   },
   {
    "numero": 163,
    "nombre": "Nelly",
    "slug": "163-nelly",
    "categoria": "pijamas-cortas",
-   "tipo": "Tirantes + short bordado",
-   "descripcion": "Blusa blanca de tirantes con ribete de color, short a juego y flores bordadas.",
+   "tipo": "Tirantes + short",
+   "descripcion": "Camiseta blanca y short de color, estampados en serigrafía con alcatraces. Chifón de algodón.",
    "composicion": "Chifón 100% algodón",
    "cuidados": "Lavar a máquina en agua fría con colores similares. No usar cloro. Secar a la sombra. Planchar a temperatura baja del revés.",
    "precioLista": 129,
@@ -2025,7 +2056,8 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": "Rojo"
   },
   {
    "numero": 164,
@@ -2082,7 +2114,8 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": null
   },
   {
    "numero": 165,
@@ -2139,7 +2172,8 @@
      "stock": 10,
      "img": null
     }
-   ]
+   ],
+   "portada": null
   }
  ],
  "_resenasSonEjemplo": true,
@@ -2182,7 +2216,7 @@
    "estatura": 0,
    "talla": "XG",
    "fecha": "2026-08-02",
-   "texto": "Regalo para mi papá y quedó encantado. Le pedí XG por si acaso y le quedó perfecto, es de corte amplio."
+   "texto": "Regalo para mi papá y quedó encantado. Le pedí XG, su talla de siempre, y le quedó a la medida."
   },
   {
    "modelo": 102,
@@ -2202,7 +2236,7 @@
    "estatura": 163,
    "talla": "M",
    "fecha": "2026-08-11",
-   "texto": "Buena calidad por el precio. Tardó tres días en llegar. Le doy cuatro porque el color menta es más clarito que en la foto."
+   "texto": "Buena calidad por el precio. Tardó tres días en llegar. Le doy cuatro porque el color agua es más clarito que en la foto."
   },
   {
    "modelo": 137,
@@ -2212,7 +2246,7 @@
    "estatura": 158,
    "talla": "M",
    "fecha": "2026-07-22",
-   "texto": "Con el calor de Mérida es el único que aguanto. Los tirantes no se caen y el short tiene bolsas, eso me encantó."
+   "texto": "Con el calor de Mérida es el único que aguanto. La tela es fresquita y el short no aprieta, eso me encantó."
   },
   {
    "modelo": 157,
@@ -2222,7 +2256,7 @@
    "estatura": 152,
    "talla": "XG",
    "fecha": "2026-06-18",
-   "texto": "Se lo regalé a mi mamá para su cumpleaños y le fascinó. El bordado de los girasoles está bien hecho, se nota que es hilo y no calcomanía."
+   "texto": "Se lo regalé a mi mamá para su cumpleaños y le fascinó. La serigrafía de los girasoles quedó muy bonita, los colores se ven igualitos que en la foto."
   },
   {
    "modelo": 157,
@@ -2232,7 +2266,7 @@
    "estatura": 170,
    "talla": "G",
    "fecha": "2026-08-05",
-   "texto": "El conjunto está bonito y el bordado muy bien, pero el capri me quedó corto de lo que esperaba. Midiendo 1.70 mejor pidan una talla más."
+   "texto": "El conjunto está bonito y el estampado muy bien, pero el capri me quedó corto de lo que esperaba. Midiendo 1.70 mejor pidan una talla más."
   },
   {
    "modelo": 126,
@@ -2252,7 +2286,7 @@
    "estatura": 175,
    "talla": "G",
    "fecha": "2026-07-03",
-   "texto": "Buen material, el punto es grueso. Solo que el pantalón me quedó un poco largo, pero nada que no arregle un dobladillo."
+   "texto": "Buen material, la tela piqué se siente resistente. Solo que el pantalón me quedó un poco largo, pero nada que no arregle un dobladillo."
   },
   {
    "modelo": 142,
