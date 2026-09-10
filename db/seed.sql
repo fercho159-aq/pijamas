@@ -327,15 +327,17 @@ with p as (
 ), v as (
   insert into variantes (producto_id, color_nombre, color_hex, sku, stock, orden)
   select p.id, x.* from p, (values
-    ('Amarillo', '#F5E3A8', 'RL-111-AMA', 0, 0),
-    ('Rosa', '#F3C9D4', 'RL-111-ROS', 0, 1)
+    ('Rosa', '#F3C9D4', 'RL-111-ROS', 0, 0),
+    ('Coral', '#F0A088', 'RL-111-COR', 0, 1),
+    ('Cielo', '#BFD9EF', 'RL-111-CIE', 0, 2),
+    ('Amarillo', '#F5E3A8', 'RL-111-AMA', 0, 3)
   ) as x(color_nombre, color_hex, sku, stock, orden)
   returning id, sku
 ), i as (
   insert into variante_imagenes (variante_id, url, alt, orden)
   select v.id, x.url, x.alt, 0 from v join (values
-    ('RL-111-AMA', '/productos/111-mantequilla.jpg', 'Jazmín, modelo 111, color Amarillo'),
-    ('RL-111-ROS', '/productos/111-rosa.jpg', 'Jazmín, modelo 111, color Rosa')
+    ('RL-111-ROS', '/productos/111-rosa.jpg', 'Jazmín, modelo 111, color Rosa'),
+    ('RL-111-AMA', '/productos/111-mantequilla.jpg', 'Jazmín, modelo 111, color Amarillo')
   ) as x(sku, url, alt) on x.sku = v.sku
 )
 insert into variante_tallas (variante_id, talla_codigo, disponible)

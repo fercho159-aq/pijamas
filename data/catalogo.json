@@ -598,18 +598,32 @@
    ],
    "colores": [
     {
-     "nombre": "Amarillo",
-     "hex": "#F5E3A8",
-     "sku": "RL-111-AMA",
-     "stock": 10,
-     "img": "/productos/111-mantequilla.jpg"
-    },
-    {
      "nombre": "Rosa",
      "hex": "#F3C9D4",
      "sku": "RL-111-ROS",
      "stock": 10,
      "img": "/productos/111-rosa.jpg"
+    },
+    {
+     "nombre": "Coral",
+     "hex": "#F0A088",
+     "sku": "RL-111-COR",
+     "stock": 10,
+     "img": null
+    },
+    {
+     "nombre": "Cielo",
+     "hex": "#BFD9EF",
+     "sku": "RL-111-CIE",
+     "stock": 10,
+     "img": null
+    },
+    {
+     "nombre": "Amarillo",
+     "hex": "#F5E3A8",
+     "sku": "RL-111-AMA",
+     "stock": 10,
+     "img": "/productos/111-mantequilla.jpg"
     }
    ],
    "portada": "Rosa"
