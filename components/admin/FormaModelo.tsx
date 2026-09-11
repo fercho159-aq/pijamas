@@ -618,8 +618,9 @@ export default function FormaModelo({
               <i>3</i> Colores y fotos
             </h2>
             <p className="fm-intro">
-              Una foto por color: toca el recuadro o arrastra la foto encima. Se recorta sola en
-              vertical. La que tenga <b>★ Portada</b> es la que se ve en el catálogo.
+              Cada color lleva su foto y sus <b>existencias</b> (las piezas que tienes). Toca el
+              recuadro o arrastra la foto encima; se recorta sola en vertical. La que tenga{' '}
+              <b>★ Portada</b> es la que se ve en el catálogo.
             </p>
 
             <div className="fm-colores">
@@ -723,7 +724,7 @@ export default function FormaModelo({
                       </div>
 
                       <div className="fm-piezas-etq">
-                        <span>Piezas</span>
+                        <span>Existencias</span>
                         {c.stock === 0 ? (
                           <em className="agotado">Agotado</em>
                         ) : (
@@ -741,7 +742,7 @@ export default function FormaModelo({
                         <input
                           inputMode="numeric"
                           value={c.stock}
-                          aria-label={`Piezas de ${c.nombre}`}
+                          aria-label={`Existencias de ${c.nombre}`}
                           onChange={(e) =>
                             editarColor(c.clave, { stock: Number(soloDigitos(e.target.value).slice(0, 5)) || 0 })
                           }
@@ -855,7 +856,7 @@ export default function FormaModelo({
             {forma.colores.length > 0 && (
               <p className="fm-nota fm-resumen">
                 {forma.colores.length} {forma.colores.length === 1 ? 'color' : 'colores'} · {piezas}{' '}
-                {piezas === 1 ? 'pieza' : 'piezas'} en total
+                {piezas === 1 ? 'pieza' : 'piezas'} en existencia
                 {sinFoto > 0 && ` · ${sinFoto} sin foto: en la tienda se ve el tono liso con «Foto en camino»`}
               </p>
             )}

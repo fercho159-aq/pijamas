@@ -136,7 +136,8 @@ select.fm-in { appearance: auto; }
 }
 .fm-muestra input { position: absolute; inset: -4px; width: calc(100% + 8px); height: calc(100% + 8px); opacity: 0; cursor: pointer; }
 
-.fm-piezas-etq { display: flex; justify-content: space-between; align-items: baseline; font-size: 12px; color: var(--ink3); }
+.fm-piezas-etq { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; color: var(--ink3); }
+.fm-piezas-etq span { font-weight: 700; color: var(--ink); }
 .fm-piezas-etq em { font-style: normal; font-weight: 700; color: var(--warn); }
 .fm-piezas-etq em.agotado { color: var(--stop); }
 .fm-stepper { display: grid; grid-template-columns: 40px 1fr 40px; border: 1px solid var(--line-fuerte); border-radius: 9px; overflow: hidden; }
