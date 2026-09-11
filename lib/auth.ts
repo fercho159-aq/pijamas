@@ -8,7 +8,7 @@ const COOKIE = 'rossy_admin'
 /**
  * Sin ADMIN_CLAVE definida el panel no existe: las rutas devuelven 404.
  * Así nadie lo encuentra por accidente en un despliegue.
- * Al conectar Supabase esto se reemplaza por Supabase Auth con roles.
+ * Una sola contraseña para todo el panel, por decisión del cliente.
  */
 export const adminHabilitado = Boolean(CLAVE && CLAVE.length >= 8)
 

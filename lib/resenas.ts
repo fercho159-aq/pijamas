@@ -1,6 +1,6 @@
 import 'server-only'
 import respaldo from '@/data/catalogo.json'
-import { usaSupabase } from './datos'
+import { hayBase, q } from './db'
 
 export type Resena = {
   modelo: number
@@ -16,51 +16,23 @@ export type Resena = {
 const local = respaldo as unknown as { resenas?: Resena[]; _resenasSonEjemplo?: boolean }
 
 /**
- * Con Supabase conectado se leen de `resenas`, donde pedido_id es NOT NULL:
+ * Con base de datos se leen de `resenas`, donde pedido_id es NOT NULL:
  * sin una compra real no puede existir la fila. Mientras tanto se muestran
  * ejemplos y la interfaz los marca como tales.
  */
-export const resenasSonEjemplo = !usaSupabase && Boolean(local._resenasSonEjemplo)
-
-type FilaResena = {
-  calificacion: number
-  nombre: string
-  ciudad: string | null
-  texto: string
-  estatura_cm: number | null
-  talla_pedida: string | null
-  creada_en: string
-  productos: { numero_modelo: number } | null
-}
-
-async function desdeSupabase(): Promise<Resena[]> {
-  const url =
-    `${process.env.NEXT_PUBLIC_SUPABASE_URL}/rest/v1/resenas` +
-    `?aprobada=eq.true&select=*,productos(numero_modelo)&order=creada_en.desc`
-  const r = await fetch(url, {
-    headers: {
-      apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
-    },
-    next: { revalidate: 120, tags: ['resenas'] },
-  })
-  if (!r.ok) return []
-  const filas: FilaResena[] = await r.json()
-  return filas.map((f) => ({
-    modelo: f.productos?.numero_modelo ?? 0,
-    nombre: f.nombre,
-    ciudad: f.ciudad ?? '',
-    estrellas: f.calificacion,
-    estatura: f.estatura_cm ?? 0,
-    talla: f.talla_pedida ?? '',
-    fecha: f.creada_en.slice(0, 10),
-    texto: f.texto,
-  }))
-}
+export const resenasSonEjemplo = !hayBase && Boolean(local._resenasSonEjemplo)
 
 export async function getResenas(): Promise<Resena[]> {
-  if (usaSupabase) return desdeSupabase()
-  return local.resenas ?? []
+  if (!hayBase) return local.resenas ?? []
+  return q<Resena>(
+    `select p.numero_modelo as modelo, r.nombre, coalesce(r.ciudad, '') as ciudad,
+            r.calificacion as estrellas, coalesce(r.estatura_cm, 0) as estatura,
+            coalesce(r.talla_pedida, '') as talla, to_char(r.creada_en, 'YYYY-MM-DD') as fecha,
+            coalesce(r.texto, '') as texto
+     from resenas r join productos p on p.id = r.producto_id
+     where r.aprobada
+     order by r.creada_en desc`
+  )
 }
 
 export async function getResenasDe(modelo: number): Promise<Resena[]> {

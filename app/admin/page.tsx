@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { haySesion } from '@/lib/auth'
-import { getProductos, getConfig, usaSupabase } from '@/lib/datos'
+import { getProductos, getConfig, modoBase } from '@/lib/datos'
 import { getResenas } from '@/lib/resenas'
 import { pesos, existencias, precio } from '@/lib/formato'
 
@@ -33,7 +33,12 @@ export default async function Resumen() {
 
   return (
     <>
-      <h1 className="adm-h1">Resumen</h1>
+      <div className="adm-cabecera">
+        <h1 className="adm-h1">Resumen</h1>
+        <Link href="/admin/productos/nuevo" className="adm-nuevo">
+          + Nuevo modelo
+        </Link>
+      </div>
 
       <div className="adm-tarjetas">
         {tarjetas.map((t) => (
@@ -80,6 +85,11 @@ export default async function Resumen() {
             {resenas.length === 0 && (
               <li>Todavía no hay reseñas. Llegan solas conforme se marquen pedidos como entregados.</li>
             )}
+            {!agotadas.length && !escasas.length && !inactivos.length && !enOferta.length && (
+              <li>
+                <b>Todo en orden.</b> No hay colores agotados ni por agotarse, ni ofertas activas.
+              </li>
+            )}
           </ul>
         </section>
 
@@ -88,7 +98,19 @@ export default async function Resumen() {
           <dl className="adm-datos">
             <div>
               <dt>Base de datos</dt>
-              <dd>{usaSupabase ? 'Supabase conectada' : 'Respaldo local (demostración)'}</dd>
+              <dd>
+                {{ neon: 'Neon conectada', local: 'Base de pruebas local', ninguna: 'Sin conectar (demostración)' }[modoBase]}
+              </dd>
+            </div>
+            <div>
+              <dt>Fotos</dt>
+              <dd>
+                {process.env.BLOB_READ_WRITE_TOKEN
+                  ? 'Vercel Blob conectado'
+                  : modoBase === 'local'
+                    ? 'Carpeta local'
+                    : 'Sin conectar'}
+              </dd>
             </div>
             <div>
               <dt>Piezas en inventario</dt>

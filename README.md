@@ -6,8 +6,8 @@ desde 2019. Catálogo de 34 modelos y 184 variantes de color, en 6 secciones.
 Precios, colores y tallas salen de la lista de la clienta. Las fotos todavía no: hay 77 de
 184 variantes fotografiadas, y las demás se muestran como muestra de color hasta que lleguen.
 
-**Next.js 16 · React 19 · TypeScript · Vercel.** Funciona sin base de datos: si no hay
-credenciales de Supabase, lee el catálogo de `data/catalogo.json`.
+**Next.js 16 · React 19 · TypeScript · Vercel · Neon.** Funciona sin base de datos: si no hay
+`DATABASE_URL`, la tienda lee `data/catalogo.json` y el panel no guarda.
 
 ---
 
@@ -40,27 +40,38 @@ components/
   PedidoCliente.tsx         formulario, validación y mensaje de WhatsApp
   Encabezado.tsx · Pie.tsx · TarjetaProducto.tsx · BotonWhatsApp.tsx
 lib/
-  datos.ts                  Supabase o respaldo local, misma interfaz
+  datos.ts                  Neon, base local o respaldo JSON, misma interfaz
+  db.ts · panel.ts · fotos.ts   conexión, editor de modelos y fotos (Vercel Blob)
   formato.ts · whatsapp.ts · tipos.ts
 data/catalogo.json          respaldo: 34 productos, 184 variantes, paleta de 17 colores
-db/                         schema.sql y seed.sql para Supabase
+db/                         schema.sql e importar.mjs: la base se arma sola
 docs/especificacion.html    la especificación completa, 18 secciones
 public/productos/           77 fotos normalizadas a 3:4
 ```
 
 ---
 
-## Conectar Supabase
+## Base de datos y panel
 
-Mientras no existan las variables de entorno, `lib/datos.ts` usa `data/catalogo.json` y el pie
-muestra un aviso de «vista de demostración». Para pasar a datos reales:
+Tres modos, según las variables de entorno (`lib/db.ts`):
 
-1. Crear el proyecto en Supabase.
-2. Correr `db/schema.sql` y luego `db/seed.sql` en el editor SQL.
-3. Definir las variables de `.env.example` en local y en Vercel.
+| Modo | Cuándo | Qué pasa |
+|---|---|---|
+| Neon | hay `DATABASE_URL` | datos reales; el panel guarda |
+| Base de pruebas | `npm run dev` sin `DATABASE_URL` | Postgres local en `.pglite/`; el panel guarda en tu computadora |
+| Demostración | producción sin `DATABASE_URL` | lee `data/catalogo.json`; el panel no guarda |
 
-Las mismas funciones (`getProductos`, `getProducto`, …) empiezan a consultar Postgres. No hay
-que tocar ningún componente.
+Para producción, en Vercel:
+
+1. **Storage → Neon** (crear base). Agrega `DATABASE_URL`.
+2. **Storage → Blob** (crear store). Agrega `BLOB_READ_WRITE_TOKEN`, para las fotos.
+3. **Settings → Environment Variables:** `ADMIN_CLAVE`, la contraseña del panel.
+4. Redeploy.
+
+La primera conexión crea las tablas e importa el catálogo, una sola vez: no hay que correr SQL.
+Después manda el panel (`/admin`): crear, duplicar, editar y borrar modelos; precio y oferta con
+fecha de fin; tallas; colores con una foto cada uno; piezas; portada; publicado y destacado.
+Las fotos se reducen en el navegador y el servidor las recorta a 3:4 antes de guardarlas.
 
 ### Dos piezas que vale la pena conocer
 
@@ -94,8 +105,7 @@ color y talla ya escritos; en el resto del sitio, un saludo general.
 
 ## Pendiente
 
-- **Panel de administración** — alta y edición de productos, precios, ofertas, destacados,
-  existencias y pedidos. Requiere Supabase.
+- **Pedidos en el panel** — hoy se cierran por WhatsApp; falta guardarlos y darles seguimiento.
 - **Mercado Pago** — Checkout Pro detrás de un interruptor en `config`.
 - **Reseñas** — solicitud automática a los 3 días de entregado.
 

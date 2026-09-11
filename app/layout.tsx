@@ -5,7 +5,8 @@ import { CarritoProvider } from '@/components/CarritoProvider'
 import Encabezado from '@/components/Encabezado'
 import Pie from '@/components/Pie'
 import BotonWhatsApp from '@/components/BotonWhatsApp'
-import { getConfig, getCategorias, getOfertas, usaSupabase } from '@/lib/datos'
+import SoloTienda from '@/components/SoloTienda'
+import { getConfig, getCategorias, getOfertas, usaBase } from '@/lib/datos'
 import { getMenu } from '@/lib/menu'
 
 const fraunces = Fraunces({
@@ -54,10 +55,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="es" className={`${fraunces.variable} ${karla.variable}`}>
       <body>
         <CarritoProvider>
-          <Encabezado config={config} menu={menu} hayOfertas={ofertas.length > 0} />
+          <SoloTienda>
+            <Encabezado config={config} menu={menu} hayOfertas={ofertas.length > 0} />
+          </SoloTienda>
           <main id="contenido">{children}</main>
-          <Pie demo={!usaSupabase} whatsapp={config.whatsapp} categorias={categorias} />
-          <BotonWhatsApp numero={config.whatsapp} />
+          <SoloTienda>
+            <Pie demo={!usaBase} whatsapp={config.whatsapp} categorias={categorias} />
+            <BotonWhatsApp numero={config.whatsapp} />
+          </SoloTienda>
         </CarritoProvider>
       </body>
     </html>

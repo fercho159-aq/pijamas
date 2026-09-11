@@ -39,7 +39,7 @@ export default async function AdminResenas() {
 
       {resenasSonEjemplo && (
         <p className="adm-aviso">
-          Estas son reseñas de ejemplo del modo demostración. Al conectar Supabase desaparecen y solo
+          Estas son reseñas de ejemplo del modo demostración. Al conectar la base de datos desaparecen y solo
           quedan las reales.
         </p>
       )}

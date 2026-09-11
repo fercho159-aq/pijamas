@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import './admin.css'
+import './editor.css'
 import { notFound } from 'next/navigation'
 import { adminHabilitado, haySesion } from '@/lib/auth'
-import { usaSupabase } from '@/lib/datos'
+import { modoBase } from '@/lib/datos'
 import { salir } from '@/lib/acciones'
 
 export const metadata: Metadata = { title: 'Panel', robots: { index: false, follow: false } }
@@ -50,10 +51,16 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         </header>
       )}
 
-      {dentro && !usaSupabase && (
+      {dentro && modoBase === 'ninguna' && (
         <div className="adm-demo">
-          <b>Modo demostración.</b> No hay base de datos conectada: puedes recorrer el panel, pero
-          los cambios no se guardan. Configura las variables de Supabase para escribir de verdad.
+          <b>Modo demostración.</b> Todavía no hay base de datos conectada: puedes recorrer el
+          panel, pero los cambios no se guardan.
+        </div>
+      )}
+      {dentro && modoBase === 'local' && (
+        <div className="adm-demo">
+          <b>Base de pruebas.</b> Estás en tu computadora: lo que guardes aquí no llega a la tienda
+          publicada.
         </div>
       )}
 

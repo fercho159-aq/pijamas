@@ -2,16 +2,19 @@ import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
 import { haySesion } from '@/lib/auth'
 import { getProducto } from '@/lib/datos'
-import FormaProducto from '@/components/admin/FormaProducto'
+import { getOpcionesForma, aEntrada } from '@/lib/panel'
+import FormaModelo from '@/components/admin/FormaModelo'
 
-export default async function EditarProducto({
+export default async function EditarModelo({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>
+  searchParams: Promise<{ listo?: string }>
 }) {
   if (!(await haySesion())) redirect('/admin/entrar')
-  const { slug } = await params
-  const p = await getProducto(slug, { incluirOcultos: true })
+  const [{ slug }, { listo }] = await Promise.all([params, searchParams])
+  const [p, opciones] = await Promise.all([getProducto(slug, { incluirOcultos: true }), getOpcionesForma()])
   if (!p) notFound()
 
   return (
@@ -25,11 +28,25 @@ export default async function EditarProducto({
             {p.nombre} <span className="adm-mod">#{p.numero}</span>
           </h1>
         </div>
-        <Link href={`/producto/${p.slug}`} target="_blank" className="adm-ver">
-          Ver en la tienda ↗
-        </Link>
+        <div className="adm-cabecera-fin">
+          <Link href={`/admin/productos/nuevo?copiar=${p.slug}`} className="adm-ver">
+            Duplicar
+          </Link>
+          {p.activo !== false && (
+            <Link href={`/producto/${p.slug}`} target="_blank" className="adm-ver">
+              Ver en la tienda ↗
+            </Link>
+          )}
+        </div>
       </div>
-      <FormaProducto p={p} />
+      <FormaModelo
+        key={p.id ?? p.slug}
+        inicial={aEntrada(p)}
+        slug={p.slug}
+        opciones={opciones}
+        editando
+        recienCreado={listo === '1'}
+      />
     </>
   )
 }

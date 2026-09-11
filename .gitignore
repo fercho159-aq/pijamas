@@ -57,3 +57,10 @@ public/productos/img-*/
 
 # Configuración local de Claude Code: no se versiona
 .claude/
+
+# Plantillas de manuales de otros clientes: traen contraseñas reales.
+/Manual_Admin_*
+
+# Base de datos local de desarrollo (PGlite) y fotos subidas en local
+/.pglite/
+/public/subidas/

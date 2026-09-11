@@ -1,6 +1,10 @@
 -- ═══════════════════════════════════════════════════════════════
 -- Rossy Lady · schema.sql
--- Postgres / Supabase. Ejecutar antes de seed.sql.
+-- Postgres (Neon en producción, PGlite en desarrollo).
+-- Lo corre db/importar.mjs; se puede repetir sin romper nada.
+--
+-- Sin reglas de acceso por fila: a la base solo entra el servidor,
+-- con la cadena de conexión. El navegador nunca la ve.
 -- ═══════════════════════════════════════════════════════════════
 
 begin;
@@ -189,47 +193,5 @@ language sql stable as $$
     else p.precio_lista
   end
 $$;
-
--- ── RLS ─────────────────────────────────────────────────────────
--- Catálogo: lectura pública de lo activo. Escritura solo autenticado.
--- Pedidos y reseñas: nada de lectura pública.
-
-alter table categorias        enable row level security;
-alter table productos         enable row level security;
-alter table variantes         enable row level security;
-alter table variante_imagenes enable row level security;
-alter table tallas            enable row level security;
-alter table variante_tallas   enable row level security;
-alter table pedidos           enable row level security;
-alter table pedido_items      enable row level security;
-alter table resenas           enable row level security;
-alter table config            enable row level security;
-
--- lectura pública del catálogo
-create policy p_cat_read  on categorias        for select using (activa);
-create policy p_prod_read on productos         for select using (activo);
-create policy p_var_read  on variantes         for select using (activa);
-create policy p_img_read  on variante_imagenes for select using (true);
-create policy p_tal_read  on tallas            for select using (true);
-create policy p_vt_read   on variante_tallas   for select using (true);
-create policy p_cfg_read  on config            for select using (true);
-
--- reseñas: solo las aprobadas
-create policy p_res_read on resenas for select using (aprobada);
-
--- escritura: solo sesión autenticada (el admin)
-create policy p_cat_w  on categorias        for all to authenticated using (true) with check (true);
-create policy p_prod_w on productos         for all to authenticated using (true) with check (true);
-create policy p_var_w  on variantes         for all to authenticated using (true) with check (true);
-create policy p_img_w  on variante_imagenes for all to authenticated using (true) with check (true);
-create policy p_tal_w  on tallas            for all to authenticated using (true) with check (true);
-create policy p_vt_w   on variante_tallas   for all to authenticated using (true) with check (true);
-create policy p_cfg_w  on config            for all to authenticated using (true) with check (true);
-create policy p_res_w  on resenas           for all to authenticated using (true) with check (true);
-create policy p_ped_w  on pedidos           for all to authenticated using (true) with check (true);
-create policy p_item_w on pedido_items      for all to authenticated using (true) with check (true);
-
--- Los pedidos del público se crean desde el servidor con la service role
--- key, que ignora RLS. Nunca desde el navegador.
 
 commit;

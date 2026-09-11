@@ -42,7 +42,7 @@ export default function TablaProductos({ productos }: { productos: Producto[] })
           </button>
           {cats.map((c) => (
             <button key={c} onClick={() => setCat(c)} aria-pressed={cat === c}>
-              {c}
+              {c.replace(/-/g, ' ')}
             </button>
           ))}
         </div>
@@ -84,7 +84,7 @@ export default function TablaProductos({ productos }: { productos: Producto[] })
                       {p.colores.length === 1 ? 'color' : 'colores'}
                     </span>
                   </td>
-                  <td className="adm-cap">{p.categoria}</td>
+                  <td className="adm-cap">{p.categoria.replace(/-/g, ' ')}</td>
                   <td className="num">
                     {pesos(precio(p))}
                     {p.precioOferta && <span className="adm-off">−{descuento(p)}%</span>}

@@ -8,6 +8,8 @@ export type Color = {
 }
 
 export type Producto = {
+  /** Solo con base de datos: identifica el modelo aunque cambie de número. */
+  id?: string
   numero: number
   nombre: string
   slug: string
@@ -18,6 +20,8 @@ export type Producto = {
   cuidados: string
   precioLista: number
   precioOferta: number | null
+  /** ISO. Cuándo vence la oferta vigente; al vencer, el precio vuelve solo al de lista. */
+  ofertaTermina?: string | null
   destacado: boolean
   /** false = oculto de la tienda, p. ej. por poca existencia. Ausente cuenta como publicado. */
   activo?: boolean
@@ -29,6 +33,48 @@ export type Producto = {
 }
 
 export type ColorPaleta = { numero: number; nombre: string; hex: string }
+
+/* ── Panel: lo que manda el editor de modelos al guardar ── */
+
+export type ColorEntrada = {
+  nombre: string
+  hex: string
+  /** Vacío en los colores nuevos: el servidor les asigna uno. */
+  sku?: string
+  stock: number
+  img: string | null
+}
+
+export type ModeloEntrada = {
+  id: string | null
+  numero: number
+  nombre: string
+  categoria: string
+  tipo: string
+  descripcion: string
+  composicion: string
+  cuidados: string
+  precioLista: number
+  precioOferta: number | null
+  /** ISO. El navegador convierte su hora local antes de enviarla. */
+  ofertaTermina: string | null
+  destacado: boolean
+  activo: boolean
+  portada: string | null
+  tallas: string[]
+  colores: ColorEntrada[]
+}
+
+/** Listas que el editor ofrece para elegir en vez de escribir. */
+export type OpcionesForma = {
+  categorias: { slug: string; nombre: string }[]
+  paleta: { nombre: string; hex: string }[]
+  tipos: string[]
+  composiciones: string[]
+  cuidados: string[]
+  tallas: string[]
+  modelos: { numero: number; nombre: string }[]
+}
 
 export type Categoria = { slug: string; nombre: string; sub: string }
 
