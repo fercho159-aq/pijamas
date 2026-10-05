@@ -83,6 +83,8 @@ export type Config = {
   costoEnvio: number
   horaCorte: string
   whatsapp: string
+  /** Interruptor del panel: enciende el pago con tarjeta en el carrito. */
+  mercadopago: boolean
 }
 
 /** Una línea del carrito. Se guarda en localStorage, por eso es plana. */

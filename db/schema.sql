@@ -118,6 +118,12 @@ create table if not exists pedido_items (
   nombre_snapshot text
 );
 
+-- Pagos con Mercado Pago y descuento de existencias
+alter table pedidos add column if not exists mp_preference_id text;
+alter table pedidos add column if not exists pagado_en timestamptz;
+alter table pedidos add column if not exists existencias_descontadas boolean default false;
+create index if not exists ix_ped_folio on pedidos(folio);
+
 -- ── Confianza ───────────────────────────────────────────────────
 
 create table if not exists resenas (

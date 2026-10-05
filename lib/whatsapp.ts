@@ -1,5 +1,5 @@
 import type { Producto, Color } from './tipos'
-import { pesos, precio } from './formato'
+import { pesos } from './formato'
 
 const enlace = (numero: string, texto: string) =>
   `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`
@@ -18,24 +18,32 @@ export function waProducto(numero: string, p: Producto, c: Color, talla?: string
   return enlace(numero, txt)
 }
 
-export type ItemResumen = {
-  producto: Producto
-  color: Color
-  talla: string
-  cantidad: number
+type ResumenPedido = {
+  items: {
+    nombre: string
+    numero: number
+    color: string
+    talla: string
+    cantidad: number
+    importe: number
+  }[]
+  subtotal: number
+  envio: number
 }
 
+/**
+ * El mensaje lo arma el servidor con los precios de la base, no el navegador:
+ * así el total del chat siempre coincide con el del pedido guardado.
+ */
 export function mensajePedido(
   folio: string,
-  items: ItemResumen[],
-  subtotal: number,
-  envio: number,
-  datos: Record<string, string>
+  { items, subtotal, envio }: ResumenPedido,
+  datos: Record<string, string | undefined>
 ) {
   const lineas = items
     .map(
       (i) =>
-        `• ${i.producto.nombre} (Modelo ${i.producto.numero}) — ${i.color.nombre}, talla ${i.talla} x ${i.cantidad} = ${pesos(precio(i.producto) * i.cantidad)}`
+        `• ${i.nombre} (Modelo ${i.numero}) — ${i.color}, talla ${i.talla} x ${i.cantidad} = ${pesos(i.importe)}`
     )
     .join('\n')
 

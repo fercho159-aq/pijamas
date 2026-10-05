@@ -47,10 +47,10 @@ export default function FormaConfig({ config }: { config: Config }) {
 
       <h2>Pagos</h2>
       <label className="acepto">
-        <input type="checkbox" name="mp" />
+        <input type="checkbox" name="mp" defaultChecked={config.mercadopago} />
         <span>
-          Activar pago con Mercado Pago. Requiere cargar las credenciales en las variables de
-          entorno; mientras esté apagado, los pedidos se cierran solo por WhatsApp.
+          Activar pago con tarjeta (Mercado Pago). Necesita las credenciales cargadas en el
+          servidor; mientras esté apagado, los pedidos se cierran solo por WhatsApp.
         </span>
       </label>
 

@@ -16,6 +16,7 @@ export const dynamic = 'force-dynamic'
 const SECCIONES = [
   { href: '/admin', et: 'Resumen' },
   { href: '/admin/productos', et: 'Productos' },
+  { href: '/admin/pedidos', et: 'Pedidos' },
   { href: '/admin/resenas', et: 'Reseñas' },
   { href: '/admin/config', et: 'Configuración' },
 ]

@@ -3,16 +3,19 @@ import { redirect } from 'next/navigation'
 import { haySesion } from '@/lib/auth'
 import { getProductos, getConfig, modoBase } from '@/lib/datos'
 import { getResenas } from '@/lib/resenas'
+import { getPedidos } from '@/lib/pedidos'
 import { pesos, existencias, precio } from '@/lib/formato'
 
 export default async function Resumen() {
   if (!(await haySesion())) redirect('/admin/entrar')
 
-  const [productos, resenas, config] = await Promise.all([
+  const [productos, resenas, config, pedidos] = await Promise.all([
     getProductos(),
     getResenas(),
     getConfig(),
+    getPedidos(100),
   ])
+  const porAtender = pedidos.filter((p) => p.estado === 'nuevo' || p.estado === 'pagado')
 
   const variantes = productos.flatMap((p) => p.colores)
   const agotadas = variantes.filter((v) => v.stock === 0)
@@ -26,7 +29,7 @@ export default async function Resumen() {
 
   const tarjetas = [
     { n: productos.length, et: 'Modelos en catálogo', href: '/admin/productos' },
-    { n: variantes.length, et: 'Variantes de color', href: '/admin/productos' },
+    { n: porAtender.length, et: 'Pedidos por atender', href: '/admin/pedidos', aviso: porAtender.length > 0 },
     { n: agotadas.length, et: 'Agotadas', href: '/admin/productos', alerta: agotadas.length > 0 },
     { n: escasas.length, et: 'Con 5 piezas o menos', href: '/admin/productos', aviso: escasas.length > 0 },
   ]
@@ -82,10 +85,18 @@ export default async function Resumen() {
                 vencer, el precio vuelve solo al de lista.
               </li>
             )}
+            {porAtender.length > 0 && (
+              <li>
+                <b>
+                  {porAtender.length} {porAtender.length === 1 ? 'pedido' : 'pedidos'} por atender.
+                </b>{' '}
+                Revisa <b>Pedidos</b>: confirma, manda la guía y marca el envío.
+              </li>
+            )}
             {resenas.length === 0 && (
               <li>Todavía no hay reseñas. Llegan solas conforme se marquen pedidos como entregados.</li>
             )}
-            {!agotadas.length && !escasas.length && !inactivos.length && !enOferta.length && (
+            {!agotadas.length && !escasas.length && !inactivos.length && !enOferta.length && !porAtender.length && (
               <li>
                 <b>Todo en orden.</b> No hay colores agotados ni por agotarse, ni ofertas activas.
               </li>
@@ -111,6 +122,10 @@ export default async function Resumen() {
                     ? 'Carpeta local'
                     : 'Sin conectar'}
               </dd>
+            </div>
+            <div>
+              <dt>Variantes de color</dt>
+              <dd>{variantes.length}</dd>
             </div>
             <div>
               <dt>Piezas en inventario</dt>

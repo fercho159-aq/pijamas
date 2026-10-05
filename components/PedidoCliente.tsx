@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useCarrito } from './CarritoProvider'
 import { pesos, precio, colorPorNombre } from '@/lib/formato'
-import { mensajePedido, waPedido, type ItemResumen } from '@/lib/whatsapp'
+import { cerrarPorWhatsApp, pagarConTarjeta } from '@/lib/acciones-tienda'
 import type { Producto, Config } from '@/lib/tipos'
 
 const CAMPOS = [
@@ -23,6 +23,8 @@ export default function PedidoCliente({
   const { lineas, vaciar, listo } = useCarrito()
   const [datos, setDatos] = useState<Record<string, string>>({})
   const [errores, setErrores] = useState<Record<string, string>>({})
+  const [aviso, setAviso] = useState('')
+  const [yendo, setYendo] = useState<'wa' | 'mp' | null>(null)
   const [enviado, setEnviado] = useState<{ folio: string; msg: string; url: string } | null>(null)
 
   if (!listo) return <div className="vacio">Un momento…</div>
@@ -68,28 +70,70 @@ export default function PedidoCliente({
       </section>
     )
 
-  const items: ItemResumen[] = lineas.map((l) => {
+  const items = lineas.map((l) => {
     const p = productos.find((x) => x.numero === l.numero)!
     return { producto: p, color: colorPorNombre(p, l.color), talla: l.talla, cantidad: l.cantidad }
   })
   const subtotal = items.reduce((t, i) => t + precio(i.producto) * i.cantidad, 0)
   const envio = subtotal >= config.envioGratisDesde ? 0 : config.costoEnvio
 
-  function cerrar() {
+  function revisar() {
     const errs: Record<string, string> = {}
     if (!datos.nombre?.trim()) errs.nombre = 'Necesitamos tu nombre para preparar el pedido.'
     const tel = (datos.telefono || '').replace(/\D/g, '')
     if (tel.length !== 10) errs.telefono = 'Escribe tu WhatsApp a 10 dígitos, sin lada del país.'
     if (!datos.calle?.trim()) errs.calle = 'Sin calle y número no podemos enviarlo.'
     setErrores(errs)
-    if (Object.keys(errs).length) return
+    setAviso('')
+    return Object.keys(errs).length === 0
+  }
 
-    // En producción esto crea el pedido en la base ANTES de abrir WhatsApp,
-    // para que una conversación abandonada siga siendo un pedido recuperable.
-    const folio = 'RL-' + String(Math.floor(Math.random() * 400) + 120).padStart(5, '0')
-    const msg = mensajePedido(folio, items, subtotal, envio, datos)
-    setEnviado({ folio, msg, url: waPedido(config.whatsapp, msg) })
-    vaciar()
+  // El pedido se arma en el servidor: ahí se revisan precios y existencias.
+  const entrada = () => ({
+    datos: {
+      nombre: datos.nombre ?? '',
+      telefono: datos.telefono ?? '',
+      email: datos.email ?? '',
+      calle: datos.calle ?? '',
+      colonia: datos.colonia ?? '',
+      ciudad: datos.ciudad ?? '',
+      estado: datos.estado ?? '',
+      cp: datos.cp ?? '',
+      referencias: datos.referencias ?? '',
+    },
+    lineas,
+  })
+
+  async function cerrarWhatsApp() {
+    if (!revisar() || yendo) return
+    setYendo('wa')
+    try {
+      const r = await cerrarPorWhatsApp(entrada())
+      if (!r.ok) return setAviso(r.error)
+      setEnviado({ folio: r.folio, msg: r.mensaje, url: r.url })
+      vaciar()
+    } catch {
+      setAviso('No se pudo cerrar el pedido. Revisa tu conexión e inténtalo de nuevo.')
+    } finally {
+      setYendo(null)
+    }
+  }
+
+  async function pagarTarjeta() {
+    if (!revisar() || yendo) return
+    setYendo('mp')
+    try {
+      const r = await pagarConTarjeta(entrada())
+      if (!r.ok) {
+        setAviso(r.error)
+        setYendo(null)
+        return
+      }
+      window.location.href = r.url // a Mercado Pago; el carrito se vacía al volver pagado
+    } catch {
+      setAviso('No se pudo abrir el pago. Inténtalo de nuevo o ciérralo por WhatsApp.')
+      setYendo(null)
+    }
   }
 
   return (
@@ -139,6 +183,21 @@ export default function PedidoCliente({
         <textarea id="ref" rows={2} placeholder="Portón verde, entre Morelos y Allende"
           onChange={(e) => setDatos({ ...datos, referencias: e.target.value })} />
       </div>
+      {config.mercadopago && (
+        <div className="campo">
+          <label htmlFor="email">
+            Correo <span className="apunte">(para tu comprobante de pago)</span>
+          </label>
+          <input
+            id="email"
+            type="email"
+            inputMode="email"
+            placeholder="maria@correo.com"
+            value={datos.email ?? ''}
+            onChange={(e) => setDatos({ ...datos, email: e.target.value })}
+          />
+        </div>
+      )}
 
       <label className="acepto">
         <input type="checkbox" defaultChecked />
@@ -153,8 +212,31 @@ export default function PedidoCliente({
         <div className="tr grande"><span>Total</span><span className="money">{pesos(subtotal + envio)}</span></div>
       </div>
 
-      <button className="btn btn-wa btn-full" style={{ marginTop: 18 }} onClick={cerrar}>
-        Enviar pedido por WhatsApp
+      {aviso && <div className="error" style={{ marginTop: 14 }}>{aviso}</div>}
+
+      {config.mercadopago && (
+        <>
+          <button
+            className="btn btn-pri btn-full"
+            style={{ marginTop: 18 }}
+            disabled={yendo !== null}
+            onClick={pagarTarjeta}
+          >
+            {yendo === 'mp' ? 'Abriendo el pago…' : 'Pagar con tarjeta'}
+          </button>
+          <p className="apunte" style={{ textAlign: 'center', margin: '8px 0 2px', fontSize: 13 }}>
+            El pago lo procesa Mercado Pago. Tus datos de tarjeta no pasan por esta tienda.
+          </p>
+        </>
+      )}
+
+      <button
+        className="btn btn-wa btn-full"
+        style={{ marginTop: config.mercadopago ? 10 : 18 }}
+        disabled={yendo !== null}
+        onClick={cerrarWhatsApp}
+      >
+        {yendo === 'wa' ? 'Preparando tu pedido…' : 'Enviar pedido por WhatsApp'}
       </button>
     </section>
   )

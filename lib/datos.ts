@@ -163,6 +163,7 @@ export async function getTiposConocidos(): Promise<string[]> {
 const leerConfig = cache(async (): Promise<Config> => {
   const base: Config = {
     ...local.config,
+    mercadopago: false,
     whatsapp: process.env.NEXT_PUBLIC_WA_NUMERO || local.config.whatsapp,
   }
   if (!hayBase) return base
@@ -178,6 +179,7 @@ const leerConfig = cache(async (): Promise<Config> => {
     costoEnvio: v.costo_envio_base != null && costo >= 0 ? costo : base.costoEnvio,
     horaCorte:
       typeof v.hora_corte_envio === 'string' && v.hora_corte_envio ? v.hora_corte_envio : base.horaCorte,
+    mercadopago: v.mercadopago_activo === true,
   }
 })
 

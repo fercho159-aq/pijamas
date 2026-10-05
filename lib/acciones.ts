@@ -357,3 +357,41 @@ export async function guardarConfig(
       )
   }, 'Configuración guardada.')
 }
+
+/* ══════════════ Pedidos ══════════════ */
+
+const ESTADOS = ['nuevo', 'confirmado', 'pagado', 'enviado', 'entregado', 'cancelado'] as const
+export type EstadoPedido = (typeof ESTADOS)[number]
+
+export async function cambiarEstadoPedido(folio: string, estado: string): Promise<Resultado> {
+  if (!ESTADOS.includes(estado as EstadoPedido))
+    return { ok: false, mensaje: 'Ese estado no existe.' }
+  return intentar(
+    () =>
+      q(
+        `update pedidos set
+           estado = $2,
+           entregado_en = case when $2 = 'entregado' and entregado_en is null then now() else entregado_en end
+         where folio = $1`,
+        [folio, estado]
+      ).then(() => {}),
+    `Pedido ${folio}: ${estado}.`
+  )
+}
+
+/** Guía de la paquetería y notas internas del pedido. */
+export async function guardarEnvioPedido(
+  folio: string,
+  guia: string,
+  notas: string
+): Promise<Resultado> {
+  return intentar(
+    () =>
+      q(`update pedidos set guia_paqueteria = nullif($2, ''), notas = nullif($3, '') where folio = $1`, [
+        folio,
+        guia.trim().slice(0, 80),
+        notas.trim().slice(0, 500),
+      ]).then(() => {}),
+    'Datos del envío guardados.'
+  )
+}
