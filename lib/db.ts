@@ -25,14 +25,15 @@ async function conectar(): Promise<Consultar> {
     const { neon } = await import('@neondatabase/serverless')
     const sql = neon(url)
     // Base recién creada en Vercel: se arma sola con el esquema y el catálogo.
-    const lista = await sql
-      .query("select exists(select 1 from config where clave = 'catalogo_importado') as si")
+    // También se vuelve a aplicar el esquema cuando cambia de versión.
+    const { prepararNeon, VERSION_ESQUEMA } = await import('../db/importar.mjs')
+    const alDia = await sql
+      .query("select valor::text = $1 as si from config where clave = 'esquema_version'", [
+        String(VERSION_ESQUEMA),
+      ])
       .then((r) => Boolean((r as Fila[])[0]?.si))
       .catch(() => false) // todavía no existen las tablas
-    if (!lista) {
-      const { prepararNeon } = await import('../db/importar.mjs')
-      await prepararNeon(url, { avisar: (m) => console.log('[neon]', m) })
-    }
+    if (!alDia) await prepararNeon(url, { avisar: (m) => console.log('[neon]', m) })
     return async (texto, params) => (await sql.query(texto, params)) as Fila[]
   }
   if (modoBase === 'local') {

@@ -16,6 +16,13 @@ import { pathToFileURL } from 'node:url'
 const RAIZ = process.cwd()
 
 /**
+ * Sube de número cuando schema.sql cambia. Así la base de producción vuelve a
+ * aplicar el esquema en el siguiente despliegue; si no, las columnas nuevas
+ * nunca llegarían, porque el catálogo solo se importa una vez.
+ */
+export const VERSION_ESQUEMA = 2
+
+/**
  * Todas las consultas tienen que ir por la MISMA conexión: la importación
  * corre dentro de una transacción.
  * @param {(texto: string, params?: unknown[]) => Promise<{ rows: any[] }>} consultar
@@ -24,6 +31,12 @@ const RAIZ = process.cwd()
  */
 export async function prepararBase(consultar, ejecutar, { avisar = () => {} } = {}) {
   await ejecutar(fs.readFileSync(path.join(RAIZ, 'db', 'schema.sql'), 'utf8'))
+
+  await consultar(
+    `insert into config (clave, valor) values ('esquema_version', to_jsonb($1::int))
+     on conflict (clave) do update set valor = excluded.valor`,
+    [VERSION_ESQUEMA]
+  )
 
   const {
     rows: [estado],
