@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import EstadoPago from '@/components/EstadoPago'
 import { getConfig } from '@/lib/datos'
-import { getPedido } from '@/lib/pedidos'
+import { getPedido, marcarPago } from '@/lib/pedidos'
+import { mpConfigurado, obtenerPago } from '@/lib/mp'
 import { pesos } from '@/lib/formato'
 
 export const metadata: Metadata = { title: 'Tu pedido', robots: { index: false } }
@@ -18,10 +19,32 @@ export const dynamic = 'force-dynamic'
 export default async function Gracias({
   searchParams,
 }: {
-  searchParams: Promise<{ folio?: string; status?: string; collection_status?: string }>
+  searchParams: Promise<{
+    folio?: string
+    status?: string
+    collection_status?: string
+    payment_id?: string
+    collection_id?: string
+  }>
 }) {
-  const { folio = '', status, collection_status } = await searchParams
-  const pedido = folio ? await getPedido(folio) : null
+  const { folio = '', status, collection_status, payment_id, collection_id } = await searchParams
+  let pedido = folio ? await getPedido(folio) : null
+
+  // Respaldo del aviso de Mercado Pago: si la clienta ya volvió y el pago
+  // todavía no está registrado, se consulta aquí mismo. Lo que vale es lo que
+  // responda Mercado Pago, no lo que traiga la dirección del navegador.
+  const idPago = payment_id || collection_id
+  if (pedido && pedido.estado !== 'pagado' && idPago && mpConfigurado) {
+    try {
+      const pago = await obtenerPago(idPago)
+      if (pago.external_reference === pedido.folio) {
+        await marcarPago(pedido.folio, String(pago.id), pago.status)
+        pedido = await getPedido(folio)
+      }
+    } catch (e) {
+      console.error('[pago] consulta al volver', folio, e)
+    }
+  }
   const config = await getConfig()
   const mp = pedido?.mp_estado ?? ''
   const avisoMP = status ?? collection_status ?? ''
