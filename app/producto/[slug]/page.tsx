@@ -6,6 +6,7 @@ import TarjetaProducto from '@/components/TarjetaProducto'
 import Resenas from '@/components/Resenas'
 import { getResenasDe, resenasSonEjemplo, promedio } from '@/lib/resenas'
 import { getProducto, getProductos, getConfig } from '@/lib/datos'
+import { url } from '@/lib/sitio'
 import { precio, existencias, pesos, portada } from '@/lib/formato'
 
 export async function generateStaticParams() {
@@ -24,6 +25,7 @@ export async function generateMetadata({
   return {
     title: `${p.nombre} · Modelo ${p.numero}`,
     description: p.descripcion,
+    alternates: { canonical: `/producto/${p.slug}` },
     openGraph: { images: [portada(p).img ?? '/logo.png'], title: p.nombre, description: p.descripcion },
   }
 }
@@ -57,12 +59,27 @@ export default async function Ficha({ params }: { params: Promise<{ slug: string
       : {}),
     offers: {
       '@type': 'Offer',
+      url: url(`/producto/${p.slug}`),
       price: precio(p),
       priceCurrency: 'MXN',
+      itemCondition: 'https://schema.org/NewCondition',
       availability: hay
         ? 'https://schema.org/InStock'
         : 'https://schema.org/OutOfStock',
+      ...(p.ofertaTermina ? { priceValidUntil: p.ofertaTermina.slice(0, 10) } : {}),
+      seller: { '@type': 'Organization', name: 'Rossy Lady' },
     },
+  }
+
+  // Migas: Google las muestra arriba del resultado en vez de la dirección.
+  const migas = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: url('/') },
+      { '@type': 'ListItem', position: 2, name: p.categoria.replace(/-/g, ' '), item: url(`/${p.categoria}`) },
+      { '@type': 'ListItem', position: 3, name: p.nombre, item: url(`/producto/${p.slug}`) },
+    ],
   }
 
   return (
@@ -70,6 +87,10 @@ export default async function Ficha({ params }: { params: Promise<{ slug: string
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(migas) }}
       />
 
       <div className="envoltura">

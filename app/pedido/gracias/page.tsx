@@ -4,6 +4,7 @@ import EstadoPago from '@/components/EstadoPago'
 import { getConfig } from '@/lib/datos'
 import { getPedido, marcarPago } from '@/lib/pedidos'
 import { mpConfigurado, obtenerPago } from '@/lib/mp'
+import { correoPagoConfirmado } from '@/lib/correo'
 import { pesos } from '@/lib/formato'
 
 export const metadata: Metadata = { title: 'Tu pedido', robots: { index: false } }
@@ -38,8 +39,10 @@ export default async function Gracias({
     try {
       const pago = await obtenerPago(idPago)
       if (pago.external_reference === pedido.folio) {
-        await marcarPago(pedido.folio, String(pago.id), pago.status)
+        const { primeraVez } = await marcarPago(pedido.folio, String(pago.id), pago.status)
         pedido = await getPedido(folio)
+        if (primeraVez && pedido?.cliente_email)
+          await correoPagoConfirmado(folio, pedido.cliente_email, pedido.cliente_nombre ?? '', pedido.total)
       }
     } catch (e) {
       console.error('[pago] consulta al volver', folio, e)

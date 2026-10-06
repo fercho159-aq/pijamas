@@ -34,7 +34,17 @@ export async function generateMetadata({
   const { categoria } = await params
   const r = await resolver(categoria)
   if (!r) return {}
-  return { title: r.cat.nombre, description: r.cat.sub }
+  const desde = r.items.length ? Math.min(...r.items.map((p) => p.precioOferta ?? p.precioLista)) : 0
+  const descripcion =
+    `${r.cat.nombre}: ${r.cat.sub.toLowerCase()}. Algodón, confección mexicana desde 1999. ` +
+    (desde ? `Desde $${desde} MXN. ` : '') +
+    'Envío a todo el país y cambio de talla sin costo.'
+  return {
+    title: r.cat.nombre,
+    description: descripcion.slice(0, 160),
+    alternates: { canonical: `/${categoria}` },
+    openGraph: { title: `${r.cat.nombre} · Rossy Lady`, description: descripcion.slice(0, 160) },
+  }
 }
 
 export default async function Categoria({

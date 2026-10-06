@@ -11,6 +11,7 @@ import {
   getConfig,
 } from '@/lib/datos'
 import { pesos, portada } from '@/lib/formato'
+import { SITIO, url } from '@/lib/sitio'
 
 export default async function Inicio() {
   const [destacados, ofertas, categorias, todos, config, resenas] = await Promise.all([
@@ -56,8 +57,30 @@ export default async function Inicio() {
     ],
   ]
 
+  // Quién es la marca, para Google: nombre, logo, redes y cómo contactarla.
+  const negocio = {
+    '@context': 'https://schema.org',
+    '@type': 'OnlineStore',
+    name: 'Rossy Lady',
+    url: SITIO,
+    logo: url('/logo.png'),
+    image: url('/hero/hero-163.jpg'),
+    description:
+      'Pijamas, camisones y batas de algodón para dama y caballero, confeccionadas en México desde 1999.',
+    foundingDate: '1999',
+    areaServed: 'MX',
+    currenciesAccepted: 'MXN',
+    telephone: `+${config.whatsapp}`,
+    address: { '@type': 'PostalAddress', addressCountry: 'MX' },
+    // sameAs: faltan las direcciones reales de Facebook, Instagram y TikTok
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(negocio) }}
+      />
       {/*
         Hero partido. Antes era una foto retrato estirada a 21:9 a todo lo
         ancho: 600 px de origen sobre 1400 px de pantalla, de ahi lo borroso.

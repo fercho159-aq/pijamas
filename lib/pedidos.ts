@@ -219,6 +219,7 @@ const DEVUELTO = ['refunded', 'charged_back', 'cancelled']
 export async function marcarPago(folio: string, pagoId: string, estadoMp: string) {
   const aprobado = APROBADO.includes(estadoMp)
   const devuelto = DEVUELTO.includes(estadoMp)
+  const [antes] = await q<{ estado: string }>('select estado from pedidos where folio = $1', [folio])
   await q(
     `update pedidos set
        mp_payment_id = $2,
@@ -231,7 +232,9 @@ export async function marcarPago(folio: string, pagoId: string, estadoMp: string
     [folio, pagoId, estadoMp, aprobado, devuelto]
   )
   if (aprobado) await descontarExistencias(folio)
-  return aprobado
+  // `primeraVez` evita mandar dos veces el correo: el aviso de Mercado Pago y
+  // el regreso de la clienta pueden confirmar el mismo pago.
+  return { aprobado, primeraVez: aprobado && antes?.estado !== 'pagado' }
 }
 
 /** Al pagarse, las piezas salen del inventario. Una sola vez por pedido. */

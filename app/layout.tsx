@@ -7,6 +7,7 @@ import Pie from '@/components/Pie'
 import BotonWhatsApp from '@/components/BotonWhatsApp'
 import SoloTienda from '@/components/SoloTienda'
 import { getConfig, getCategorias, getOfertas, usaBase } from '@/lib/datos'
+import { SITIO } from '@/lib/sitio'
 import { getMenu } from '@/lib/menu'
 
 const fraunces = Fraunces({
@@ -23,8 +24,9 @@ const karla = Karla({
 })
 
 export const metadata: Metadata = {
-  // al conectar rossylady.com basta con definir NEXT_PUBLIC_SITE_URL
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://pijamas-woad.vercel.app'),
+  // La dirección pública se define con NEXT_PUBLIC_SITE_URL (lib/sitio.ts)
+  metadataBase: new URL(SITIO),
+  alternates: { canonical: '/' },
   title: {
     default: 'Rossy Lady · Pijamas hechas en México',
     template: '%s · Rossy Lady',
@@ -35,7 +37,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_MX',
     siteName: 'Rossy Lady',
+    images: ['/hero/hero-163.jpg'],
   },
+  twitter: { card: 'summary_large_image' },
+  // Para Search Console: GOOGLE_SITE_VERIFICATION en Vercel
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
 }
 
 export const viewport: Viewport = {

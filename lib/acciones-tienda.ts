@@ -1,5 +1,6 @@
 'use server'
 
+import { after } from 'next/server'
 import { headers } from 'next/headers'
 import { hayBase } from './db'
 import { getConfig } from './datos'
@@ -14,6 +15,7 @@ import {
   type LineaPedido,
 } from './pedidos'
 import { mensajePedido } from './whatsapp'
+import { correoAvisoTienda, correoPedidoNuevo } from './correo'
 
 /**
  * Lo que puede hacer la tienda sin contraseña: cerrar un pedido por WhatsApp
@@ -50,6 +52,20 @@ function explicar(e: unknown) {
   return 'No se pudo cerrar el pedido. Inténtalo de nuevo en un minuto.'
 }
 
+/** Los correos salen después de responder: la clienta no espera al servidor de correo. */
+async function avisar(
+  folio: string,
+  datos: DatosEnvio,
+  armado: Armado,
+  canal: 'whatsapp' | 'mercadopago'
+) {
+  const panel = `${await urlBase()}/admin/pedidos/${folio}`
+  after(async () => {
+    await correoPedidoNuevo(folio, datos, armado, canal)
+    await correoAvisoTienda(folio, datos, armado, canal, panel)
+  })
+}
+
 /** Folio provisional de la vista de demostración, cuando no hay base conectada. */
 const folioDemo = () => 'RL-' + String(Math.floor(Math.random() * 400) + 120).padStart(5, '0')
 
@@ -60,6 +76,7 @@ export async function cerrarPorWhatsApp(entrada: Entrada): Promise<RespuestaWhat
     const armado = await armarPedido(entrada.lineas)
     const config = await getConfig()
     const folio = hayBase ? (await guardarPedido('whatsapp', entrada.datos, armado)).folio : folioDemo()
+    if (hayBase) await avisar(folio, entrada.datos, armado, 'whatsapp')
     const mensaje = mensajePedido(folio, armado, entrada.datos)
     return {
       ok: true,
@@ -104,6 +121,7 @@ export async function pagarConTarjeta(entrada: Entrada): Promise<RespuestaTarjet
       })),
     })
     await guardarPreferencia(folio, preferencia.id)
+    await avisar(folio, entrada.datos, armado, 'mercadopago')
     return { ok: true, url: preferencia.url, folio }
   } catch (e) {
     if (folio) console.error('[pago]', folio, e)

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { firmaValida, obtenerPago } from '@/lib/mp'
-import { marcarPago } from '@/lib/pedidos'
+import { getPedido, marcarPago } from '@/lib/pedidos'
+import { correoPagoConfirmado } from '@/lib/correo'
 import { revalidatePath } from 'next/cache'
 
 export const dynamic = 'force-dynamic'
@@ -42,8 +43,13 @@ export async function POST(peticion: Request) {
     const folio = pago.external_reference
     if (!folio) return NextResponse.json({ ok: true, ignorado: 'pago sin folio' })
 
-    const aprobado = await marcarPago(folio, String(pago.id), pago.status)
+    const { aprobado, primeraVez } = await marcarPago(folio, String(pago.id), pago.status)
     if (aprobado) revalidatePath('/', 'layout') // las existencias bajaron
+    if (primeraVez) {
+      const pedido = await getPedido(folio)
+      if (pedido?.cliente_email)
+        await correoPagoConfirmado(folio, pedido.cliente_email, pedido.cliente_nombre ?? '', pedido.total)
+    }
     console.log('[mp]', folio, pago.status)
     return NextResponse.json({ ok: true })
   } catch (e) {
