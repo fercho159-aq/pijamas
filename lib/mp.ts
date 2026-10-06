@@ -104,7 +104,10 @@ export async function crearPreferencia({
       }),
     }
   )
-  return { id: pref.id, url: pref.init_point || pref.sandbox_init_point }
+  // Con credenciales de prueba hay que mandar al checkout de sandbox: el de
+  // producción contesta «hubo un error accediendo a esta página».
+  const url = mpEsPrueba ? pref.sandbox_init_point || pref.init_point : pref.init_point
+  return { id: pref.id, url }
 }
 
 export type PagoMP = {
